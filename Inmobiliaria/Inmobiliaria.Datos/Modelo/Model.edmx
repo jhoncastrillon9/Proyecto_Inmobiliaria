@@ -1,0 +1,2101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Inmobiliaria_DesarrolloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Arrendatarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Documento" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="80" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CajaBanco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoriaInmuebles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contratos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaContrato" Type="date" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" Nullable="false" />
+          <Property Name="CantidadMeses" Type="int" Nullable="false" />
+          <Property Name="ValorMensual" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="300" />
+          <Property Name="IdInmueble" Type="int" />
+          <Property Name="IdArrendatario" Type="int" Nullable="false" />
+          <Property Name="IdCoArrendatario" Type="int" />
+          <Property Name="IdFiador1" Type="int" />
+          <Property Name="IdFiador2" Type="int" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CuentasxCobrarContratos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numerocuota" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="date" Nullable="false" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdContrato" Type="int" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CuentasxPagarContratos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numerocuota" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="date" Nullable="false" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdContrato" Type="int" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadosCuentas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Ruta" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdInmueble" Type="int" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inmobiliaria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Documento" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="80" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Observacion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Inmuebles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="int" />
+          <Property Name="Titulo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Llaves" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PrecioPropietario" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Porcentaje" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Honorarios" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FechaCaptacion" Type="date" />
+          <Property Name="Iva" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PrecioFinal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Habitaciones" Type="int" />
+          <Property Name="Banos" Type="int" />
+          <Property Name="Porteria" Type="bit" />
+          <Property Name="Piscina" Type="bit" />
+          <Property Name="Area" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IdMunicipio" Type="int" Nullable="false" />
+          <Property Name="IdZonaMunicipio" Type="int" Nullable="false" />
+          <Property Name="IdPropietario" Type="int" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdCategoria" Type="int" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Propietarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Documento" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="30" />
+          <Property Name="Celular" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="80" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistroEgresos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Mora" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Iva" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdCajaBanco" Type="int" Nullable="false" />
+          <Property Name="IdCuentasxPagarContratos" Type="int" />
+          <Property Name="IdCuentasxCobrarContratos" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistroIngresos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Mora" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Iva" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdCajaBanco" Type="int" Nullable="false" />
+          <Property Name="IdCuentasxPagarContratos" Type="int" />
+          <Property Name="IdCuentasxCobrarContratos" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolesUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rol" Type="int" Nullable="false" />
+          <Property Name="FechaAdd" Type="date" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZonasMunicipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdMunicipio" Type="int" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Arrendata__IdInm__29572725">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arrendatarios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CajaBanco__IdInm__3F466844">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajaBanco">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Categoria__IdInm__15502E78">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoriaInmuebles">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdArr__2D27B809">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdArrendatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdCoA__2E1BDC42">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdCoArrendatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdFia__2F10007B">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdFiador1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdFia__300424B4">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdFiador2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdInm__2C3393D0">
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmuebles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdInmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdInm__30F848ED">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxC__IdCon__3B75D760">
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxCobrarContratos">
+              <PropertyRef Name="IdContrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxC__IdEst__3A81B327">
+          <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosCuentas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxCobrarContratos">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxC__IdInm__3C69FB99">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxCobrarContratos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxP__IdCon__36B12243">
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxPagarContratos">
+              <PropertyRef Name="IdContrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxP__IdEst__35BCFE0A">
+          <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosCuentas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxPagarContratos">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxP__IdInm__37A5467C">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxPagarContratos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__IdInmo__267ABA7A">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__IdInmu__25869641">
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmuebles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="IdInmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdCat__21B6055D">
+          <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaInmuebles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdInm__22AA2996">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdMun__1ED998B2">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdPro__20C1E124">
+          <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propietarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdPropietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdZon__1FCDBCEB">
+          <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZonasMunicipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdZonaMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__IdInm__182C9B23">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Propietar__IdInm__1273C1CD">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Propietarios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdCaj__4CA06362">
+          <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CajaBanco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdCajaBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdCue__4D94879B">
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxPagarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdCuentasxPagarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdCue__4E88ABD4">
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxCobrarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdCuentasxCobrarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdInm__4F7CD00D">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroEg__Tipo__4BAC3F29">
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdCaj__45F365D3">
+          <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CajaBanco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdCajaBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdCue__46E78A0C">
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxPagarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdCuentasxPagarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdCue__47DBAE45">
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxCobrarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdCuentasxCobrarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdInm__48CFD27E">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroIn__Tipo__44FF419A">
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TipoPago__IdInmo__4222D4EF">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoPago">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__IdInmo__5535A963">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__Rol__5441852A">
+          <End Role="RolesUsuarios" Type="Self.RolesUsuarios" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolesUsuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZonasMuni__IdInm__1BFD2C07">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZonasMunicipios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZonasMuni__IdMun__1B0907CE">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+          <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZonasMunicipios">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Inmobiliaria_DesarrolloModelStoreContainer">
+          <EntitySet Name="Arrendatarios" EntityType="Self.Arrendatarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CajaBanco" EntityType="Self.CajaBanco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriaInmuebles" EntityType="Self.CategoriaInmuebles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contratos" EntityType="Self.Contratos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentasxCobrarContratos" EntityType="Self.CuentasxCobrarContratos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentasxPagarContratos" EntityType="Self.CuentasxPagarContratos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadosCuentas" EntityType="Self.EstadosCuentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagenes" EntityType="Self.Imagenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inmobiliaria" EntityType="Self.Inmobiliaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Propietarios" EntityType="Self.Propietarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistroEgresos" EntityType="Self.RegistroEgresos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistroIngresos" EntityType="Self.RegistroIngresos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolesUsuarios" EntityType="Self.RolesUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPago" EntityType="Self.TipoPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZonasMunicipios" EntityType="Self.ZonasMunicipios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Arrendata__IdInm__29572725" Association="Self.FK__Arrendata__IdInm__29572725">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CajaBanco__IdInm__3F466844" Association="Self.FK__CajaBanco__IdInm__3F466844">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CajaBanco" EntitySet="CajaBanco" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Categoria__IdInm__15502E78" Association="Self.FK__Categoria__IdInm__15502E78">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdArr__2D27B809" Association="Self.FK__Contratos__IdArr__2D27B809">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdCoA__2E1BDC42" Association="Self.FK__Contratos__IdCoA__2E1BDC42">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdFia__2F10007B" Association="Self.FK__Contratos__IdFia__2F10007B">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdFia__300424B4" Association="Self.FK__Contratos__IdFia__300424B4">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdInm__2C3393D0" Association="Self.FK__Contratos__IdInm__2C3393D0">
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdInm__30F848ED" Association="Self.FK__Contratos__IdInm__30F848ED">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxC__IdCon__3B75D760" Association="Self.FK__CuentasxC__IdCon__3B75D760">
+            <End Role="Contratos" EntitySet="Contratos" />
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxC__IdEst__3A81B327" Association="Self.FK__CuentasxC__IdEst__3A81B327">
+            <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxC__IdInm__3C69FB99" Association="Self.FK__CuentasxC__IdInm__3C69FB99">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxP__IdCon__36B12243" Association="Self.FK__CuentasxP__IdCon__36B12243">
+            <End Role="Contratos" EntitySet="Contratos" />
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxP__IdEst__35BCFE0A" Association="Self.FK__CuentasxP__IdEst__35BCFE0A">
+            <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxP__IdInm__37A5467C" Association="Self.FK__CuentasxP__IdInm__37A5467C">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__IdInmo__267ABA7A" Association="Self.FK__Imagenes__IdInmo__267ABA7A">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__IdInmu__25869641" Association="Self.FK__Imagenes__IdInmu__25869641">
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdCat__21B6055D" Association="Self.FK__Inmuebles__IdCat__21B6055D">
+            <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdInm__22AA2996" Association="Self.FK__Inmuebles__IdInm__22AA2996">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdMun__1ED998B2" Association="Self.FK__Inmuebles__IdMun__1ED998B2">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdPro__20C1E124" Association="Self.FK__Inmuebles__IdPro__20C1E124">
+            <End Role="Propietarios" EntitySet="Propietarios" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdZon__1FCDBCEB" Association="Self.FK__Inmuebles__IdZon__1FCDBCEB">
+            <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__IdInm__182C9B23" Association="Self.FK__Municipio__IdInm__182C9B23">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Propietar__IdInm__1273C1CD" Association="Self.FK__Propietar__IdInm__1273C1CD">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Propietarios" EntitySet="Propietarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdCaj__4CA06362" Association="Self.FK__RegistroE__IdCaj__4CA06362">
+            <End Role="CajaBanco" EntitySet="CajaBanco" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdCue__4D94879B" Association="Self.FK__RegistroE__IdCue__4D94879B">
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdCue__4E88ABD4" Association="Self.FK__RegistroE__IdCue__4E88ABD4">
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdInm__4F7CD00D" Association="Self.FK__RegistroE__IdInm__4F7CD00D">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroEg__Tipo__4BAC3F29" Association="Self.FK__RegistroEg__Tipo__4BAC3F29">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdCaj__45F365D3" Association="Self.FK__RegistroI__IdCaj__45F365D3">
+            <End Role="CajaBanco" EntitySet="CajaBanco" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdCue__46E78A0C" Association="Self.FK__RegistroI__IdCue__46E78A0C">
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdCue__47DBAE45" Association="Self.FK__RegistroI__IdCue__47DBAE45">
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdInm__48CFD27E" Association="Self.FK__RegistroI__IdInm__48CFD27E">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroIn__Tipo__44FF419A" Association="Self.FK__RegistroIn__Tipo__44FF419A">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TipoPago__IdInmo__4222D4EF" Association="Self.FK__TipoPago__IdInmo__4222D4EF">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="TipoPago" EntitySet="TipoPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__IdInmo__5535A963" Association="Self.FK__Usuarios__IdInmo__5535A963">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__Rol__5441852A" Association="Self.FK__Usuarios__Rol__5441852A">
+            <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZonasMuni__IdInm__1BFD2C07" Association="Self.FK__ZonasMuni__IdInm__1BFD2C07">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZonasMuni__IdMun__1B0907CE" Association="Self.FK__ZonasMuni__IdMun__1B0907CE">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Inmobiliaria_DesarrolloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Arrendatarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Arrendata__IdInm__29572725" FromRole="Arrendatarios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdArr__2D27B809" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Contratos1" Relationship="Self.FK__Contratos__IdCoA__2E1BDC42" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Contratos2" Relationship="Self.FK__Contratos__IdFia__2F10007B" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Contratos3" Relationship="Self.FK__Contratos__IdFia__300424B4" FromRole="Arrendatarios" ToRole="Contratos" />
+        </EntityType>
+        <EntityType Name="CajaBanco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CajaBanco__IdInm__3F466844" FromRole="CajaBanco" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCaj__4CA06362" FromRole="CajaBanco" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCaj__45F365D3" FromRole="CajaBanco" ToRole="RegistroIngresos" />
+        </EntityType>
+        <EntityType Name="CategoriaInmuebles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Categoria__IdInm__15502E78" FromRole="CategoriaInmuebles" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdCat__21B6055D" FromRole="CategoriaInmuebles" ToRole="Inmuebles" />
+        </EntityType>
+        <EntityType Name="Contratos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaContrato" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CantidadMeses" Type="Int32" Nullable="false" />
+          <Property Name="ValorMensual" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IdInmueble" Type="Int32" />
+          <Property Name="IdArrendatario" Type="Int32" Nullable="false" />
+          <Property Name="IdCoArrendatario" Type="Int32" />
+          <Property Name="IdFiador1" Type="Int32" />
+          <Property Name="IdFiador2" Type="Int32" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arrendatarios" Relationship="Self.FK__Contratos__IdArr__2D27B809" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Arrendatarios1" Relationship="Self.FK__Contratos__IdCoA__2E1BDC42" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Arrendatarios2" Relationship="Self.FK__Contratos__IdFia__2F10007B" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Arrendatarios3" Relationship="Self.FK__Contratos__IdFia__300424B4" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Contratos__IdInm__2C3393D0" FromRole="Contratos" ToRole="Inmuebles" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Contratos__IdInm__30F848ED" FromRole="Contratos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdCon__3B75D760" FromRole="Contratos" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdCon__36B12243" FromRole="Contratos" ToRole="CuentasxPagarContratos" />
+        </EntityType>
+        <EntityType Name="CuentasxCobrarContratos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numerocuota" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdContrato" Type="Int32" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__CuentasxC__IdCon__3B75D760" FromRole="CuentasxCobrarContratos" ToRole="Contratos" />
+          <NavigationProperty Name="EstadosCuentas" Relationship="Self.FK__CuentasxC__IdEst__3A81B327" FromRole="CuentasxCobrarContratos" ToRole="EstadosCuentas" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CuentasxC__IdInm__3C69FB99" FromRole="CuentasxCobrarContratos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCue__4E88ABD4" FromRole="CuentasxCobrarContratos" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCue__47DBAE45" FromRole="CuentasxCobrarContratos" ToRole="RegistroIngresos" />
+        </EntityType>
+        <EntityType Name="CuentasxPagarContratos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numerocuota" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdContrato" Type="Int32" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__CuentasxP__IdCon__36B12243" FromRole="CuentasxPagarContratos" ToRole="Contratos" />
+          <NavigationProperty Name="EstadosCuentas" Relationship="Self.FK__CuentasxP__IdEst__35BCFE0A" FromRole="CuentasxPagarContratos" ToRole="EstadosCuentas" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CuentasxP__IdInm__37A5467C" FromRole="CuentasxPagarContratos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCue__4D94879B" FromRole="CuentasxPagarContratos" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCue__46E78A0C" FromRole="CuentasxPagarContratos" ToRole="RegistroIngresos" />
+        </EntityType>
+        <EntityType Name="EstadosCuentas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdEst__3A81B327" FromRole="EstadosCuentas" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdEst__35BCFE0A" FromRole="EstadosCuentas" ToRole="CuentasxPagarContratos" />
+        </EntityType>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ruta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmueble" Type="Int32" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Imagenes__IdInmo__267ABA7A" FromRole="Imagenes" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Imagenes__IdInmu__25869641" FromRole="Imagenes" ToRole="Inmuebles" />
+        </EntityType>
+        <EntityType Name="Inmobiliaria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Arrendatarios" Relationship="Self.FK__Arrendata__IdInm__29572725" FromRole="Inmobiliaria" ToRole="Arrendatarios" />
+          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__CajaBanco__IdInm__3F466844" FromRole="Inmobiliaria" ToRole="CajaBanco" />
+          <NavigationProperty Name="CategoriaInmuebles" Relationship="Self.FK__Categoria__IdInm__15502E78" FromRole="Inmobiliaria" ToRole="CategoriaInmuebles" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdInm__30F848ED" FromRole="Inmobiliaria" ToRole="Contratos" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdInm__3C69FB99" FromRole="Inmobiliaria" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdInm__37A5467C" FromRole="Inmobiliaria" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__IdInmo__267ABA7A" FromRole="Inmobiliaria" ToRole="Imagenes" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdInm__22AA2996" FromRole="Inmobiliaria" ToRole="Inmuebles" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__Municipio__IdInm__182C9B23" FromRole="Inmobiliaria" ToRole="Municipios" />
+          <NavigationProperty Name="Propietarios" Relationship="Self.FK__Propietar__IdInm__1273C1CD" FromRole="Inmobiliaria" ToRole="Propietarios" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdInm__4F7CD00D" FromRole="Inmobiliaria" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdInm__48CFD27E" FromRole="Inmobiliaria" ToRole="RegistroIngresos" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK__TipoPago__IdInmo__4222D4EF" FromRole="Inmobiliaria" ToRole="TipoPago" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdInmo__5535A963" FromRole="Inmobiliaria" ToRole="Usuarios" />
+          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__ZonasMuni__IdInm__1BFD2C07" FromRole="Inmobiliaria" ToRole="ZonasMunicipios" />
+        </EntityType>
+        <EntityType Name="Inmuebles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="Int32" />
+          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Llaves" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrecioPropietario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Porcentaje" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Honorarios" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FechaCaptacion" Type="DateTime" Precision="0" />
+          <Property Name="Iva" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PrecioFinal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Habitaciones" Type="Int32" />
+          <Property Name="Banos" Type="Int32" />
+          <Property Name="Porteria" Type="Boolean" />
+          <Property Name="Piscina" Type="Boolean" />
+          <Property Name="Area" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="IdZonaMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="IdPropietario" Type="Int32" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CategoriaInmuebles" Relationship="Self.FK__Inmuebles__IdCat__21B6055D" FromRole="Inmuebles" ToRole="CategoriaInmuebles" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdInm__2C3393D0" FromRole="Inmuebles" ToRole="Contratos" />
+          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__IdInmu__25869641" FromRole="Inmuebles" ToRole="Imagenes" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Inmuebles__IdInm__22AA2996" FromRole="Inmuebles" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__Inmuebles__IdMun__1ED998B2" FromRole="Inmuebles" ToRole="Municipios" />
+          <NavigationProperty Name="Propietarios" Relationship="Self.FK__Inmuebles__IdPro__20C1E124" FromRole="Inmuebles" ToRole="Propietarios" />
+          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__Inmuebles__IdZon__1FCDBCEB" FromRole="Inmuebles" ToRole="ZonasMunicipios" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Municipio__IdInm__182C9B23" FromRole="Municipios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdMun__1ED998B2" FromRole="Municipios" ToRole="Inmuebles" />
+          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__ZonasMuni__IdMun__1B0907CE" FromRole="Municipios" ToRole="ZonasMunicipios" />
+        </EntityType>
+        <EntityType Name="Propietarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Propietar__IdInm__1273C1CD" FromRole="Propietarios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdPro__20C1E124" FromRole="Propietarios" ToRole="Inmuebles" />
+        </EntityType>
+        <EntityType Name="RegistroEgresos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Mora" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Iva" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdCajaBanco" Type="Int32" Nullable="false" />
+          <Property Name="IdCuentasxPagarContratos" Type="Int32" />
+          <Property Name="IdCuentasxCobrarContratos" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__RegistroE__IdCaj__4CA06362" FromRole="RegistroEgresos" ToRole="CajaBanco" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__RegistroE__IdCue__4E88ABD4" FromRole="RegistroEgresos" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__RegistroE__IdCue__4D94879B" FromRole="RegistroEgresos" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__RegistroE__IdInm__4F7CD00D" FromRole="RegistroEgresos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK__RegistroEg__Tipo__4BAC3F29" FromRole="RegistroEgresos" ToRole="TipoPago" />
+        </EntityType>
+        <EntityType Name="RegistroIngresos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Mora" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descuento" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Iva" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdCajaBanco" Type="Int32" Nullable="false" />
+          <Property Name="IdCuentasxPagarContratos" Type="Int32" />
+          <Property Name="IdCuentasxCobrarContratos" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__RegistroI__IdCaj__45F365D3" FromRole="RegistroIngresos" ToRole="CajaBanco" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__RegistroI__IdCue__47DBAE45" FromRole="RegistroIngresos" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__RegistroI__IdCue__46E78A0C" FromRole="RegistroIngresos" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__RegistroI__IdInm__48CFD27E" FromRole="RegistroIngresos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK__RegistroIn__Tipo__44FF419A" FromRole="RegistroIngresos" ToRole="TipoPago" />
+        </EntityType>
+        <EntityType Name="RolesUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__Rol__5441852A" FromRole="RolesUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__TipoPago__IdInmo__4222D4EF" FromRole="TipoPago" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroEg__Tipo__4BAC3F29" FromRole="TipoPago" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroIn__Tipo__44FF419A" FromRole="TipoPago" ToRole="RegistroIngresos" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol" Type="Int32" Nullable="false" />
+          <Property Name="FechaAdd" Type="DateTime" Precision="0" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Usuarios__IdInmo__5535A963" FromRole="Usuarios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RolesUsuarios" Relationship="Self.FK__Usuarios__Rol__5441852A" FromRole="Usuarios" ToRole="RolesUsuarios" />
+        </EntityType>
+        <EntityType Name="ZonasMunicipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__ZonasMuni__IdInm__1BFD2C07" FromRole="ZonasMunicipios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdZon__1FCDBCEB" FromRole="ZonasMunicipios" ToRole="Inmuebles" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__ZonasMuni__IdMun__1B0907CE" FromRole="ZonasMunicipios" ToRole="Municipios" />
+        </EntityType>
+        <Association Name="FK__Arrendata__IdInm__29572725">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arrendatarios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdArr__2D27B809">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdArrendatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdCoA__2E1BDC42">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdCoArrendatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdFia__2F10007B">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdFiador1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdFia__300424B4">
+          <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arrendatarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdFiador2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CajaBanco__IdInm__3F466844">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajaBanco">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdCaj__4CA06362">
+          <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CajaBanco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdCajaBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdCaj__45F365D3">
+          <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CajaBanco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdCajaBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Categoria__IdInm__15502E78">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoriaInmuebles">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdCat__21B6055D">
+          <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaInmuebles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdInm__2C3393D0">
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmuebles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdInmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contratos__IdInm__30F848ED">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxC__IdCon__3B75D760">
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxCobrarContratos">
+              <PropertyRef Name="IdContrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxP__IdCon__36B12243">
+          <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxPagarContratos">
+              <PropertyRef Name="IdContrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxC__IdEst__3A81B327">
+          <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosCuentas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxCobrarContratos">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxC__IdInm__3C69FB99">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxCobrarContratos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdCue__4E88ABD4">
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxCobrarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdCuentasxCobrarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdCue__47DBAE45">
+          <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxCobrarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdCuentasxCobrarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxP__IdEst__35BCFE0A">
+          <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosCuentas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxPagarContratos">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasxP__IdInm__37A5467C">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasxPagarContratos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdCue__4D94879B">
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxPagarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdCuentasxPagarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdCue__46E78A0C">
+          <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasxPagarContratos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdCuentasxPagarContratos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__IdInmo__267ABA7A">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__IdInmu__25869641">
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmuebles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="IdInmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdInm__22AA2996">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__IdInm__182C9B23">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Propietar__IdInm__1273C1CD">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Propietarios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroE__IdInm__4F7CD00D">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroI__IdInm__48CFD27E">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TipoPago__IdInmo__4222D4EF">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoPago">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__IdInmo__5535A963">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZonasMuni__IdInm__1BFD2C07">
+          <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
+          <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inmobiliaria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZonasMunicipios">
+              <PropertyRef Name="IdInmobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdMun__1ED998B2">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdPro__20C1E124">
+          <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propietarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdPropietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdZon__1FCDBCEB">
+          <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZonasMunicipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdZonaMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZonasMuni__IdMun__1B0907CE">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+          <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZonasMunicipios">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroEg__Tipo__4BAC3F29">
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
+          <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroEgresos">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegistroIn__Tipo__44FF419A">
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
+          <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroIngresos">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__Rol__5441852A">
+          <End Role="RolesUsuarios" Type="Self.RolesUsuarios" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolesUsuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Inmobiliaria_DesarrolloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arrendatarios" EntityType="Self.Arrendatarios" />
+          <EntitySet Name="CajaBanco" EntityType="Self.CajaBanco" />
+          <EntitySet Name="CategoriaInmuebles" EntityType="Self.CategoriaInmuebles" />
+          <EntitySet Name="Contratos" EntityType="Self.Contratos" />
+          <EntitySet Name="CuentasxCobrarContratos" EntityType="Self.CuentasxCobrarContratos" />
+          <EntitySet Name="CuentasxPagarContratos" EntityType="Self.CuentasxPagarContratos" />
+          <EntitySet Name="EstadosCuentas" EntityType="Self.EstadosCuentas" />
+          <EntitySet Name="Imagenes" EntityType="Self.Imagenes" />
+          <EntitySet Name="Inmobiliaria" EntityType="Self.Inmobiliaria" />
+          <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipios" />
+          <EntitySet Name="Propietarios" EntityType="Self.Propietarios" />
+          <EntitySet Name="RegistroEgresos" EntityType="Self.RegistroEgresos" />
+          <EntitySet Name="RegistroIngresos" EntityType="Self.RegistroIngresos" />
+          <EntitySet Name="RolesUsuarios" EntityType="Self.RolesUsuarios" />
+          <EntitySet Name="TipoPago" EntityType="Self.TipoPago" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="ZonasMunicipios" EntityType="Self.ZonasMunicipios" />
+          <AssociationSet Name="FK__Arrendata__IdInm__29572725" Association="Self.FK__Arrendata__IdInm__29572725">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdArr__2D27B809" Association="Self.FK__Contratos__IdArr__2D27B809">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdCoA__2E1BDC42" Association="Self.FK__Contratos__IdCoA__2E1BDC42">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdFia__2F10007B" Association="Self.FK__Contratos__IdFia__2F10007B">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdFia__300424B4" Association="Self.FK__Contratos__IdFia__300424B4">
+            <End Role="Arrendatarios" EntitySet="Arrendatarios" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CajaBanco__IdInm__3F466844" Association="Self.FK__CajaBanco__IdInm__3F466844">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CajaBanco" EntitySet="CajaBanco" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdCaj__4CA06362" Association="Self.FK__RegistroE__IdCaj__4CA06362">
+            <End Role="CajaBanco" EntitySet="CajaBanco" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdCaj__45F365D3" Association="Self.FK__RegistroI__IdCaj__45F365D3">
+            <End Role="CajaBanco" EntitySet="CajaBanco" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Categoria__IdInm__15502E78" Association="Self.FK__Categoria__IdInm__15502E78">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdCat__21B6055D" Association="Self.FK__Inmuebles__IdCat__21B6055D">
+            <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdInm__2C3393D0" Association="Self.FK__Contratos__IdInm__2C3393D0">
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contratos__IdInm__30F848ED" Association="Self.FK__Contratos__IdInm__30F848ED">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Contratos" EntitySet="Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxC__IdCon__3B75D760" Association="Self.FK__CuentasxC__IdCon__3B75D760">
+            <End Role="Contratos" EntitySet="Contratos" />
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxP__IdCon__36B12243" Association="Self.FK__CuentasxP__IdCon__36B12243">
+            <End Role="Contratos" EntitySet="Contratos" />
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxC__IdEst__3A81B327" Association="Self.FK__CuentasxC__IdEst__3A81B327">
+            <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxC__IdInm__3C69FB99" Association="Self.FK__CuentasxC__IdInm__3C69FB99">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdCue__4E88ABD4" Association="Self.FK__RegistroE__IdCue__4E88ABD4">
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdCue__47DBAE45" Association="Self.FK__RegistroI__IdCue__47DBAE45">
+            <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxP__IdEst__35BCFE0A" Association="Self.FK__CuentasxP__IdEst__35BCFE0A">
+            <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasxP__IdInm__37A5467C" Association="Self.FK__CuentasxP__IdInm__37A5467C">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdCue__4D94879B" Association="Self.FK__RegistroE__IdCue__4D94879B">
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdCue__46E78A0C" Association="Self.FK__RegistroI__IdCue__46E78A0C">
+            <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__IdInmo__267ABA7A" Association="Self.FK__Imagenes__IdInmo__267ABA7A">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__IdInmu__25869641" Association="Self.FK__Imagenes__IdInmu__25869641">
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdInm__22AA2996" Association="Self.FK__Inmuebles__IdInm__22AA2996">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__IdInm__182C9B23" Association="Self.FK__Municipio__IdInm__182C9B23">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Propietar__IdInm__1273C1CD" Association="Self.FK__Propietar__IdInm__1273C1CD">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Propietarios" EntitySet="Propietarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroE__IdInm__4F7CD00D" Association="Self.FK__RegistroE__IdInm__4F7CD00D">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroI__IdInm__48CFD27E" Association="Self.FK__RegistroI__IdInm__48CFD27E">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TipoPago__IdInmo__4222D4EF" Association="Self.FK__TipoPago__IdInmo__4222D4EF">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="TipoPago" EntitySet="TipoPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__IdInmo__5535A963" Association="Self.FK__Usuarios__IdInmo__5535A963">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZonasMuni__IdInm__1BFD2C07" Association="Self.FK__ZonasMuni__IdInm__1BFD2C07">
+            <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
+            <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdMun__1ED998B2" Association="Self.FK__Inmuebles__IdMun__1ED998B2">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdPro__20C1E124" Association="Self.FK__Inmuebles__IdPro__20C1E124">
+            <End Role="Propietarios" EntitySet="Propietarios" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdZon__1FCDBCEB" Association="Self.FK__Inmuebles__IdZon__1FCDBCEB">
+            <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZonasMuni__IdMun__1B0907CE" Association="Self.FK__ZonasMuni__IdMun__1B0907CE">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroEg__Tipo__4BAC3F29" Association="Self.FK__RegistroEg__Tipo__4BAC3F29">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroIn__Tipo__44FF419A" Association="Self.FK__RegistroIn__Tipo__44FF419A">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__Rol__5441852A" Association="Self.FK__Usuarios__Rol__5441852A">
+            <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Inmobiliaria_DesarrolloModelStoreContainer" CdmEntityContainer="Inmobiliaria_DesarrolloEntities">
+          <EntitySetMapping Name="Arrendatarios">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Arrendatarios">
+              <MappingFragment StoreEntitySet="Arrendatarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CajaBanco">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.CajaBanco">
+              <MappingFragment StoreEntitySet="CajaBanco">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaInmuebles">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.CategoriaInmuebles">
+              <MappingFragment StoreEntitySet="CategoriaInmuebles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contratos">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Contratos">
+              <MappingFragment StoreEntitySet="Contratos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FechaContrato" ColumnName="FechaContrato" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="CantidadMeses" ColumnName="CantidadMeses" />
+                <ScalarProperty Name="ValorMensual" ColumnName="ValorMensual" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdInmueble" ColumnName="IdInmueble" />
+                <ScalarProperty Name="IdArrendatario" ColumnName="IdArrendatario" />
+                <ScalarProperty Name="IdCoArrendatario" ColumnName="IdCoArrendatario" />
+                <ScalarProperty Name="IdFiador1" ColumnName="IdFiador1" />
+                <ScalarProperty Name="IdFiador2" ColumnName="IdFiador2" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentasxCobrarContratos">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.CuentasxCobrarContratos">
+              <MappingFragment StoreEntitySet="CuentasxCobrarContratos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Numerocuota" ColumnName="Numerocuota" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentasxPagarContratos">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.CuentasxPagarContratos">
+              <MappingFragment StoreEntitySet="CuentasxPagarContratos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Numerocuota" ColumnName="Numerocuota" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadosCuentas">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.EstadosCuentas">
+              <MappingFragment StoreEntitySet="EstadosCuentas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagenes">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Imagenes">
+              <MappingFragment StoreEntitySet="Imagenes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+                <ScalarProperty Name="IdInmueble" ColumnName="IdInmueble" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inmobiliaria">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Inmobiliaria">
+              <MappingFragment StoreEntitySet="Inmobiliaria">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inmuebles">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Inmuebles">
+              <MappingFragment StoreEntitySet="Inmuebles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Llaves" ColumnName="Llaves" />
+                <ScalarProperty Name="PrecioPropietario" ColumnName="PrecioPropietario" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="Honorarios" ColumnName="Honorarios" />
+                <ScalarProperty Name="FechaCaptacion" ColumnName="FechaCaptacion" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="PrecioFinal" ColumnName="PrecioFinal" />
+                <ScalarProperty Name="Habitaciones" ColumnName="Habitaciones" />
+                <ScalarProperty Name="Banos" ColumnName="Banos" />
+                <ScalarProperty Name="Porteria" ColumnName="Porteria" />
+                <ScalarProperty Name="Piscina" ColumnName="Piscina" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+                <ScalarProperty Name="IdZonaMunicipio" ColumnName="IdZonaMunicipio" />
+                <ScalarProperty Name="IdPropietario" ColumnName="IdPropietario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Municipios">
+              <MappingFragment StoreEntitySet="Municipios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propietarios">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Propietarios">
+              <MappingFragment StoreEntitySet="Propietarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistroEgresos">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.RegistroEgresos">
+              <MappingFragment StoreEntitySet="RegistroEgresos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Mora" ColumnName="Mora" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="IdCajaBanco" ColumnName="IdCajaBanco" />
+                <ScalarProperty Name="IdCuentasxPagarContratos" ColumnName="IdCuentasxPagarContratos" />
+                <ScalarProperty Name="IdCuentasxCobrarContratos" ColumnName="IdCuentasxCobrarContratos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistroIngresos">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.RegistroIngresos">
+              <MappingFragment StoreEntitySet="RegistroIngresos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Mora" ColumnName="Mora" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="IdCajaBanco" ColumnName="IdCajaBanco" />
+                <ScalarProperty Name="IdCuentasxPagarContratos" ColumnName="IdCuentasxPagarContratos" />
+                <ScalarProperty Name="IdCuentasxCobrarContratos" ColumnName="IdCuentasxCobrarContratos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolesUsuarios">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.RolesUsuarios">
+              <MappingFragment StoreEntitySet="RolesUsuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPago">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.TipoPago">
+              <MappingFragment StoreEntitySet="TipoPago">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="FechaAdd" ColumnName="FechaAdd" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZonasMunicipios">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.ZonasMunicipios">
+              <MappingFragment StoreEntitySet="ZonasMunicipios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
