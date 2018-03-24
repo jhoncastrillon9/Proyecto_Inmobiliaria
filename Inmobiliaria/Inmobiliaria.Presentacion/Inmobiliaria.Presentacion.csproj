@@ -91,18 +91,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap.css" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap.min.css" />
+    <Content Include="Content\Estilos\Site.css" />
+    <Content Include="Content\Imagenes\Background_Ciudad.jpg" />
+    <Content Include="Content\Imagenes\BackGround_escritorio.jpg" />
+    <Content Include="Content\Imagenes\Background_Teclado.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.bundle.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -111,45 +115,58 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js.map" />
+    <Content Include="Scripts\Bootstrap\bootstrap.js.map" />
+    <Content Include="Scripts\Bootstrap\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\Bootstrap\bootstrap.bundle.js.map" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap.min.css.map" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap.css.map" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Estilos\Bootstrap\bootstrap-grid.css.map" />
+    <Content Include="Content\Fuentes\Para_Login\DINPro-Light.otf" />
+    <None Include="Scripts\Jquery\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Jquery\jquery-3.3.1.js" />
+    <Content Include="Scripts\Jquery\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\Jquery\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\Jquery\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\popper-utils.js" />
-    <Content Include="Scripts\popper-utils.min.js" />
-    <Content Include="Scripts\popper.js" />
-    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Popper\popper-utils.js" />
+    <Content Include="Scripts\Popper\popper-utils.min.js" />
+    <Content Include="Scripts\Popper\popper.js" />
+    <Content Include="Scripts\Popper\popper.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\Popper\README.md" />
+    <Content Include="Scripts\Popper\popper.min.js.map" />
+    <Content Include="Scripts\Popper\popper.js.map" />
+    <Content Include="Scripts\Popper\popper-utils.min.js.map" />
+    <Content Include="Scripts\Popper\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArrendatariosController.cs" />
+    <Compile Include="Controllers\CajaBancoController.cs" />
+    <Compile Include="Controllers\CategoriaInmueblesController.cs" />
+    <Compile Include="Controllers\ContratosController.cs" />
+    <Compile Include="Controllers\CuentasxCobrarContratosController.cs" />
+    <Compile Include="Controllers\CuentasxPagarContratosController.cs" />
+    <Compile Include="Controllers\EstadosCuentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InmobiliariaController.cs" />
+    <Compile Include="Controllers\InmueblesController.cs" />
+    <Compile Include="Controllers\MunicipiosController.cs" />
+    <Compile Include="Controllers\PropietariosController.cs" />
+    <Compile Include="Controllers\Registro_Movimientos_CajaController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,11 +175,49 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\Jquery\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\Jquery\jquery-3.3.1.min.map" />
+    <Content Include="Views\Arrendatarios\Listar_Arrendatarios.cshtml" />
+    <Content Include="Views\Arrendatarios\Nuevo_Arrendatarios.cshtml" />
+    <Content Include="Views\Arrendatarios\Editar_Arrendatarios.cshtml" />
+    <Content Include="Views\CajaBanco\Editar_CajaBanco.cshtml" />
+    <Content Include="Views\CajaBanco\Listar_CajaBanco.cshtml" />
+    <Content Include="Views\CajaBanco\Nuevo_CajaBanco.cshtml" />
+    <Content Include="Views\CategoriaInmuebles\Nuevo_CategoriaInmuebles.cshtml" />
+    <Content Include="Views\CategoriaInmuebles\Editar_CategoriaInmuebles.cshtml" />
+    <Content Include="Views\CategoriaInmuebles\Listar_CategoriaInmuebles.cshtml" />
+    <Content Include="Views\Contratos\Nuevo_CategoriaInmuebles.cshtml" />
+    <Content Include="Views\Contratos\Editar_CategoriaInmuebles.cshtml" />
+    <Content Include="Views\Contratos\Listar_CategoriaInmuebles.cshtml" />
+    <Content Include="Views\CuentasxCobrarContratos\Nuevo_CuentasxCobrarContratos.cshtml" />
+    <Content Include="Views\CuentasxCobrarContratos\Editar_CuentasxCobrarContratos.cshtml" />
+    <Content Include="Views\CuentasxCobrarContratos\Listar_CuentasxCobrarContratos.cshtml" />
+    <Content Include="Views\CuentasxPagarContratos\Nuevo_CuentasxPagarContratos.cshtml" />
+    <Content Include="Views\CuentasxPagarContratos\Editar_CuentasxPagarContratos.cshtml" />
+    <Content Include="Views\CuentasxPagarContratos\Listar_CuentasxPagarContratos.cshtml" />
+    <Content Include="Views\EstadosCuentas\Nuevo_EstadosCuentas.cshtml" />
+    <Content Include="Views\EstadosCuentas\Editar_EstadosCuentas.cshtml" />
+    <Content Include="Views\EstadosCuentas\Listar_EstadosCuentas.cshtml" />
+    <Content Include="Views\Inmobiliaria\Nuevo_Inmobiliaria.cshtml" />
+    <Content Include="Views\Inmobiliaria\Editar_Inmobiliaria.cshtml" />
+    <Content Include="Views\Inmobiliaria\Listar_Inmobiliaria.cshtml" />
+    <Content Include="Views\Inmuebles\Nuevo_Inmuebles.cshtml" />
+    <Content Include="Views\Inmuebles\Editar_Inmuebles.cshtml" />
+    <Content Include="Views\Inmuebles\Listar_Inmuebles.cshtml" />
+    <Content Include="Views\Municipios\Nuevo_Municipios.cshtml" />
+    <Content Include="Views\Municipios\Editar_Municipios.cshtml" />
+    <Content Include="Views\Municipios\Listar_Municipios.cshtml" />
+    <Content Include="Views\Propietarios\Nuevo_Propietarios.cshtml" />
+    <Content Include="Views\Propietarios\Editar_Propietarios.cshtml" />
+    <Content Include="Views\Propietarios\Listar_Propietarios.cshtml" />
+    <Content Include="Views\Registro_Movimientos_Caja\Nuevo_Registro_Movimientos_Caja.cshtml" />
+    <Content Include="Views\Registro_Movimientos_Caja\Editar_Registro_Movimientos_Caja.cshtml" />
+    <Content Include="Views\Registro_Movimientos_Caja\Listar_Registro_Movimientos_Caja.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Usuarios\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,7 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Content\Estilos\Para_Login\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inmobiliaria.Dominio\Inmobiliaria.Dominio.csproj">
@@ -181,7 +236,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\Bootstrap\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
