@@ -6,18 +6,11 @@ using System.Web.Mvc;
 
 namespace Inmobiliaria.Presentacion.Controllers
 {
-    public class HomeController : Controller
+    public class CuentasxCobrarContratosController : Controller
     {
-        // GET: Home
+        // GET: CuentasxCobrarContratos
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: Home
-        public ActionResult Listar_CategoriaInmuebles()
-        {
-
             return View();
         }
     }
