@@ -40,24 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CajaBanco.cs" />
-    <Compile Include="CategoriaInmuebles.cs" />
-    <Compile Include="Contratos.cs" />
-    <Compile Include="CuentasxCobrarContratos.cs" />
-    <Compile Include="CuentasxPagarContratos.cs" />
-    <Compile Include="EstadosCuentas.cs" />
-    <Compile Include="Inmobiliaria.cs" />
-    <Compile Include="Inmuebles.cs" />
-    <Compile Include="Imagenes.cs" />
-    <Compile Include="Municipios.cs" />
-    <Compile Include="Propietarios.cs" />
-    <Compile Include="RegistroEgresos.cs" />
-    <Compile Include="RegistroIngresos.cs" />
-    <Compile Include="RolesUsuarios.cs" />
-    <Compile Include="Usuarios.cs" />
+    <Compile Include="CajaBancoDTO.cs" />
+    <Compile Include="CategoriaInmueblesDTO.cs" />
+    <Compile Include="ContratosDTO.cs" />
+    <Compile Include="CuentasxCobrarContratosDTO.cs" />
+    <Compile Include="CuentasxPagarContratosDTO.cs" />
+    <Compile Include="EstadosCuentasDTO.cs" />
+    <Compile Include="InmobiliariaDTO.cs" />
+    <Compile Include="InmueblesDTO.cs" />
+    <Compile Include="ImagenesDTO.cs" />
+    <Compile Include="MunicipiosDTO.cs" />
+    <Compile Include="PropietariosDTO.cs" />
+    <Compile Include="RegistroEgresosDTO.cs" />
+    <Compile Include="RegistroIngresosDTO.cs" />
+    <Compile Include="RolesUsuariosDTO.cs" />
+    <Compile Include="UsuariosDTO.cs" />
     <Compile Include="ZonasMunicipios.cs" />
-    <Compile Include="TipoPago.cs" />
-    <Compile Include="Arrendatarios.cs" />
+    <Compile Include="TipoPagoDTO.cs" />
+    <Compile Include="ArrendatariosDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

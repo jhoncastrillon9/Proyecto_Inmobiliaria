@@ -1,0 +1,51 @@
+﻿@model UsuariosDTO
+    
+<!--En el arcgivo cobfig se guardo la rel nbame space de la ruta de dominio y las clases estan publicas-->
+@{
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<div class="row">
+
+    @* ------Formulario de Ingreso------*@
+    <div class="col-md-5 offset-5 text-center formulario-ingreso">
+        <br />
+        <span><i class="fab fa-optin-monster fa-4x" style="color:#ffffff;"></i></span>
+        &nbsp;&nbsp;&nbsp;
+
+        <h2 class="title-iniciar">Inmobiliari<strong>APP</strong> </h2>
+        <p>Aplicación para administrar tú inmobiliaria.</p>
+
+        <div class="container col-md-9">
+            <form action="@Url.Action("registrarse","Usuarios")" method="post">
+                <div class="form-group text-left">
+                    <label>Nombre de la Inmobiliaria</label>
+                    @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control", placeholder = "Inmobiliaria", type = "text", @required = "required" })
+                </div>
+                <div class="form-group text-left">
+                    <label>Email</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email", type = "Email", @required = "required" })
+                </div>
+                <div class="form-group text-left">
+                    <label>Contraseña</label>
+                    @Html.TextBoxFor(x => x.Pass, new { @class = "form-control", Placeholder = "Contraseña", type = "password", @required = "required" })
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="boton-ingreso" value="Registrarse" />
+                </div>
+            </form>
+        </div>
+        <br />
+    </div>
+    @* ------END Formulario de Ingreso------*@
+
+</div>
+
+
+
+

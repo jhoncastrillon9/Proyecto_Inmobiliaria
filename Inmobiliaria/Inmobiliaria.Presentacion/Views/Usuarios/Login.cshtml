@@ -1,24 +1,53 @@
-﻿
+﻿@model UsuariosDTO
+<!--En el arcgivo cobfig se guardo la rel nbame space de la ruta de dominio y las clases estan publicas-->
 @{
     Layout = "~/Views/Shared/_Login.cshtml";
 }
-<div class="row align-items-end text-center">
 
-
-</div>
+<br />
+<br />
+<br />
+<br />
 <div class="row">
-
-
-    <div class="col-md-6 offset-4 text-center">
-
-        @* ------Formulario de Ingreso------*@
-        <span><i class="fab fa-optin-monster fa-4x" style="color:gray;"></i></span>
+    @* ------Formulario de Ingreso------*@
+    <div class="col-md-5 offset-5 text-center formulario-ingreso">
+        <br />
+        <span><i class="fab fa-optin-monster fa-4x" style="color:#ffffff;"></i></span>
         &nbsp;&nbsp;&nbsp;
 
-        <h1 class="title-iniciar">Iniciar sesión</h1>
-        @* ------END Formulario de Ingreso------*@
+        <h1 class="title-iniciar">Inmobiliaria</h1>
 
+        <div class="container col-md-9">
+            <form action="@Url.Action("Login","Usuarios")" method="post">
+                <div class="form-group text-left">
+                    <label>Email</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email", type = "Email", @required = "required" })
+                </div>
+                <div class="form-group text-left">
+                    <label>Contraseña</label>
+                    @Html.TextBoxFor(x => x.Pass, new { @class = "form-control", Placeholder = "Contraseña", type = "password", @required = "required" })
+                </div>
+                <div class="text-right">
+                    <a href="#">Recordar Contraseña</a>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="boton-ingreso" value="Iniciar sesión" />
+                </div>
+            </form>
+        </div>
+        <br />
     </div>
+    @* ------END Formulario de Ingreso------*@
 
 </div>
+
+<br />
+@* ------BOTON Nuevo Usuario------*@
+
+<div class="col-md-5 offset-5 text-center nuevo-usuario">
+    <h5>No tienes cuenta ?</h5>
+    <a href="#">Registrate Aquí</a>
+</div>    
+
+@* ------END BOTON Nuevo Usuario------*@
 

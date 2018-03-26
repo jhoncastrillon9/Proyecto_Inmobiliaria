@@ -1,8 +1,9 @@
-﻿
+﻿/*#region Index Login */
 
+/*#region Body */
 .body-login {
-    /*imagen fondo*/    
-    background-image: url(../Content/Imagenes/Background_Teclado.jpg);
+    /*imagen fondo*/
+    background-image: url(../Content/Imagenes/BackGround_escritorio.jpg);
     /*no repetir imagen*/
     background-repeat: no-repeat;
     /*tamaño (altura ancho al 100% ) */
@@ -11,11 +12,99 @@
     background-size: 100%;
     /*Opacar */
 }
+/*#endregion */
 
-.title-iniciar {
+/*#region Form Ingreso */
+
+/****************Formulario de Ingreso***********************/
+.formulario-ingreso {
     font-family: Calibri;
-    color: gray;
+    color: white;
+    background-color: black;
+    opacity: 0.6;
+    border-radius: 10px;
+    filter: alpha(opacity=80);
 }
+
+    .formulario-ingreso label {
+        font-size: 19px;
+    }
+
+    .formulario-ingreso input {
+        background-color: transparent;
+        color: white;
+        border-radius: 25px;
+    }
+
+
+        .formulario-ingreso input[type="submit"] {
+            margin: 20px auto;
+            padding: 9px 60px;
+            border-radius: 25px;
+            font-size: 18px;
+            background-color: transparent;
+            color: #fff;            
+            outline: 0;
+            border: 1px solid #4f5d61;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+
+            .formulario-ingreso input[type="submit"]:hover {
+                margin: 20px auto;
+                padding: 9px 60px;
+                border-radius: 25px;
+                font-size: 18px;
+                background-color: #BDBDBD;
+                color: black;                
+                outline: 0;
+                border: 1px solid #4f5d61;
+                cursor: pointer;
+                width: 100%;
+                letter-spacing: 1px;
+            }
+
+
+
+    .formulario-ingreso a {
+        color: #FFBF00;
+        font-size: 18px;
+    }
+
+
+        .formulario-ingreso a:hover {
+            color: #FFBF00;
+            font-size: 18px;
+        }
+
+/****************FINAL Formulario de Ingreso***********************/
+/*#endregion */
+
+/*#region Regitrar usuario link */
+
+
+
+/****************Nuevo Usuario***********************/
+.nuevo-usuario {
+    color: #FFBF00;
+    font-size: 18px;
+}
+
+    .nuevo-usuario a {
+        margin: 5px auto;
+        padding: 6px 20px;
+        border-radius: 25px;
+        background-color: #6E6E6E;
+        color: black;
+    }
+
+        .nuevo-usuario a:hover {
+            background-color: #BDBDBD;
+            color: black;
+        }
+
+/****************FINAL nuevo Usuario***********************/
 
 
 

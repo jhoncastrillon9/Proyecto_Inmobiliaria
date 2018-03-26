@@ -10,10 +10,21 @@ namespace Inmobiliaria.Presentacion.Controllers
     {
         // GET: Usuarios
         public ActionResult Login()
-        {
-
-            
+        {            
             return View();
         }
+
+
+        public ActionResult recuperarcontrasena()
+        {
+            return View();
+        }
+
+        public ActionResult registrarse()
+        {
+            return View();
+        }
+
+
     }
 }
