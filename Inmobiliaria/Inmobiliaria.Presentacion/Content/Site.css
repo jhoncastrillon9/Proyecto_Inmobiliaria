@@ -43,7 +43,7 @@
             border-radius: 25px;
             font-size: 18px;
             background-color: transparent;
-            color: #fff;            
+            color: #fff;
             outline: 0;
             border: 1px solid #4f5d61;
             cursor: pointer;
@@ -57,7 +57,7 @@
                 border-radius: 25px;
                 font-size: 18px;
                 background-color: #BDBDBD;
-                color: black;                
+                color: black;
                 outline: 0;
                 border: 1px solid #4f5d61;
                 cursor: pointer;
@@ -81,11 +81,8 @@
 /****************FINAL Formulario de Ingreso***********************/
 /*#endregion */
 
-/*#region Regitrar usuario link */
+/*#region Nuevo Usuario */
 
-
-
-/****************Nuevo Usuario***********************/
 .nuevo-usuario {
     color: #FFBF00;
     font-size: 18px;
@@ -104,7 +101,27 @@
             color: black;
         }
 
-/****************FINAL nuevo Usuario***********************/
+/*#endregion Nuevo Usuario */
+
+
+/*#region CSS Basicos */
+
+.Color-Gris {
+    color: gray !important;
+}
+.Color-Azul {
+    color: #0080FF !important;
+}
+.Color-Fuscia {
+    color: #FF0040 !important;
+}
+
+
+
+/*#endregion */
+
+
+
 
 
 
