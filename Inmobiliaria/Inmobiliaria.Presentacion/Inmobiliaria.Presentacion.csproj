@@ -371,6 +371,7 @@
     <Content Include="Content\Imagenes\Background_Ciudad.jpg" />
     <Content Include="Content\Imagenes\BackGround_escritorio.jpg" />
     <Content Include="Content\Imagenes\Background_Teclado.jpg" />
+    <Content Include="Content\Imagenes\Logo 200x50.png" />
     <Content Include="Content\Imagenes\nube-03.jpg" />
     <Content Include="Content\Imagenes\Slider_Menu\1.png" />
     <Content Include="Content\Imagenes\Slider_Menu\2.png" />

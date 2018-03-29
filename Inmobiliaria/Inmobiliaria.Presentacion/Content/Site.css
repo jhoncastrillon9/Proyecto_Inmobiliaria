@@ -103,9 +103,111 @@
 
 /*#endregion Nuevo Usuario */
 
+/*#region Layout_Menu */
 
+.fondo-brand-nav {
+    background-image: url('Imagenes/Logo 200x50.png') !important;
+    background-repeat: no-repeat !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    background-position: 25px -6px !important;
+    
+}
+
+.button-buscar {
+color:orangered;  
+}
+.button-buscar:hover {
+    padding: 0px 13px !important;
+    /* margin: 0px; */
+    background-color: orangered !important;
+    color: white !important;
+    border-radius:50%;
+    
+}
+
+.nombre-empresa {
+    padding-top: 10px;
+    color: dodgerblue;
+    font-size: 20px !important;
+    background-color: orangered;
+    color: white;
+    border-radius: 0px 0px 50px 50px;
+    text-align: center;
+    font-family: Calibri;
+}
+
+
+.iconmenu-inmueble {
+    color: #DC1F3D !important;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+.iconmenu-propietario {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+.iconmenu-arrendatario {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+
+.iconmenu-contrato {
+    color: #12494C !important;
+    border-radius: 5px;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+}
+.iconmenu-recaudo {
+    color: white !important;
+    background-color: mediumseagreen;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+.iconmenu-otrosi {
+    color: white !important;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+
+.iconmenu-general {
+    color: dodgerblue !important;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+.iconmenu-financiero {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+
+
+
+
+.iconmenu-config {
+    color: white !important;
+    background-color: #0F9398;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+/*#endregion */
 /*#region CSS Basicos */
-
 .Color-Gris {
     color: gray !important;
 }
@@ -115,7 +217,10 @@
 .Color-Fuscia {
     color: #FF0040 !important;
 }
-
+.color-barra {
+    background-color: #398eca;
+    color:white;
+}
 
 
 /*#endregion */

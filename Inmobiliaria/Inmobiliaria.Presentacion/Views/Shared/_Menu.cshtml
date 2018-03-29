@@ -35,10 +35,10 @@
         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                        <span class="dark-logo">Inmobiliari</span>
-                        <b>App</b>
+                <div class="navbar-header fondo-brand-nav">
+                    <a class="navbar-brand " href="@Url.Action("Index","Home")">
+                        @*<span class="dark-logo">Inmobiliari</span>
+                        <b>App</b>*@
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -54,15 +54,19 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- Buscar -->
                         <li class="nav-item hidden-sm-down search-box">
-                            <a class="nav-link hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <a class="nav-link hidden-sm-down button-buscar" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Buscar Propietarios..."> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
                         </li>
                     </ul>
                     
+                    <ul class="col-md-4">
+                        <li><div class="nombre-empresa"><h2>@ViewBag.NombreInmobiliaria Inmobiliaria Diamante</h2></div></li>
+                    </ul>
+
                     <!--Mi perfil Configuracion y cerrar Session-->
-                    <ul class="col-md-2 offset-6 text-center">
+                    <ul class="col-md-2 offset-3 text-center">
                         <li>
                             <a href="#" class="Color-Gris"><i class="far fa-user-circle fa-2x Color-Azul"></i> Mi Perfil</a>
                         </li>
@@ -97,7 +101,7 @@
                         <li class="nav-devider"></li>
                         <li class="nav-label">Inmuebles</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Inmuebles</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-building iconmenu-inmueble"></i><span class="hide-menu"> Inmuebles</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Agregar Inmueble</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Mis Inmubles</a></li>
@@ -106,14 +110,14 @@
                         <li>
                         <li class="nav-label">Propietarios y Arrendatarios</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Propietarios</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-users iconmenu-propietario"></i><span class="hide-menu"> Propietarios</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Agregar Propietarios</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Ver todos los propietarios</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Propietarios x Inmuebles</a></li>
                             </ul>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Arrendatarios</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-users iconmenu-arrendatario"></i><span class="hide-menu"> Arrendatarios</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Agregar Arrendador</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Ver todos los arrendadores</a></li>
@@ -122,7 +126,7 @@
                         </li>
                         <li class="nav-label">Contratos</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Contratos</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="far fa-file-alt iconmenu-contrato"></i><span class="hide-menu"> Contratos</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Nuevo Contrato</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Ver todos los Contratos</a></li>
@@ -132,7 +136,7 @@
                         </li>
                         <li class="nav-label">Recaudos y Pagos</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Recaudos y Pagos</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-dollar-sign iconmenu-recaudo"></i><span class="hide-menu"> Recaudos y Pagos</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Reibir Pago de Arrendatario</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Realizar Pago a Propietario</a></li>
@@ -140,7 +144,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Otros Ingresos y Egresos</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="far fa-money-bill-alt iconmenu-otrosi"></i><span> </span><span class="hide-menu"> Otros Ingresos y Egresos</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Pago a Proveedores</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Registrar Compra</a></li>
@@ -150,7 +154,7 @@
                         </li>
                         <li class="nav-label">Informes</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-columns"></i><span class="hide-menu">Generales</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-file-alt iconmenu-general"></i><span class="hide-menu"> Generales</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Propietarios</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Arrendadores</a></li>
@@ -158,7 +162,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-columns"></i><span class="hide-menu">Financieros</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-credit-card iconmenu-financiero"></i></i><span class="hide-menu"> Financieros</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">General</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Pagos a Propietarios</a></li>
@@ -170,7 +174,7 @@
                         </li>
                         <li class="nav-label">Configuraciones</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-columns"></i><span class="hide-menu">Configuración</span></a>
+                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-cog iconmenu-config"></i><span class="hide-menu"> Configuración</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="@Url.Action("Index","Home")">Mi inmobiliaria</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Categorias de Inmuebles</a></li>
@@ -194,7 +198,7 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">@ViewBag.NombreInmobiliaria Inmobiliaria Diamante</h3>
+                    <h3 class="text-secondary">@ViewBag.titulopage Nuevo Propietario</h3>
                 </div>
                 @*Para ubicar al usuario el lugar done esta PROVISIONAL*@
                 <div class="col-md-7 align-self-center">
