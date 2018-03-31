@@ -1,8 +1,9 @@
-﻿
+﻿/*#region Index Login */
 
+/*#region Body */
 .body-login {
-    /*imagen fondo*/    
-    background-image: url(../Content/Imagenes/Background_Teclado.jpg);
+    /*imagen fondo*/
+    background-image: url(../Content/Imagenes/BackGround_escritorio.jpg);
     /*no repetir imagen*/
     background-repeat: no-repeat;
     /*tamaño (altura ancho al 100% ) */
@@ -11,11 +12,298 @@
     background-size: 100%;
     /*Opacar */
 }
+/*#endregion */
 
-.title-iniciar {
+/*#region Form Ingreso */
+
+/****************Formulario de Ingreso***********************/
+.formulario-ingreso {
     font-family: Calibri;
+    color: white;
+    background-color: black;
+    opacity: 0.6;
+    border-radius: 10px;
+    filter: alpha(opacity=80);
+}
+
+    .formulario-ingreso label {
+        font-size: 19px;
+    }
+
+    .formulario-ingreso input {
+        background-color: transparent;
+        color: white;
+        border-radius: 25px;
+    }
+
+
+        .formulario-ingreso input[type="submit"] {
+            margin: 20px auto;
+            padding: 9px 60px;
+            border-radius: 25px;
+            font-size: 18px;
+            background-color: transparent;
+            color: #fff;
+            outline: 0;
+            border: 1px solid #4f5d61;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+
+            .formulario-ingreso input[type="submit"]:hover {
+                margin: 20px auto;
+                padding: 9px 60px;
+                border-radius: 25px;
+                font-size: 18px;
+                background-color: #BDBDBD;
+                color: black;
+                outline: 0;
+                border: 1px solid #4f5d61;
+                cursor: pointer;
+                width: 100%;
+                letter-spacing: 1px;
+            }
+
+
+
+    .formulario-ingreso a {
+        color: #FFBF00;
+        font-size: 18px;
+    }
+
+
+        .formulario-ingreso a:hover {
+            color: #FFBF00;
+            font-size: 18px;
+        }
+
+/****************FINAL Formulario de Ingreso***********************/
+/*#endregion */
+
+/*#region Nuevo Usuario */
+
+.nuevo-usuario {
+    color: #FFBF00;
+    font-size: 18px;
+}
+
+    .nuevo-usuario a {
+        margin: 5px auto;
+        padding: 6px 20px;
+        border-radius: 25px;
+        background-color: #6E6E6E;
+        color: black;
+    }
+
+        .nuevo-usuario a:hover {
+            background-color: #BDBDBD;
+            color: black;
+        }
+
+/*#endregion Nuevo Usuario */
+
+/*#region Layout_Menu */
+
+.fondo-brand-nav {
+    background-image: url('Imagenes/Logo_inmoapp.png') !important;
+    background-repeat: no-repeat !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    background-position: 25px -6px !important;
+}
+
+.drop-user {
+    color: dimgray !important;
+  
+    font-size: 18PX !important;
+
+}
+
+.icon-perfil {
+    color: #FF660C !important;
+    font-size: 40px;
+    margin-left: 8px;
+}
+
+.icon-mas {
+    color: dodgerblue !important;
+    font-size: 30px;
+    margin-left: 8px;
+    position: absolute;
+}
+
+
+.icon-dollar {
+    color: mediumseagreen !important;
+    font-size: 30px;
+    margin-left: 8px;
+    position: absolute;
+}
+
+
+.drop-drowmlist {
+    border-style: solid;
+    border-color: #c3c3c3b5;
+    border-width: 1px;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Calibri;
+}
+
+.buton-agregarinm {
+    border-style: solid;
+    border-color: #c3c3c3b5;
+    border-width: 1px;
+    margin: 0;
+    padding: 10px 24px 13px 5px;
+    border-radius: 5px;
+    color: gray;
+    font-family: Calibri;
+}
+
+    .buton-agregarinm a {
+        padding-left: 48px;
+        /* padding-top: 58px; */
+        font-size: 17px;
+    }
+
+.buton-agregarinm a {
+
+    color: gray !important;
+}
+
+.icon-drop {
+margin-right:7px;
+}
+
+
+.button-buscar {
+    color: orangered;
+}
+.button-buscar:hover {
+    padding: 0px 13px !important;
+    /* margin: 0px; */
+    background-color: orangered !important;
+    color: white !important;
+    border-radius:50%;
+    
+}
+
+.nombre-empresa h2 {
+    padding-top: 10px;
+    color: #FF660C !important;
+    font-size: 30px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+
+.iconmenu-inmueble {
+    color: #DC1F3D !important;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+.iconmenu-propietario {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+.iconmenu-arrendatario {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+
+.iconmenu-contrato {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+}
+.iconmenu-recaudo {
+    color: white !important;
+    background-color: mediumseagreen;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+.iconmenu-otrosi {
+    color: white !important;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+
+.iconmenu-general {
+    color: dodgerblue !important;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+.iconmenu-financiero {
+    color: dodgerblue !important;
+    border-radius: 5px;
+    padding: 2px 2px;
+    text-align: center;
+}
+
+
+
+
+.iconmenu-config {
+    color: white !important;
+    background-color: #0F9398;
+    border-radius: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+    }
+/*#endregion */
+/*#region CSS Basicos */
+.colo-gris {
+    color: gray !important;
+}
+.Color-Azul {
+    color: #0080FF !important;
+}
+.Color-Fuscia {
+    color: #FF0040 !important;
+}
+.color-barra {
+    background-color: #398eca;
+    color:white;
+}
+.color-gr {
     color: gray;
 }
+
+.color-gr a{
+    color: gray;
+}
+
+.color-bluesua{
+    color:deepskyblue;
+}
+
+.float-r{
+float:right;
+}
+
+
+/*#endregion */
+
+
+
 
 
 

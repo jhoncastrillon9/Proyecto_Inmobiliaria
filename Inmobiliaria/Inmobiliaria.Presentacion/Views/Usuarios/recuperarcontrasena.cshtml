@@ -1,0 +1,49 @@
+﻿@model UsuariosDTO
+<!--En el arcgivo cobfig se guardo la rel nbame space de la ruta de dominio y las clases estan publicas-->
+@{
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<br />
+<br />
+
+<div class="row">
+    @* ------Formulario de Ingreso------*@
+    <div class="col-md-5 offset-5 text-center formulario-ingreso">
+        <br />
+        <span><i class="fab fa-optin-monster fa-4x" style="color:#ffffff;"></i></span>
+        &nbsp;&nbsp;&nbsp;
+
+        <h1 class="title-iniciar">Inmobiliaria</h1>
+        <br />
+        <div class="container col-md-9">
+            <h3>Recuperar Contraseña</h3>
+            <p>Ingresa tu correo electrónico y te llegara un <strong>Email</strong> recordándote tu contraseña.</p>
+
+            <form action="@Url.Action("reciuperarcontrasena","Usuarios")" method="post">
+                <div class="form-group text-left">
+                    <label>Email</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email", type = "Email", @required = "required" })
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="boton-ingreso" value="Restablecer contraseña" />
+                </div>
+            </form>
+        </div>
+        <br />
+    </div>
+    @* ------END Formulario de Ingreso------*@
+
+</div>
+
+<br />
+@* ------BOTON Nuevo Usuario------*@
+
+<div class="col-md-5 offset-5 text-center nuevo-usuario">
+    <h5>No tienes cuenta ?</h5>
+    <a href="#">Registrate Aquí</a>
+</div>
+
+@* ------END BOTON Nuevo Usuario------*@
+

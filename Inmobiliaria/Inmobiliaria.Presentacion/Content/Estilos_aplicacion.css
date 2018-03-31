@@ -1,0 +1,26 @@
+﻿body {
+}
+
+/**************************LISTAR INMUEBLES***********************************/
+.links-card {
+    
+    padding: 0% 2% 0% 2%;
+}
+
+.links-card a {
+    color: gray !important;
+    
+}
+
+    .links-card a:hover {
+        color: white !important;
+        background-color: #FF660C;
+    }
+
+    .links-card a:focus {
+        color: white !important;
+        background-color: #FF660C !important;
+    }
+
+
+/**************************FINAL LISTAR INMUEBLES***********************************/
