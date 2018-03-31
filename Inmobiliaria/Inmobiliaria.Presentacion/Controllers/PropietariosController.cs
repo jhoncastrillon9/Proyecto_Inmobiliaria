@@ -13,5 +13,17 @@ namespace Inmobiliaria.Presentacion.Controllers
         {
             return View();
         }
+
+
+        // GET: Propietarios
+        public ActionResult Listar_Propietarios()
+        {
+            return View();
+        }
+        public ActionResult Editar_Propietarios()
+        {
+            return View();
+        }
+
     }
 }

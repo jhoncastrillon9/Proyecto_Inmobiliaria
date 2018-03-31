@@ -9,7 +9,7 @@ namespace Inmobiliaria.Presentacion.Controllers
     public class InmueblesController : Controller
     {
         // GET: Inmuebles
-        public ActionResult Index()
+        public ActionResult Listar_Inmuebles()
         {
             return View();
         }

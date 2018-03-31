@@ -106,16 +106,81 @@
 /*#region Layout_Menu */
 
 .fondo-brand-nav {
-    background-image: url('Imagenes/Logo 200x50.png') !important;
+    background-image: url('Imagenes/Logo_inmoapp.png') !important;
     background-repeat: no-repeat !important;
     margin: 0px !important;
     padding: 0px !important;
     background-position: 25px -6px !important;
-    
 }
 
+.drop-user {
+    color: dimgray !important;
+  
+    font-size: 18PX !important;
+
+}
+
+.icon-perfil {
+    color: #FF660C !important;
+    font-size: 40px;
+    margin-left: 8px;
+}
+
+.icon-mas {
+    color: dodgerblue !important;
+    font-size: 30px;
+    margin-left: 8px;
+    position: absolute;
+}
+
+
+.icon-dollar {
+    color: mediumseagreen !important;
+    font-size: 30px;
+    margin-left: 8px;
+    position: absolute;
+}
+
+
+.drop-drowmlist {
+    border-style: solid;
+    border-color: #c3c3c3b5;
+    border-width: 1px;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Calibri;
+}
+
+.buton-agregarinm {
+    border-style: solid;
+    border-color: #c3c3c3b5;
+    border-width: 1px;
+    margin: 0;
+    padding: 10px 24px 13px 5px;
+    border-radius: 5px;
+    color: gray;
+    font-family: Calibri;
+}
+
+    .buton-agregarinm a {
+        padding-left: 48px;
+        /* padding-top: 58px; */
+        font-size: 17px;
+    }
+
+.buton-agregarinm a {
+
+    color: gray !important;
+}
+
+.icon-drop {
+margin-right:7px;
+}
+
+
 .button-buscar {
-color:orangered;  
+    color: orangered;
 }
 .button-buscar:hover {
     padding: 0px 13px !important;
@@ -126,15 +191,11 @@ color:orangered;
     
 }
 
-.nombre-empresa {
+.nombre-empresa h2 {
     padding-top: 10px;
-    color: dodgerblue;
-    font-size: 20px !important;
-    background-color: orangered;
-    color: white;
-    border-radius: 0px 0px 50px 50px;
-    text-align: center;
-    font-family: Calibri;
+    color: #FF660C !important;
+    font-size: 30px !important;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 
@@ -158,7 +219,7 @@ color:orangered;
 }
 
 .iconmenu-contrato {
-    color: #12494C !important;
+    color: dodgerblue !important;
     border-radius: 5px;
     margin: 0;
     padding: 1px;
@@ -206,9 +267,10 @@ color:orangered;
 }
 
 
+    }
 /*#endregion */
 /*#region CSS Basicos */
-.Color-Gris {
+.colo-gris {
     color: gray !important;
 }
 .Color-Azul {
@@ -220,6 +282,21 @@ color:orangered;
 .color-barra {
     background-color: #398eca;
     color:white;
+}
+.color-gr {
+    color: gray;
+}
+
+.color-gr a{
+    color: gray;
+}
+
+.color-bluesua{
+    color:deepskyblue;
+}
+
+.float-r{
+float:right;
 }
 
 

@@ -1,0 +1,46 @@
+﻿body {
+}
+
+.logo-inmobiliariaAPP {
+    background-image: url(Imagenes/Logo_inmoapp.png) !important;
+    background-repeat: no-repeat !important;
+    margin: 0px 25px 0px -32px !important;
+    padding: 0px 160px 50px 50px !important;
+    background-position: 25px -6px !important;
+}
+
+.icon-cerrars {
+    color: #FF660C !important;
+    font-size: 40px;
+   
+}
+
+.drop-sesion {
+    padding: 2px 2px 0px 6% !important;
+}
+.hover-color:hover {
+    background-color: #FF660C;
+    color: white !important;
+    border-radius: 4px;
+   
+}
+
+
+.hover-color a:hover {
+    color: white !important;
+    background-color: #FF660C;
+}
+
+
+.nombre-empresa {
+    border-style: solid;
+    border-color: #c3c3c3b5;
+    border-width: 1px;
+    border-radius: 5px;
+    color: gray;    
+    margin-right: 12px;
+}
+
+.color-bluesua {
+    color: dodgerblue;
+}

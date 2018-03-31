@@ -8,8 +8,6 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/helper.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/animate.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/spinners.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Estilos/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
@@ -62,29 +60,45 @@
                     </ul>
                     
                     <ul class="col-md-4">
-                        <li><div class="nombre-empresa"><h2>@ViewBag.NombreInmobiliaria Inmobiliaria Diamante</h2></div></li>
+                        <li><div class="nombre-empresa"><h2>Core del Negocio</h2></div></li>
+                    </ul>
+
+                    <ul class="col-md-2 offset-1 nav navbar-nav">
+                        <li class="buton-agregarinm">
+                            <i class="fas fa-plus icon-mas"></i>
+                            <a href="#">Agregar Inmueble</a>
+                        </li>
+                    </ul>
+
+                    <ul class="col-md-2 nav navbar-nav">
+                        <li class="buton-agregarinm">                            
+                            <i class="fas fa-dollar-sign icon-dollar"></i>
+                            <a href="#">Pagos y Compras</a>
+                        </li>
                     </ul>
 
                     <!--Mi perfil Configuracion y cerrar Session-->
-                    <ul class="col-md-2 offset-3 text-center">
-                        <li>
-                            <a href="#" class="Color-Gris"><i class="far fa-user-circle fa-2x Color-Azul"></i> Mi Perfil</a>
-                        </li>
+                    
+                        <ul class="col-md-3 nav navbar-nav">
+                            <li class="dropdown drop-drowmlist">
+                                <i class="fab fa-earlybirds icon-perfil"></i><a href="#" class="dropdown-toggle drop-user" data-toggle="dropdown">@ViewBag.nombreUsuario  Jhon Castrillon <i class="fas fa-sort-down icon-drop color-naranjaofi"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="color-gr"><i class="far fa-user color-bluesua"></i>&ensp;<a href="#">  Mi Perfil</a></li>
+                                    <li class="divider"></li>
+                                    <li class="color-gr"><i class="far fa-paper-plane color-bluesua"></i>&ensp;<a href="#">  Mi Plan</a></li>
+                                    <li class="divider"></li>
+                                    <li class="color-gr"><i class="far fa-user color-bluesua"></i>&ensp;<a href="#">Mi Perfil</a></li>
+                                    <li class="divider"></li>
+                                    <li class="color-gr"><i class="fas fa-wrench color-bluesua"></i>&ensp;<a href="#">Configuración</a></li>
+                                    <li class="divider"></li>
+                                    <li class="color-gr"><i class="fas fa-sign-out-alt color-bluesua"></i>&ensp;<a href="#">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
 
-                    </ul>
-                    <ul class="col-md-2">
-                        <li>
-                            <a href="#" class="Color-Gris"><i class="fas fa-cogs fa-2x Color-Azul"></i> Configuración</a>
-                        </li>
-                    </ul>
-                    <ul class="col-md-2">
-                        <li>
-                            <a href="#" class="Color-Gris"><i class="fas fa-sign-out-alt fa-2x Color-Fuscia"></i></i> Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                    <!--final Mi perfil Configuracion y cerrar Session-->
+                        <!--final Mi perfil Configuracion y cerrar Session-->
 
-                </div>
+</div>
             </nav>
         </div>
         <!-- End Menu Superior-->
@@ -97,18 +111,17 @@
             <div class="scroll-sidebar">
                 <!-- Menu de navegacion izquerdo-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-devider"></li>
-                        <li class="nav-label">Inmuebles</li>
+                    <ul id="sidebarnav">                       
+                        
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-building iconmenu-inmueble"></i><span class="hide-menu"> Inmuebles</span></a>
-                            <ul aria-expanded="false" class="collapse">
+                            <a class="" href="#" aria-expanded="false"><i class="fas fa-building iconmenu-inmueble"></i><span class="hide-menu"> Inmuebles</span></a>
+                            <ul aria-expanded="false" class="">
                                 <li><a href="@Url.Action("Index","Home")">Agregar Inmueble</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Mis Inmubles</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Inmuebles x Clientes</a></li>
                             </ul>
-                        <li>
-                        <li class="nav-label">Propietarios y Arrendatarios</li>
+                        </li>
+                        
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-users iconmenu-propietario"></i><span class="hide-menu"> Propietarios</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -116,6 +129,7 @@
                                 <li><a href="@Url.Action("Index","Home")">Ver todos los propietarios</a></li>
                                 <li><a href="@Url.Action("Index","Home")">Propietarios x Inmuebles</a></li>
                             </ul>
+                        </li>
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-users iconmenu-arrendatario"></i><span class="hide-menu"> Arrendatarios</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -124,7 +138,7 @@
                                 <li><a href="@Url.Action("Index","Home")">Arrendadores x Inmuebles</a></li>
                             </ul>
                         </li>
-                        <li class="nav-label">Contratos</li>
+                        
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false"><i class="far fa-file-alt iconmenu-contrato"></i><span class="hide-menu"> Contratos</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -134,7 +148,7 @@
                                 <li><a href="@Url.Action("Index","Home")">Cuentas x Cobrar</a></li>
                             </ul>
                         </li>
-                        <li class="nav-label">Recaudos y Pagos</li>
+                        
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-dollar-sign iconmenu-recaudo"></i><span class="hide-menu"> Recaudos y Pagos</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -152,7 +166,7 @@
                                 <li><a href="@Url.Action("Index","Home")">Otros Egresos</a></li>
                             </ul>
                         </li>
-                        <li class="nav-label">Informes</li>
+                        
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-file-alt iconmenu-general"></i><span class="hide-menu"> Generales</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -172,7 +186,7 @@
                                 <li><a href="@Url.Action("Index","Home")">Movimientos de Caja</a></li>
                             </ul>
                         </li>
-                        <li class="nav-label">Configuraciones</li>
+                        
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-cog iconmenu-config"></i><span class="hide-menu"> Configuración</span></a>
                             <ul aria-expanded="false" class="collapse">
