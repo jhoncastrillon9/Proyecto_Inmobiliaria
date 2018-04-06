@@ -20,6 +20,7 @@
     .links-card a:focus {
         color: white !important;
         background-color: #FF660C !important;
+        background-image: url(../)
     }
 
 

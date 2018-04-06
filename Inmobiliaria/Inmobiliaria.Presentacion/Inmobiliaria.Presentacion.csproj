@@ -231,6 +231,12 @@
     <Content Include="Views\Usuarios\registrarse.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Menu_Cliente.cshtml" />
+    <Content Include="Views\Inmuebles\_Index_Tab_Inmuebles.cshtml" />
+    <Content Include="Views\Inmuebles\Detalle_Inmueble.cshtml" />
+    <Content Include="Views\Inmuebles\_SubMenu_Inmueble.cshtml" />
+    <Content Include="Views\Inmuebles\_CargarDetalle.cshtml" />
+    <Content Include="Views\Inmuebles\_CargarActualizar.cshtml" />
+    <Content Include="Scripts\Spanish.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
