@@ -9,11 +9,7 @@
     <link href="~/Content/Estilos/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/_Menu_Cliente.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Estilos_aplicacion.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css" rel="stylesheet" type="text/css" />
-
-
-
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -130,28 +126,18 @@
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <!-- #Script de Datatables JS -->
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+
+
 
 
     <script type="text/javascript">
 
-
         $(document).ready(function () {
-            $('#table-inmubles').DataTable({
-
-
-                columnDefs: [
-                    {
-                        targets: [0, 1, 2],
-                        className: 'mdl-data-table__cell--non-numeric'
-                    }
-                ]
-
-
-
-            });
+            $('#table-inmuebles').DataTable();
         });
+
     </script>
 
 

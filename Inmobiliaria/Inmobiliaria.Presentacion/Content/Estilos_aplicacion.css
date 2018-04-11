@@ -23,5 +23,10 @@
         background-image: url(../)
     }
 
+.btn-busqueda-avanazada {
+    float: right;
+    margin: 0% 1% 3% 0%;
+}
 
 /**************************FINAL LISTAR INMUEBLES***********************************/
+
