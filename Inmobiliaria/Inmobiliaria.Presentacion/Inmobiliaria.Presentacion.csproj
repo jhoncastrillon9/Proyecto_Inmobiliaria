@@ -263,6 +263,7 @@
     <Content Include="Content\Imagenes\Background_Teclado.jpg" />
     <Content Include="Content\Imagenes\Logo_inmoapp.png" />
     <Content Include="Content\Imagenes\nube-03.jpg" />
+    <Content Include="Content\Imagenes\Spriner.gif" />
     <Content Include="Content\lib\menubar\sidebar.css" />
     <Content Include="Content\lib\metismenu\menu.css" />
     <Content Include="Content\lib\preloader\pace.css" />
