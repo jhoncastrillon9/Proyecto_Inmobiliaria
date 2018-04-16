@@ -1,66 +1,221 @@
-﻿@model InmobiliariaDTO
-<!--En el arcgivo cobfig se guardo la rel nbame space de la ruta de dominio y las clases estan publicas-->
-@{
-    /**/
-
-    Layout = "~/Views/Shared/_Menu_Cliente.cshtml";
-
-}
-
-
-@*div general para que quede centrado +-*@
-<div class="links-card">
-
-    <div class="card">
-        <div class="card-header">
-            <div class="nav nav-tabs card-header-tabs">
-                @*tab para cada elemento qu queramos incluir en el menu de la card (se enlaza por medio del HREF con el contenido a renderizar en ese tab)*@
-                <a class="nav-item nav-link active" id="nav-listageneral-tab" data-toggle="tab" href="#nav-listageneral" role="tab" aria-controls="nav-listageneral" aria-selected="true">
-                    <i class="fas fa-home"></i>&ensp;Inmuebles
-                </a>
-                <a class="nav-item nav-link" id="nav-agregar-tab" data-toggle="tab" href="#nav-agregar" role="tab" aria-controls="nav-agregar" aria-selected="false">
-                    <i class="fas fa-user-plus"></i>&ensp;Agregar Inmueble
-                </a>
-                <a class="nav-item nav-link" id="nav-inmueblesxclientes-tab" data-toggle="tab" href="#nav-inmueblesxclientes" role="tab" aria-controls="nav-inmueblesxclientes" aria-selected="false">
-                    <i class="fas fa-exchange-alt"></i>&ensp;Inmuebles x Clientes
-                </a>
-            </div>
-        </div>
-
-
-        <div class="card-body">
-
-            <div class="tab-content" id="nav-tabContent">
-                @*contenido de la tab que por defecto esta activa lista de inmubeles*@
-                <div class="tab-pane fade show active" id="nav-listageneral" role="tabpanel">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
-
-                @*contenido para inmueble nuevo*@
-                <div class="tab-pane fade" id="nav-agregar" role="tabpanel">
-                    Bebe
-                </div>
-
-
-                <div class="tab-pane fade" id="nav-inmueblesxclientes" role="tabpanel">
-                    como esta
-                </div>
-            </div>
-
-
-
-        </div>
+﻿
+@*<div class="row">
+    <div class="col-md-12">
+        <input type="button" name="name" value="Busqueda Avanzada" class="btn btn-primary btn-sm btn-busqueda-avanazada"/>
     </div>
+</div>*@
+
+
+<table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
+    <thead class="thead-table">
+        <tr>
+            <th>Codigo</th>
+            <th>Titulo</th>
+            <th>Estado</th>
+            <th>Precio</th>
+            <th>Habitaciones</th>
+            <th>Baños</th>
+            <th>Porteria</th>
+            <th>Piscina</th>
+            <th>Categoria</th>
+            <th>Zona</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+
+            <td>F515R125</td>
+            <td>Priermpo</td>
+            <td>No Disponible</td>
+            <td>780000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Casa</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>   
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>1500000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Casa</td>
+            <td>Caicedo</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>1500000</td>
+            <td>1</td>
+            <td>3</td>
+            <td>NO</td>
+            <td>No</td>
+            <td>Casa</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>F515R125</td>
+            <td>Casa Aires</td>
+            <td>No Disponible</td>
+            <td>780000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>ApartaEstudio</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>1500000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>NO</td>
+            <td>No</td>
+            <td>Casa</td>
+            <td>Popular</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>F515R125</td>
+            <td>Casa Aires</td>
+            <td>No Disponible</td>
+            <td>780000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Lote</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>784100</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>ApartaEstudio</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>1500000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Casa</td>
+            <td>Latinco</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>1500000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Lote</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>1500000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Casa</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+        <tr>
+
+            <td>FR125</td>
+            <td>Casa En Buenos Aires</td>
+            <td>Activo</td>
+            <td>985200</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>ApartaEstudio</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+
+        </tr>
+        <tr>
+
+            <td>F515R125</td>
+            <td>Casa Aires</td>
+            <td>No Disponible</td>
+            <td>985000</td>
+            <td>5</td>
+            <td>3</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Lote</td>
+            <td>Buenos aires</td>
+            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+        </tr>
+
+    </tbody>
+
+    <tfoot id="footer-table-input" class="footer-input">
+        <tr>
+            <th>Codigo</th>
+            <th>Titulo</th>
+            <th>Estado</th>
+            <th>Precio</th>
+            <th>Habitaciones</th>
+            <th>Baños</th>
+            <th>Porteria</th>
+            <th>Piscina</th>
+            <th>Categoria</th>
+            <th>Zona</th>
+            <th>Opciones</th>
+
+        </tr>
+    </tfoot>
+
+</table>
 
 
 
 
 
-</div>
-
-
-@*Funcion para hacer focus en un elemento*@
-<script type="text/javascript">
-    foco("nav-listageneral-tab");
-</script>

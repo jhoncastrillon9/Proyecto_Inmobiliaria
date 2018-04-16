@@ -1,0 +1,21 @@
+﻿@model InmobiliariaDTO
+<!--En el arcgivo cobfig se guardo la rel nbame space de la ruta de dominio y las clases estan publicas-->
+@{
+    /**/
+
+    Layout = "~/Views/Shared/_Menu_Cliente.cshtml";
+
+}
+
+
+
+@RenderPage("~/Views/Shared/_SubMenu_Inmueble.cshtml")
+
+
+
+
+
+@*Funcion para hacer focus en un elemento*@
+<script type="text/javascript">
+    foco("nav-listageneral-tab");
+</script>

@@ -1,0 +1,50 @@
+﻿@*div general para que quede centrado +-*@
+<div class="links-card">
+    <div class="card">
+        <div class="card-header">
+            <div class="nav nav-tabs card-header-tabs">
+                @*tab para cada elemento qu queramos incluir en el menu de la card (se enlaza por medio del HREF con el contenido a renderizar en ese tab)*@
+                <a class="nav-item nav-link active" id="nav-listageneral-tab" data-toggle="tab" href="#nav-listageneral" role="tab" aria-controls="nav-listageneral" aria-selected="true">
+                    <i class="fas fa-home"></i>&ensp;Inmuebles
+                </a>
+                <a class="nav-item nav-link" id="nav-agregar-tab" data-toggle="tab" href="#nav-agregar" role="tab" aria-controls="nav-agregar" aria-selected="false">
+                    <i class="fas fa-user-plus"></i>&ensp;Agregar Inmueble
+                </a>
+                <a class="nav-item nav-link" id="nav-inmueblesxclientes-tab" data-toggle="tab" href="#nav-inmueblesxclientes" role="tab" aria-controls="nav-inmueblesxclientes" aria-selected="false">
+                    <i class="fas fa-exchange-alt"></i>&ensp;Inmuebles x Clientes
+                </a>
+                <a class="nav-item nav-link" id="nav-actualizar-tab" data-toggle="tab" href="#nav-actualizar" role="tab" aria-controls="nav-actualizar" aria-selected="false">
+                    <i class="fas fa-pencil-alt"></i>&ensp;Actualizar Inmueble
+                </a>
+                <a class="nav-item nav-link" id="nav-detalle-tab" data-toggle="tab" href="#nav-detalle" role="tab" aria-controls="nav-detalle" aria-selected="false">
+                    <i class="fas fa-pencil-alt"></i>&ensp;Detalle Inmueble
+                </a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="tab-content" id="nav-tabContent">
+                @*contenido de la tab que por defecto esta activa lista de inmubeles*@
+                <div class="tab-pane fade show active" id="nav-listageneral" role="tabpanel">
+                    @RenderPage("~/Views/Inmuebles/Listar_Inmuebles.cshtml")
+                </div>
+                @*contenido para inmueble nuevo*@
+                <div class="tab-pane fade" id="nav-agregar" role="tabpanel">
+                    @RenderPage("~/Views/Inmuebles/Nuevo_Inmuebles.cshtml")
+                </div>
+                @*contenido para inmuebles x clientes*@
+                <div class="tab-pane fade" id="nav-inmueblesxclientes" role="tabpanel">
+                    @RenderPage("~/Views/Inmuebles/Listar_Inmuebles.cshtml")
+                </div>
+                @*contenido para actualizar*@
+                <div class="tab-pane fade" id="nav-actualizar" role="tabpanel">
+                    @RenderPage("~/Views/Inmuebles/Editar_Inmuebles.cshtml")
+                </div>
+                @*contenido para Detalle*@
+                <div class="tab-pane fade" id="nav-detalle" role="tabpanel">
+                    @RenderPage("~/Views/Inmuebles/Detalle_Inmueble.cshtml")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
