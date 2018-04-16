@@ -1,219 +1,234 @@
 ﻿
-@*<div class="row">
-    <div class="col-md-12">
-        <input type="button" name="name" value="Busqueda Avanzada" class="btn btn-primary btn-sm btn-busqueda-avanazada"/>
+@{
+    /*Carga Layout*/
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
+
+
+
+<div class="container-table">
+    <div class="row col-md-12 container-title">
+        <div class="title-table">
+            Inmuebles
+        </div>
     </div>
-</div>*@
+    <table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
+        <thead class="thead-table">
+            <tr>
+                <th>Codigo</th>
+                <th>Titulo</th>
+                <th>Estado</th>
+                <th>Precio</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Porteria</th>
+                <th>Piscina</th>
+                <th>Categoria</th>
+                <th>Zona</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+
+                <td>F515R125</td>
+                <td>Priermpo</td>
+                <td>No Disponible</td>
+                <td>780000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Caicedo</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>1</td>
+                <td>3</td>
+                <td>NO</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>F515R125</td>
+                <td>Casa Aires</td>
+                <td>No Disponible</td>
+                <td>780000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>ApartaEstudio</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>NO</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Popular</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>F515R125</td>
+                <td>Casa Aires</td>
+                <td>No Disponible</td>
+                <td>780000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Lote</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>784100</td>
+                <td>2</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>ApartaEstudio</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Latinco</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Lote</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+            <tr>
+
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>985200</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>ApartaEstudio</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+
+            </tr>
+            <tr>
+
+                <td>F515R125</td>
+                <td>Casa Aires</td>
+                <td>No Disponible</td>
+                <td>985000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Lote</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
+            </tr>
+
+        </tbody>
+
+        <tfoot id="footer-table-input" class="footer-input">
+            <tr>
+                <th>Codigo</th>
+                <th>Titulo</th>
+                <th>Estado</th>
+                <th>Precio</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Porteria</th>
+                <th>Piscina</th>
+                <th>Categoria</th>
+                <th>Zona</th>
+                <th>Opciones</th>
+
+            </tr>
+        </tfoot>
+
+    </table>
+
+</div>
 
 
-<table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
-    <thead class="thead-table">
-        <tr>
-            <th>Codigo</th>
-            <th>Titulo</th>
-            <th>Estado</th>
-            <th>Precio</th>
-            <th>Habitaciones</th>
-            <th>Baños</th>
-            <th>Porteria</th>
-            <th>Piscina</th>
-            <th>Categoria</th>
-            <th>Zona</th>
-            <th>Opciones</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        <tr>
-
-            <td>F515R125</td>
-            <td>Priermpo</td>
-            <td>No Disponible</td>
-            <td>780000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Casa</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>   
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>1500000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Casa</td>
-            <td>Caicedo</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>1500000</td>
-            <td>1</td>
-            <td>3</td>
-            <td>NO</td>
-            <td>No</td>
-            <td>Casa</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>F515R125</td>
-            <td>Casa Aires</td>
-            <td>No Disponible</td>
-            <td>780000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>ApartaEstudio</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>1500000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>NO</td>
-            <td>No</td>
-            <td>Casa</td>
-            <td>Popular</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>F515R125</td>
-            <td>Casa Aires</td>
-            <td>No Disponible</td>
-            <td>780000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Lote</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>784100</td>
-            <td>2</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>ApartaEstudio</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>1500000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Casa</td>
-            <td>Latinco</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>1500000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Lote</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>1500000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Casa</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-        <tr>
-
-            <td>FR125</td>
-            <td>Casa En Buenos Aires</td>
-            <td>Activo</td>
-            <td>985200</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>ApartaEstudio</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-
-        </tr>
-        <tr>
-
-            <td>F515R125</td>
-            <td>Casa Aires</td>
-            <td>No Disponible</td>
-            <td>985000</td>
-            <td>5</td>
-            <td>3</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>Lote</td>
-            <td>Buenos aires</td>
-            <td> <a href="#"><i class="material-icons icon-ver">visibility</i></a>  <a href="#"><i class="material-icons icon-editar">rotate_right</i></a>  <a href="#"><i class="material-icons icon-eliminar">delete_forever</i></a></td>
-        </tr>
-
-    </tbody>
-
-    <tfoot id="footer-table-input" class="footer-input">
-        <tr>
-            <th>Codigo</th>
-            <th>Titulo</th>
-            <th>Estado</th>
-            <th>Precio</th>
-            <th>Habitaciones</th>
-            <th>Baños</th>
-            <th>Porteria</th>
-            <th>Piscina</th>
-            <th>Categoria</th>
-            <th>Zona</th>
-            <th>Opciones</th>
-
-        </tr>
-    </tfoot>
-
-</table>
 
 
 

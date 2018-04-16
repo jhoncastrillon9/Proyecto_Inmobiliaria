@@ -1,43 +1,227 @@
-﻿body {
+﻿/**************************BANNER SUPERIOR***********************************/
+.banner-superior {
+    background-color: #2196F3;
+    height: 80px;
 }
 
+    .banner-superior .conten-logo {
+        height: 100%;
+        padding-left: 3%;
+    }
+
+        .banner-superior .conten-logo div {
+            height: 100%;
+            background-size: 75%;
+            background-repeat: no-repeat;
+            background-image: url(Imagenes/Logo_2018_blue.png);
+            margin-top: 1%;
+        }
+
+    .banner-superior .nombre-inmobiliaria {
+        font-family: 'Myanmar Text';
+        color: white;
+        font-size: 35px;
+        text-align: center;
+        align-items: center;
+        padding-top: 1%;
+    }
+
+        .banner-superior .nombre-inmobiliaria div {
+            padding-top: 4.4%;
+        }
+
+        .banner-superior .nombre-inmobiliaria .icon-home {
+            font-size: 40px;
+        }
+
+    .banner-superior .nombre {
+        padding-top: 9%;
+    }
+
+.nombre-usuario {
+    background-color: white;
+    border-radius: 0px 0px 15px 15px;
+    height: 50%;
+}
+
+
+    .nombre-usuario a:hover {
+        text-decoration: none;
+    }
+
+    .nombre-usuario .saludo-nombre {
+        color: #2196F3;
+        font-size: 25px;
+        text-align: center;
+    }
+
+.cerrar-session {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+    .cerrar-session .btn-cerrar-session {
+        background-color: #4CAF50;
+        color: white !important;
+        font-size: 20px;
+        float: right;
+        padding: 1% 10% 1% 10%;
+        margin-top: 8%;
+        border-radius: 10px 0px 0px 10px;
+    }
+
+        .cerrar-session .btn-cerrar-session:hover {
+            text-decoration: none;
+            background-color: #56c55a;
+        }
+
+/**************************BANNER SUPERIOR***********************************/
+
+
+/**************************Menu inferior***********************************/
+.menu-inferior {
+    background-color: #0063B1;
+    height: 40px;
+    margin: 0 !important;
+}
+
+    .menu-inferior .navbar-principial {
+        color: white !important;
+        padding: 0% 15% 0% 15%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+/* menu */
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+    /* items del menu */
+
+    #menu ul li {
+        background-color: #0063B1;
+    }
+
+    /* enlaces del menu */
+
+    #menu ul a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 20px;
+        padding: 5px;
+        font-family: Candara;
+        letter-spacing: 1px;
+    }
+
+    /* items del menu */
+
+    #menu ul li {
+        position: relative;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+        /* efecto al pasar el ratón por los items del menu */
+
+        #menu ul li:hover {
+            background: #4CAF50;
+        }
+
+    /* menu desplegable */
+
+    #menu ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #eee;
+        padding: 0;
+    }
+
+        /* items del menu desplegable */
+
+        #menu ul ul li {
+            float: none;
+            width: 150px
+        }
+
+        /* enlaces de los items del menu desplegable */
+
+        #menu ul ul a {
+            line-height: 120%;
+            padding: 10px 15px;
+        }
+
+    /* items del menu desplegable al pasar el ratón */
+
+    #menu ul li:hover > ul {
+        display: block;
+    }
+
+
+
+/**************************Menu inferior***********************************/
+
+
+/**************************Tabla***********************************/
+.container-table {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 0%;
+}
+
+#table-inmuebles_wrapper .row:first-of-type {
+    background-color: #4CAF50;
+    color: white;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    border-radius: 10px;
+    margin: 0px;
+}
+
+
+
+
+/**************************Tabla***********************************/
 /**************************LISTAR INMUEBLES***********************************/
-.links-card {
-    padding: 0% 2% 0% 2%;
-}
-
-    .card-header a {
-        color: gray !important;
-    }
-
-    .card-header a:hover {
-        color: white !important;
-        background-color: #FF660C;
-    }
-
-    .card-header a:focus {
-        color: white !important;
-        background-color: #FF660C !important;
-        background-image: url(../)
-    }
 
 .btn-busqueda-avanazada {
     float: right;
     margin: 0% 1% 3% 0%;
 }
 
+.container-title {
+    top: 55px;
+}
+.title-table {
+    color: white;
+    padding-left: 40%;
+    font-family:    Candara;
+    font-size: 40px;
+}
 .table {
     font-size: 12px !important;
 }
 
-.table a:hover{
+table tbody tr {
+
+}
+
+.table a:hover {
     background-color: none !important;
 }
 
 .table-hover tbody tr:hover {
-    background-color: #ff9d3f !important;
+    background-color: #2196F3 !important;
     color: white !important;
-    zoom: 120%
+    font-size: 120%;
 }
 
     .table-hover tbody tr:hover td i {
@@ -49,26 +233,22 @@
 }
 
 .thead-table {
-    background-color: #FF660C;
+    background-color: #2196F3;
     color: white;
     border-radius: 45%;
     text-align: center;
+    font-size: medium;
+
 }
 
 .footer-input {
     font-size: 95%;
 }
 
-.tr td a{
+.tr td a {
     font-size: 10px;
     color: dodgerblue;
 }
-
-
-
-
-
-
 
 /**************************FINAL LISTAR INMUEBLES***********************************/
 

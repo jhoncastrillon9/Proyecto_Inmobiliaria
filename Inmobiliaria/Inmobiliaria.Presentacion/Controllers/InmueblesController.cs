@@ -19,5 +19,11 @@ namespace Inmobiliaria.Presentacion.Controllers
         {
             return View();
         }
+
+        // GET: Inmuebles
+        public ActionResult Listar_Inmuebles()
+        {
+            return View();
+        }
     }
 }
