@@ -384,6 +384,7 @@
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\Scripts_App.js" />
     <Content Include="Scripts\sidebarmenu.js" />
+    <Content Include="Scripts\TadaTables_Iniciar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -476,6 +477,7 @@
     <Content Include="Scripts\Spanish.json" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_ContainerMenu.cshtml" />
+    <Content Include="Views\Inmuebles\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -8,14 +8,17 @@
 
 @RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
 
-
-
+<div class="text-ubicacion">Inicio / Inmuebles / Listado</div>
+<div class="title row">
+    <div class="icon">
+        <i class="material-icons">home</i>
+    </div>
+    <div class="title-name">
+        <span>Lista de inmuebles</span>
+    </div>
+</div>
 <div class="container-table">
-    <div class="text-ubicacion">Inicio / Inmuebles / Listado</div>
     <div class="row col-md-12 container-title">
-        <div class="title-table">
-            Inmuebles
-        </div>
     </div>
     <table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
         <thead class="thead-table">
@@ -47,24 +50,28 @@
                 <td>No</td>
                 <td>Casa</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
-            <tr>
+            @for (int i = 0; i < 900; i++)
+            {
+                <tr>
 
-                <td>FR125</td>
-                <td>Casa En Buenos Aires</td>
-                <td>Activo</td>
-                <td>1500000</td>
-                <td>5</td>
-                <td>3</td>
-                <td>Si</td>
-                <td>No</td>
-                <td>Casa</td>
-                <td>Caicedo</td>
-                <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
-            </tr>
-            <tr>
+                    <td>FR125</td>
+                    <td>Casa </td>
+                    <td>Activo</td>
+                    <td>1500000</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>Si</td>
+                    <td>No</td>
+                    <td>Casa</td>
+                    <td>Caicedo</td>
+                    <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+                </tr>
+            }
 
+
+            <tr>
                 <td>FR125</td>
                 <td>Casa En Buenos Aires</td>
                 <td>Activo</td>
@@ -75,7 +82,7 @@
                 <td>No</td>
                 <td>Casa</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -89,7 +96,7 @@
                 <td>No</td>
                 <td>ApartaEstudio</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -103,7 +110,7 @@
                 <td>No</td>
                 <td>Casa</td>
                 <td>Popular</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -117,7 +124,7 @@
                 <td>No</td>
                 <td>Lote</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -131,7 +138,7 @@
                 <td>No</td>
                 <td>ApartaEstudio</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -145,7 +152,7 @@
                 <td>No</td>
                 <td>Casa</td>
                 <td>Latinco</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -159,7 +166,7 @@
                 <td>No</td>
                 <td>Lote</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -173,7 +180,7 @@
                 <td>No</td>
                 <td>Casa</td>
                 <td>Buenos aires</td>
-                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-ver">laptop</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
             <tr>
 
@@ -187,7 +194,7 @@
                 <td>No</td>
                 <td>ApartaEstudio</td>
                 <td>Buenos aires</td>
-                <td> <a href="#"><i class="material-icons icon-ver">laptop</i></a>  <a href="#"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#"><i class="material-icons icon-table ver">done</i></a>  <a href="#"><i class="material-icons icon-table editar">loop</i></a>  <a href="#"><i class="material-icons icon-table eliminar">clear</i></a></td>
 
             </tr>
             <tr>
@@ -202,7 +209,7 @@
                 <td>No</td>
                 <td>Lote</td>
                 <td>Buenos aires</td>
-                <td> <a href="#"><i class="material-icons icon-ver">laptop</i></a>  <a href="#"><i class="material-icons icon-editar">mode_edit</i></a>  <a href="#"><i class="material-icons icon-eliminar">clear</i></a></td>
+                <td> <a href="#"><i class="material-icons icon-table ver">done</i></a>  <a href="#"><i class="material-icons icon-table editar">loop</i></a>  <a href="#"><i class="material-icons icon-table eliminar">clear</i></a></td>
             </tr>
 
         </tbody>
@@ -227,11 +234,6 @@
     </table>
 
 </div>
-
-
-
-
-
 
 
 

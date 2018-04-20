@@ -1,175 +1,114 @@
-﻿/**************************BANNER SUPERIOR***********************************/
-.banner-superior {
-    background-color: #2196F3;
-    height: 80px;
+﻿/******************nav*******************/
+.container-menu {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin: 0px;
+    background-color: #00bcd4 !important;
 }
 
-    .banner-superior .conten-logo {
-        height: 100%;
-        padding-left: 3%;
+    .container-menu .menu {
+        padding: 0px;
     }
 
-        .banner-superior .conten-logo div {
-            height: 100%;
-            background-size: 75%;
-            background-repeat: no-repeat;
-            background-image: url(Imagenes/Logo_2018_blue.png);
-            margin-top: 1%;
-        }
-
-    .banner-superior .nombre-inmobiliaria {
-        font-family: 'Myanmar Text';
-        color: white;
-        font-size: 35px;
-        text-align: center;
-        align-items: center;
-        padding-top: 1%;
-    }
-
-        .banner-superior .nombre-inmobiliaria div {
-            padding-top: 4.4%;
-        }
-
-        .banner-superior .nombre-inmobiliaria .icon-home {
-            font-size: 40px;
-        }
-
-    .banner-superior .nombre {
-        padding-top: 9%;
-    }
-
-.nombre-usuario {
-    background-color: white;
-    border-radius: 0px 0px 15px 15px;
-    height: 50%;
+.usuario {
+    padding-top: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
 }
 
-
-    .nombre-usuario a:hover {
-        text-decoration: none;
-    }
-
-    .nombre-usuario .saludo-nombre {
-        color: #2196F3;
-        font-size: 25px;
-        text-align: center;
-    }
-
-.cerrar-session {
-    padding: 0px !important;
-    margin: 0px !important;
+.container-menu row .salir {
 }
 
-    .cerrar-session .btn-cerrar-session {
-        background-color: #4CAF50;
-        color: white !important;
-        font-size: 20px;
-        float: right;
-        padding: 1% 10% 1% 10%;
-        margin-top: 8%;
-        border-radius: 10px 0px 0px 10px;
-    }
-
-        .cerrar-session .btn-cerrar-session:hover {
-            text-decoration: none;
-            background-color: #56c55a;
-        }
-
-/**************************BANNER SUPERIOR***********************************/
-
-
-/**************************Menu inferior***********************************/
-.menu-inferior {
-    background-color: #0063B1;
-    height: 40px;
-    margin: 0 !important;
+.salir span {
+    background-color: #cddc39;
+    border-radius: 8%;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-weight: bold;
+    color: white;
 }
 
-    .menu-inferior .navbar-principial {
-        color: white !important;
-        padding: 0% 15% 0% 15%;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-
-/* menu */
-
-#menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+.navbar {
+    color: white !important;
+    background-color: #00bcd4 !important;
 }
 
-    /* items del menu */
-
-    #menu ul li {
-        background-color: #0063B1;
+    .navbar .navbar-brand {
+        height: 60px;
     }
 
-    /* enlaces del menu */
-
-    #menu ul a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 400;
-        font-size: 20px;
-        padding: 5px;
-        font-family: Candara;
-        letter-spacing: 1px;
-    }
-
-    /* items del menu */
-
-    #menu ul li {
-        position: relative;
-        float: left;
-        margin: 0;
-        padding: 0;
-    }
-
-        /* efecto al pasar el ratón por los items del menu */
-
-        #menu ul li:hover {
-            background: #4CAF50;
+        .navbar .navbar-brand img {
+            max-height: 90%;
         }
 
-    /* menu desplegable */
+.navbar-collapse ul li a {
+    color: white !important;
+}
 
-    #menu ul ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #eee;
-        padding: 0;
+.navbar-collapse ul li div a {
+    color: #212529 !important;
+}
+
+.dropdown-toggle::after {
+    display: none
+}
+/******************end nav*******************/
+/******************Titulos*******************/
+.text-ubicacion {
+    color: #6D6D6D;
+    font-size: 16px;
+    font-family: Calibri;
+    text-align: right;
+    padding-right: 20px;
+    float: right;
+}
+
+.title {
+    font-size: 24px;
+    color: gray;
+    margin-top: 10px;
+}
+
+    .title .icon {
+        margin-left: 7%;
+        margin-right: 5px;
     }
 
-        /* items del menu desplegable */
-
-        #menu ul ul li {
-            float: none;
-            width: 150px
+        .title .icon i {
+            font-size: 46px;
+            color: white;
+            background-color: #cddc39;
+            border-radius: 50%;
+            padding: 4%;
         }
 
-        /* enlaces de los items del menu desplegable */
-
-        #menu ul ul a {
-            line-height: 120%;
-            padding: 10px 15px;
-        }
-
-    /* items del menu desplegable al pasar el ratón */
-
-    #menu ul li:hover > ul {
-        display: block;
+    .title .title-name {
+        font-size: 30px;
     }
 
+.icon-table {
+    color: #cddc39;
+    font-size: 30px !important;
+    text-shadow: -1px 1px 1px #888888;
+}
 
+    .icon-table.eliminar {
+        color: #cddc39;
+        font-weight: bold !important;
+    }
 
-/**************************Menu inferior***********************************/
+    .icon-table.ver {
+        color: #cddc39;
+    }
 
-
+    .icon-table.editar {
+        color: #cddc39;
+    }
+/******************End Titulos*******************/
+/******************end nav*******************/
 /**************************Tabla***********************************/
 .container-table {
     padding-left: 5%;
@@ -178,15 +117,26 @@
 }
 
 #table-inmuebles_wrapper .row:first-of-type {
-    background-color: #4CAF50;
-    color: white;
+    
+    color: black;
     padding-top: 1%;
     padding-bottom: 0.5%;
     border-radius: 10px;
     margin: 0px;
 }
 
+.thead-table {
+    background-color: #00bcd4;
+    color: white;
+    border-radius: 45%;
+    text-align: center;
+    font-size: medium;
+}
 
+.page-item.active .page-link {
+    background-color: #00bcd4 !important;
+    border-color: #00bcd4 !important;
+}
 
 
 /**************************Tabla***********************************/
@@ -200,18 +150,19 @@
 .container-title {
     top: 55px;
 }
+
 .title-table {
-    color: white;
+    color: #2f2f2f;
     padding-left: 40%;
-    font-family:    Candara;
+    font-family: Candara;
     font-size: 40px;
 }
+
 .table {
-    font-size: 12px !important;
+    font-size: 14px !important;
 }
 
 table tbody tr {
-
 }
 
 .table a:hover {
@@ -219,26 +170,13 @@ table tbody tr {
 }
 
 .table-hover tbody tr:hover {
-    background-color: #2196F3 !important;
-    color: white !important;
-    font-size: 120%;
+    background-color: #e0e0e0 !important;
+    color: #2f2f2f !important;
+    font-size: 110%;
 }
-
-    .table-hover tbody tr:hover td i {
-        color: white !important;
-    }
 
 .table-bordered td, .table-bordered th {
     border: none !important;
-}
-
-.thead-table {
-    background-color: #2196F3;
-    color: white;
-    border-radius: 45%;
-    text-align: center;
-    font-size: medium;
-
 }
 
 .footer-input {
