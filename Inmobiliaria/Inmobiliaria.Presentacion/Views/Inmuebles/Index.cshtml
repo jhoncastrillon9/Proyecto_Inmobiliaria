@@ -8,14 +8,32 @@
 
 @RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
 
-<div class="text-ubicacion">Inicio / Inmuebles / Listado</div>
+<div class="text-ubicacion">@ViewBag.ubicacion</div>
 <div class="title row">
+
     <div class="icon">
-        <i class="material-icons">home</i>
+        <i class="material-icons">@ViewBag.icon</i>
     </div>
     <div class="title-name">
-        <span>Lista de inmuebles</span>
+        <span>@ViewBag.titulo</span>
     </div>
+
+    <div class="col-md-2"></div>
+
+    <a class="btn-information ">
+        <span class="cant">12</span>
+        <span class="text-cant">Inmuebles</span>
+
+    </a>
+    <a class="btn-information ">
+        <span class="cant">71</span>
+        <span class="text-cant">Activos</span>
+    </a>
+    <a class="btn-information ">
+        <span class="cant">62</span>
+        <span class="text-cant">Ocupados</span>
+    </a>
+
 </div>
 <div class="container-table">
     <div class="row col-md-12 container-title">

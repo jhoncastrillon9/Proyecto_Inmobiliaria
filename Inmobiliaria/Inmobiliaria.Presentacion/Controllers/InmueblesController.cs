@@ -12,6 +12,11 @@ namespace Inmobiliaria.Presentacion.Controllers
         // GET: Inmuebles
         public ActionResult Index()
         {
+
+            ViewBag.ubicacion = "Inicio / Inmuebles / Listado";
+            ViewBag.titulo = "Lista de Inmuebles!";
+            ViewBag.icon = "home";
+
             return View();
         }
     }
