@@ -257,21 +257,15 @@
     <Content Include="Content\Estilos\Bootstrap\bootstrap.min.css" />
     <Content Include="Content\Estilos\Site.css" />
     <Content Include="Content\Estilos_aplicacion.css" />
-    <Content Include="Content\helper.css" />
+    <Content Include="Content\Icons\home.png" />
     <Content Include="Content\Imagenes\Background_Ciudad.jpg" />
     <Content Include="Content\Imagenes\BackGround_escritorio.jpg" />
     <Content Include="Content\Imagenes\Background_Teclado.jpg" />
+    <Content Include="Content\Imagenes\Logo_2018_blue.png" />
     <Content Include="Content\Imagenes\Logo_inmoapp.png" />
     <Content Include="Content\Imagenes\nube-03.jpg" />
     <Content Include="Content\Imagenes\Spriner.gif" />
-    <Content Include="Content\lib\menubar\sidebar.css" />
-    <Content Include="Content\lib\metismenu\menu.css" />
-    <Content Include="Content\lib\preloader\pace.css" />
-    <Content Include="Content\lib\scrollable\scrollable.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\spinners.css" />
-    <Content Include="Content\style.css" />
-    <Content Include="Content\_Menu_Cliente.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Bootstrap\bootstrap.bundle.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.bundle.min.js" />
@@ -373,7 +367,6 @@
     <Content Include="Scripts\Jquery\jquery-3.3.1.min.js" />
     <Content Include="Scripts\Jquery\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\Jquery\jquery-3.3.1.slim.min.js" />
-    <Content Include="Scripts\lib\sticky-kit-master\dist\sticky-kit.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Popper\popper-utils.js" />
     <Content Include="Scripts\Popper\popper-utils.min.js" />
@@ -382,6 +375,7 @@
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\Scripts_App.js" />
     <Content Include="Scripts\sidebarmenu.js" />
+    <Content Include="Scripts\TadaTables_Iniciar.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -450,7 +444,6 @@
     <Content Include="Views\Inmobiliaria\Listar_Inmobiliaria.cshtml" />
     <Content Include="Views\Inmuebles\Nuevo_Inmuebles.cshtml" />
     <Content Include="Views\Inmuebles\Editar_Inmuebles.cshtml" />
-    <Content Include="Views\Inmuebles\Listar_Inmuebles.cshtml" />
     <Content Include="Views\Municipios\Nuevo_Municipios.cshtml" />
     <Content Include="Views\Municipios\Editar_Municipios.cshtml" />
     <Content Include="Views\Municipios\Listar_Municipios.cshtml" />
@@ -465,14 +458,11 @@
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Usuarios\recuperarcontrasena.cshtml" />
     <Content Include="Views\Usuarios\registrarse.cshtml" />
-    <Content Include="Views\Shared\_Menu_Cliente.cshtml" />
-    <Content Include="Views\Inmuebles\_Index_Tab_Inmuebles.cshtml" />
     <Content Include="Views\Inmuebles\Detalle_Inmueble.cshtml" />
-    <Content Include="Views\Shared\_SubMenu_Inmueble.cshtml" />
-    <Content Include="Views\Inmuebles\_CargarDetalle.cshtml" />
-    <Content Include="Views\Inmuebles\_CargarActualizar.cshtml" />
     <Content Include="Scripts\Spanish.json" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_ContainerMenu.cshtml" />
+    <Content Include="Views\Inmuebles\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

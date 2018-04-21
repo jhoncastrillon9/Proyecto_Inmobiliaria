@@ -9,14 +9,14 @@ namespace Inmobiliaria.Presentacion.Controllers
     public class InmueblesController : Controller
     {
         // GET: Inmuebles
-        public ActionResult _Index_Tab_Inmuebles()
-        {
-            return View();
-        }
-        
         // GET: Inmuebles
-        public ActionResult _CargarDetalle()
+        public ActionResult Index()
         {
+
+            ViewBag.ubicacion = "Inicio / Inmuebles / Listado";
+            ViewBag.titulo = "Lista de Inmuebles!";
+            ViewBag.icon = "home";
+
             return View();
         }
     }
