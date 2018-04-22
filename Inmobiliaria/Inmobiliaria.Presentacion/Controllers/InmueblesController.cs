@@ -19,9 +19,10 @@ namespace Inmobiliaria.Presentacion.Controllers
         public ActionResult Index()
         {
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/api/Inmuebles/");
+
+            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
-            var request = clienteHttp.GetAsync("api/Inmuebles").Result;
+            var request = clienteHttp.GetAsync("api/InmueblesApi").Result;
 
             //variables para el view
             ViewBag.ubicacion = "Inicio / Inmuebles / Listado";
@@ -32,18 +33,29 @@ namespace Inmobiliaria.Presentacion.Controllers
             if (request.IsSuccessStatusCode)
             {
                 //Leemos el resultado
-                var resulstring = request.Content.ReadAsStringAsync().Result;
+                string resulstring = request.Content.ReadAsStringAsync().Result;
 
-                var ListadoInmuebles = JsonConvert.DeserializeObject<List<InmueblesDTO>>(resulstring);
-
-
+                var ListadoInmuebles = JsonConvert.DeserializeObject<List<InmueblesDTO>>(resulstring).ToList();
 
 
                 return View(ListadoInmuebles);
             }
 
+            return View(new List<InmueblesDTO>());
+
+        }
+
+        // GET: Inmuebles New
+        public ActionResult New_Inmuebles()
+        {
+            //variables para el view
+            ViewBag.ubicacion = "Inicio / Inmuebles / Nuevo Inmueble";
+            ViewBag.titulo = "Crear Inmueble";
+            ViewBag.icon = "queue";            
+
             return View();
 
         }
     }
+
 }

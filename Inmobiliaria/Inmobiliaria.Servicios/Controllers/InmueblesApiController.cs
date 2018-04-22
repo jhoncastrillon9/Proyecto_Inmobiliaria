@@ -8,12 +8,13 @@ using System.Web.Http;
 
 namespace Inmobiliaria.Servicios.Controllers
 {
-    public class InmueblesController : ApiController
+    public class InmueblesApiController : ApiController
     {
         Inmobiliaria_DesarrolloEntities BD = new Inmobiliaria_DesarrolloEntities();
 
         [HttpGet]
         public IEnumerable<Inmuebles> Get()
+
         {    
             var LInmuebles = BD.Inmuebles.ToList();
 

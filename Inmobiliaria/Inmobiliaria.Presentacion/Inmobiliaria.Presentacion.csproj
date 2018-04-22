@@ -445,7 +445,7 @@
     <Content Include="Views\Inmobiliaria\Nuevo_Inmobiliaria.cshtml" />
     <Content Include="Views\Inmobiliaria\Editar_Inmobiliaria.cshtml" />
     <Content Include="Views\Inmobiliaria\Listar_Inmobiliaria.cshtml" />
-    <Content Include="Views\Inmuebles\Nuevo_Inmuebles.cshtml" />
+    <Content Include="Views\Inmuebles\New_Inmuebles.cshtml" />
     <Content Include="Views\Inmuebles\Editar_Inmuebles.cshtml" />
     <Content Include="Views\Municipios\Nuevo_Municipios.cshtml" />
     <Content Include="Views\Municipios\Editar_Municipios.cshtml" />
@@ -466,6 +466,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_ContainerMenu.cshtml" />
     <Content Include="Views\Inmuebles\Index.cshtml" />
+    <Content Include="Views\Shared\_Container_Header.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -479,6 +480,10 @@
     <Folder Include="Content\Fuentes\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Inmobiliaria.Datos\Inmobiliaria.Datos.csproj">
+      <Project>{1fe8f3c6-ed96-43fe-aa1a-17f05a30ea18}</Project>
+      <Name>Inmobiliaria.Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inmobiliaria.Dominio\Inmobiliaria.Dominio.csproj">
       <Project>{0eabbc40-e0b5-4dae-b35c-ac397cd6654f}</Project>
       <Name>Inmobiliaria.Dominio</Name>

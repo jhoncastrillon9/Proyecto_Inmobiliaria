@@ -20,7 +20,7 @@ namespace Inmobiliaria.Datos.Modelo
             this.Contratos = new HashSet<Contratos>();
             this.Imagenes = new HashSet<Imagenes>();
         }
-    
+
         public int Id { get; set; }
         public Nullable<int> Codigo { get; set; }
         public string Titulo { get; set; }
@@ -45,7 +45,7 @@ namespace Inmobiliaria.Datos.Modelo
         public string Observacion { get; set; }
         public int IdCategoria { get; set; }
         public int IdInmobiliaria { get; set; }
-    
+
         public virtual CategoriaInmuebles CategoriaInmuebles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contratos> Contratos { get; set; }

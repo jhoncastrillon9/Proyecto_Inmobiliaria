@@ -11,14 +11,15 @@ namespace Inmobiliaria.Presentacion.Controllers
         // GET: Home
         public ActionResult Index()
         {
+
+            //variables para el view
+            ViewBag.ubicacion = "Inicio";
+            ViewBag.titulo = "InmobiliariApp";
+            ViewBag.icon = "lightbulb_outline";
+
             return View();
         }
 
-        // GET: Home
-        public ActionResult Listar_CategoriaInmuebles()
-        {
 
-            return View();
-        }
     }
 }

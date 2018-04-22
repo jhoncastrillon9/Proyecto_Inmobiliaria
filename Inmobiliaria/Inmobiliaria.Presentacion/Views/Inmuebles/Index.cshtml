@@ -1,246 +1,219 @@
-﻿@model IEnumerable<Inmobiliaria.Dominio.InmueblesDTO>
-    
-    @{
-        /*Carga Layout*/
+﻿@model List<Inmobiliaria.Dominio.InmueblesDTO>
 
-        Layout = "~/Views/Shared/_Layout.cshtml";
+@{
+    /*Carga Layout*/
 
-    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
-    @RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
+}
 
-    <div class="text-ubicacion">@ViewBag.ubicacion</div>
-    <div class="title row">
+@RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
 
-        <div class="icon">
-            <i class="material-icons">@ViewBag.icon</i>
-        </div>
-        <div class="title-name">
-            <span>@ViewBag.titulo</span>
-        </div>
+@RenderPage("~/Views/Shared/_Container_Header.cshtml")
 
-        <div class="col-md-2"></div>
-
-        <a class="btn-information ">
-            <span class="cant">12</span>
-            <span class="text-cant">Inmuebles</span>
-
-        </a>
-        <a class="btn-information ">
-            <span class="cant">71</span>
-            <span class="text-cant">Activos</span>
-        </a>
-        <a class="btn-information ">
-            <span class="cant">62</span>
-            <span class="text-cant">Ocupados</span>
-        </a>
-
+<div class="container-table">
+    <div class="row col-md-12 container-title">
     </div>
+    <table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
+        <thead class="thead-table">
+            <tr>
+                <th>Codigo</th>
+                <th>Titulo</th>
+                <th>Estado</th>
+                <th>Precio</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Porteria</th>
+                <th>Piscina</th>
+                <th>Categoria</th>
+                <th>Zona</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
 
-    <div class="container-table">
-        <div class="row col-md-12 container-title">
-        </div>
-        <table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
-            <thead class="thead-table">
+        <tbody>
+            @foreach (var Inmueble in Model)
+            {
+
                 <tr>
-                    <th>Codigo</th>
-                    <th>Titulo</th>
-                    <th>Estado</th>
-                    <th>Precio</th>
-                    <th>Habitaciones</th>
-                    <th>Baños</th>
-                    <th>Porteria</th>
-                    <th>Piscina</th>
-                    <th>Categoria</th>
-                    <th>Zona</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-
-                    <td>Prime150</td>
-                    <td>Priermpo</td>
-                    <td>No Disponible</td>
-                    <td>780000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>Casa</td>
-                    <td>Buenos aires</td>
+                    <td>@Inmueble.Codigo</td>
+                    <td>@Inmueble.Titulo</td>
+                    <td>@Inmueble.Estado</td>
+                    <td>@Inmueble.PrecioFinal</td>
+                    <td>@Inmueble.Habitaciones</td>
+                    <td>@Inmueble.Banos</td>
+                    <td>@Inmueble.Porteria</td>
+                    <td>@Inmueble.Piscina</td>
+                    <td>@Inmueble.IdCategoria</td>
+                    <td>@Inmueble.IdZonaMunicipio</td>
                     <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
                 </tr>
-                @foreach (var item in Model)
-                {
-                    @item.
-                }
+            }
 
 
-                <tr>
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>1500000</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>NO</td>
-                    <td>No</td>
-                    <td>Casa</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+            <tr>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>1</td>
+                <td>3</td>
+                <td>NO</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Buenos aires</td>
+                <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>F515R125</td>
-                    <td>Casa Aires</td>
-                    <td>No Disponible</td>
-                    <td>780000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>ApartaEstudio</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>F515R125</td>
+                <td>Casa Aires</td>
+                <td>No Disponible</td>
+                <td>780000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>ApartaEstudio</td>
+                <td>Buenos aires</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>1500000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>NO</td>
-                    <td>No</td>
-                    <td>Casa</td>
-                    <td>Popular</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>NO</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Popular</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>F515R125</td>
-                    <td>Casa Aires</td>
-                    <td>No Disponible</td>
-                    <td>780000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>Lote</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>F515R125</td>
+                <td>Casa Aires</td>
+                <td>No Disponible</td>
+                <td>780000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Lote</td>
+                <td>Buenos aires</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>784100</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>ApartaEstudio</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>784100</td>
+                <td>2</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>ApartaEstudio</td>
+                <td>Buenos aires</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>1500000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>Casa</td>
-                    <td>Latinco</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Latinco</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>1500000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>Lote</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Lote</td>
+                <td>Buenos aires</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>1500000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>Casa</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
-                <tr>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>1500000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Casa</td>
+                <td>Buenos aires</td>
+                <td> <a href="#" title="Ver detalle del inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
+            <tr>
 
-                    <td>FR125</td>
-                    <td>Casa En Buenos Aires</td>
-                    <td>Activo</td>
-                    <td>985200</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>ApartaEstudio</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#"><i class="material-icons icon-table ver">done</i></a>  <a href="#"><i class="material-icons icon-table editar">loop</i></a>  <a href="#"><i class="material-icons icon-table eliminar">clear</i></a></td>
+                <td>FR125</td>
+                <td>Casa En Buenos Aires</td>
+                <td>Activo</td>
+                <td>985200</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>ApartaEstudio</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-table ver">done</i></a>  <a href="#"><i class="material-icons icon-table editar">loop</i></a>  <a href="#"><i class="material-icons icon-table eliminar">clear</i></a></td>
 
-                </tr>
-                <tr>
+            </tr>
+            <tr>
 
-                    <td>F515R125</td>
-                    <td>Casa Aires</td>
-                    <td>No Disponible</td>
-                    <td>985000</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>Si</td>
-                    <td>No</td>
-                    <td>Lote</td>
-                    <td>Buenos aires</td>
-                    <td> <a href="#"><i class="material-icons icon-table ver">done</i></a>  <a href="#"><i class="material-icons icon-table editar">loop</i></a>  <a href="#"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
+                <td>F515R125</td>
+                <td>Casa Aires</td>
+                <td>No Disponible</td>
+                <td>985000</td>
+                <td>5</td>
+                <td>3</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Lote</td>
+                <td>Buenos aires</td>
+                <td> <a href="#"><i class="material-icons icon-table ver">done</i></a>  <a href="#"><i class="material-icons icon-table editar">loop</i></a>  <a href="#"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
 
-            </tbody>
+        </tbody>
 
-            <tfoot id="footer-table-input" class="footer-input">
-                <tr>
-                    <th>Codigo</th>
-                    <th>Titulo</th>
-                    <th>Estado</th>
-                    <th>Precio</th>
-                    <th>Habitaciones</th>
-                    <th>Baños</th>
-                    <th>Porteria</th>
-                    <th>Piscina</th>
-                    <th>Categoria</th>
-                    <th>Zona</th>
-                    <th>Opciones</th>
+        <tfoot id="footer-table-input" class="footer-input">
+            <tr>
+                <th>Codigo</th>
+                <th>Titulo</th>
+                <th>Estado</th>
+                <th>Precio</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Porteria</th>
+                <th>Piscina</th>
+                <th>Categoria</th>
+                <th>Zona</th>
+                <th>Opciones</th>
 
-                </tr>
-            </tfoot>
+            </tr>
+        </tfoot>
 
-        </table>
+    </table>
 
-    </div>
+</div>
 
 
 
