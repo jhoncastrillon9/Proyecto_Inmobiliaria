@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -480,10 +483,6 @@
     <Folder Include="Content\Fuentes\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Inmobiliaria.Datos\Inmobiliaria.Datos.csproj">
-      <Project>{1fe8f3c6-ed96-43fe-aa1a-17f05a30ea18}</Project>
-      <Name>Inmobiliaria.Datos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Inmobiliaria.Dominio\Inmobiliaria.Dominio.csproj">
       <Project>{0eabbc40-e0b5-4dae-b35c-ac397cd6654f}</Project>
       <Name>Inmobiliaria.Dominio</Name>

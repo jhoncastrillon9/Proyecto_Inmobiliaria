@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Inmobiliaria.Dominio
 {
+    using System;
+    using System.Collections.Generic;
+
     public class ImagenesDTO
     {
         public int Id { get; set; }
@@ -13,5 +16,8 @@ namespace Inmobiliaria.Dominio
         public string Ruta { get; set; }
         public int IdInmueble { get; set; }
         public int IdInmobiliaria { get; set; }
+
+        public virtual InmobiliariaDTO Inmobiliaria { get; set; }
+        public virtual InmueblesDTO Inmuebles { get; set; }
     }
 }

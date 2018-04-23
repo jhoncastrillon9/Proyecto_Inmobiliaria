@@ -10,3 +10,112 @@
 @RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
 
 @RenderPage("~/Views/Shared/_Container_Header.cshtml")
+
+<br /><br />
+<div class="container">
+    <nav class="mdc-tab-bar">
+        <a class="mdc-tab mdc-tab--active" href="#one">Inmueble</a>
+        <a class="mdc-tab" href="#two">Ubicación</a>
+        <a class="mdc-tab" href="#three">Imagenes</a>
+        <span class="mdc-tab-bar__indicator"></span>
+    </nav>
+    <div class="container">
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Código</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Precio Propietario</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">% Comisión</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Valor Honorarios</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">% Iva</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Precio Final</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Habitaciones</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Baños</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Área</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Propietario</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input class="mdc-text-field__input" type="number" id="input">
+            <label for="input" class="mdc-floating-label">Observación</label>
+            <div class="mdc-line-ripple"></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<button class="mdc-fab material-icons" id="demo-absolute-fab" aria-label="Favorite">
+    <span class="mdc-fab__icon">
+        home
+    </span>
+</button>
+
+
+<div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+    <input class="mdc-text-field__input" type="text" id="input">
+    <label for="input" class="mdc-floating-label">Dirección</label>
+    <div class="mdc-line-ripple"></div>
+</div>
+
+
+<div class="mdc-form-field">
+    <div class="mdc-checkbox">
+        <input type="checkbox" id="my-checkbox" class="mdc-checkbox__native-control" />
+        <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark-path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+    </div>
+    <label for="my-checkbox" id="my-checkbox-label">This is my checkbox</label>
+</div>
+
+
+
+<script type="text/javascript">
+    mdc.autoInit();
+</script>
