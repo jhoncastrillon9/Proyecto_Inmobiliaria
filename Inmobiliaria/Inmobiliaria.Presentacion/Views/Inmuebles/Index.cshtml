@@ -11,22 +11,35 @@
 
 @RenderPage("~/Views/Shared/_Container_Header.cshtml")
 
+
+
 <div class="container-table">
-    <div class="row col-md-12 container-title">
-    </div>
+
+    @if (!string.IsNullOrEmpty((string)TempData["Msj"]))
+    {
+        <br />
+        <div class="alert alert-@TempData["TypeAlert"] col-md-4" role="alert">
+            @TempData["Msj"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
     <table id="table-inmuebles" class="table table-hover table-bordered" style="width:100%; font-size:14px;">
         <thead class="thead-table">
             <tr>
                 <th>Codigo</th>
-                <th>Titulo</th>
+                <th>Categoria</th>
+                <th>Municipio</th>
+                <th>Zona</th>
                 <th>Estado</th>
-                <th>Precio</th>
-                <th>Habitaciones</th>
-                <th>Baños</th>
+                <th>Área</th>
+                <th>Habit...</th>
                 <th>Porteria</th>
                 <th>Piscina</th>
-                <th>Categoria</th>
-                <th>Zona</th>
+                <th>Propietario</th>
+                <th>Precio</th>
                 <th>Opciones</th>
             </tr>
         </thead>
@@ -35,35 +48,37 @@
             @foreach (var Inmueble in Model)
             {
 
-                <tr>
-                    <td>@Inmueble.Codigo</td>
-                    <td>@Inmueble.Titulo</td>
-                    <td>@Inmueble.Estado</td>
-                    <td>@Inmueble.PrecioFinal</td>
-                    <td>@Inmueble.Habitaciones</td>
-                    <td>@Inmueble.Banos</td>
-                    <td>@Inmueble.Porteria</td>
-                    <td>@Inmueble.Piscina</td>
-                    <td>@Inmueble.IdCategoria</td>
-                    <td>@Inmueble.IdZonaMunicipio</td>
-                    <td> <a href="#" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="#" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="#" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-                </tr>
+            <tr>
+                <td>@Inmueble.Codigo</td>
+                <td>@Inmueble.CategoriaInmuebles.Nombre</td>
+                <td>@Inmueble.Municipios.Nombre</td>
+                <td>@Inmueble.ZonasMunicipios.Nombre</td>
+                <td>@Inmueble.Estado</td>
+                <td>@Inmueble.Area</td>
+                <td>@Inmueble.Habitaciones</td>
+                <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Porteria"></td>
+                <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Piscina"></td>
+                <td>@Inmueble.Propietarios.Nombre</td>
+                <td>@Inmueble.PrecioFinal</td>
+                <td> <a href="@Url.Action("Detalle_Inmueble","Inmuebles",new { id = Inmueble.Id } )" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="@Url.Action("Editar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="@Url.Action("Eliminar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+            </tr>
             }
-            
+
         </tbody>
 
         <tfoot id="footer-table-input" class="footer-input">
             <tr>
                 <th>Codigo</th>
-                <th>Titulo</th>
+                <th>Categoria</th>
+                <th>Municipio</th>
+                <th>Zona</th>
                 <th>Estado</th>
-                <th>Precio</th>
-                <th>Habitaciones</th>
-                <th>Baños</th>
+                <th>Área</th>
+                <th>Habit...</th>
                 <th>Porteria</th>
                 <th>Piscina</th>
-                <th>Categoria</th>
-                <th>Zona</th>
+                <th>Propietario</th>
+                <th>Precio</th>
                 <th>Opciones</th>
 
             </tr>

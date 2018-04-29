@@ -7,17 +7,21 @@
     margin: 0px;
     background-color: #00bcd4 !important;
 }
+
     .container-menu .menu {
         padding: 0px;
     }
+
 .usuario {
     padding-top: 40px;
     font-size: 17px;
     font-weight: bold;
     color: white;
 }
+
 .container-menu row .salir {
 }
+
 .salir span {
     background-color: #cddc39;
     border-radius: 12px;
@@ -26,22 +30,28 @@
     font-weight: bold;
     color: white;
 }
+
 .navbar {
     color: white !important;
     background-color: #00bcd4 !important;
 }
+
     .navbar .navbar-brand {
         height: 60px;
     }
+
         .navbar .navbar-brand img {
             max-height: 90%;
         }
+
 .navbar-collapse ul li a {
     color: white !important;
 }
+
 .navbar-collapse ul li div a {
     color: #212529 !important;
 }
+
 .dropdown-toggle::after {
     display: none
 }
@@ -56,15 +66,18 @@
     padding-right: 20px;
     float: right;
 }
+
 .title {
     font-size: 24px;
     color: gray;
     margin-top: 10px;
 }
+
     .title .icon {
         margin-left: 7%;
         margin-right: 5px;
     }
+
         .title .icon i {
             font-size: 46px;
             color: white;
@@ -72,40 +85,46 @@
             border-radius: 50%;
             padding: 4%;
         }
+
     .title .title-name {
         font-size: 30px;
     }
+
 .icon-table {
     color: #cddc39;
-    font-size: 30px !important;
+    font-size: 25px !important;
     text-shadow: -1px 1px 1px #888888;
 }
+
     .icon-table.eliminar {
         color: #008ba3;
         font-weight: bold !important;
     }
+
     .icon-table.ver {
         color: #008ba3;
     }
+
     .icon-table.editar {
         color: #008ba3;
     }
+
 .title .btn-information {
     margin-right: 30px;
     box-shadow: 0 1.5px 6px rgba(0,0,0,0.16), 0 1.5px 3px rgba(0,0,0,0.23);
     color: white;
     background-color: #cddc39;
-    
     padding: 0px 10px 0px 10px;
 }
+
     .title .btn-information .cant {
         font-size: 35px;
         font-weight: bold;
-        color:white;
+        color: white;
     }
+
     .title .btn-information .text-cant {
         font-size: 24px;
-        
         color: white;
     }
 /******************End Titulos*******************/
@@ -116,14 +135,15 @@
     padding-right: 5%;
     margin-top: 0%;
 }
+
 #table-inmuebles_wrapper .row:first-of-type {
-    
     color: black;
     padding-top: 1%;
     padding-bottom: 0.5%;
     border-radius: 10px;
     margin: 0px;
 }
+
 .thead-table {
     background-color: #00bcd4;
     color: white;
@@ -131,6 +151,7 @@
     text-align: center;
     font-size: medium;
 }
+
 .page-item.active .page-link {
     background-color: #00bcd4 !important;
     border-color: #00bcd4 !important;
@@ -142,56 +163,70 @@
     float: right;
     margin: 0% 1% 3% 0%;
 }
+
 .container-title {
     top: 55px;
 }
+
 .title-table {
     color: #2f2f2f;
     padding-left: 40%;
     font-family: Candara;
     font-size: 40px;
 }
+
 .table {
     font-size: 14px !important;
 }
+
 table tbody tr {
 }
+
 .table a:hover {
     background-color: none !important;
 }
+
 .table-hover tbody tr:hover {
     background-color: #e0e0e0 !important;
     color: #2f2f2f !important;
     font-size: 110%;
 }
+
 .table-bordered td, .table-bordered th {
     border: none !important;
 }
+
 .footer-input {
     font-size: 95%;
 }
+
 .tr td a {
     font-size: 10px;
     color: dodgerblue;
 }
 /**************************FINAL LISTAR INMUEBLES***********************************/
 
-.title-card{
-    margin-top:30px;
+.title-card {
+    margin-top: 30px;
 }
 
 .conten-form-new-inmueble {
-margin-top:45px;
+    margin: 45px 45px 45px 45px;
 }
+
 .btn-inmbo-pink {
     background-color: deeppink;
     color: white;
     margin-right: 30px;
     box-shadow: 0 1.5px 6px rgba(0,0,0,0.16), 0 1.5px 3px rgba(0,0,0,0.23);
-    padding: 4px 15px 8px 15px;
+    padding: 2px 15px 8px 15px;
     font-size: 24px;
     text-decoration: none;
+    border: none !important;
+    border-radius: 0px !important;
+    height: 41px;
 }
+
 
     .btn-inmbo-pink:hover {
         background-color: #ff39a4;
@@ -204,7 +239,5 @@ margin-top:45px;
     }
 
 .mdc-text-field__input {
-
     height: 41px !important;
-
 }

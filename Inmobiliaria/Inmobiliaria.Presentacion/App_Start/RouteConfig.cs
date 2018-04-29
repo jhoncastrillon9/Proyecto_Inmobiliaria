@@ -16,7 +16,7 @@ namespace Inmobiliaria.Presentacion
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Inmuebles", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
