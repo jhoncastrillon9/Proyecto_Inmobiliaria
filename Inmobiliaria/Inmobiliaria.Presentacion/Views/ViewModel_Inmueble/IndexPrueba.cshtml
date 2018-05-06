@@ -1,0 +1,18 @@
+﻿@model Inmobiliaria.Dominio.ViewModels.InmueblesViewModelDTO
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@foreach (var Inmu in Model.LMunicipios)
+{
+    <div class="alert-info">@Inmu.Nombre</div>
+}
+
+
+@foreach (var Inmu in Model.LInmuebles)
+{
+    <div class="alert-info">Inmueble: @Inmu.Id deciudad: @Inmu.Municipios.Nombre y de categoria @Inmu.CategoriaInmuebles.Nombre</div>
+}
+
+@Html.DropDownListFor(x => x.Inmuebles.Municipios.Id, new SelectList(Model.LMunicipios, "Id", "Nombre"), "Selecione")

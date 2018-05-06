@@ -1,4 +1,5 @@
-﻿@model Inmobiliaria.Dominio.InmueblesDTO
+﻿@model Inmobiliaria.Dominio.ViewModels.InmueblesViewModelDTO
+
 @{
     /*Carga Layout*/
 
@@ -21,173 +22,214 @@
     }
 </div>
 @*Contenido del Formulario*@
-<div class="justify-content-md-center conten-form-new-inmueble">
-    <form class="needs-validation" novalidate action="@Url.Action("New_Inmuebles","Inmuebles")" method="post">
-
-        <div class="form-row">
-            <div class="col-md-1 mb-3">
-                <label for="codigo">Código</label>
-                @Html.TextBoxFor(x => x.Codigo, new { @class = "form-control", placeholder = "Código", required = "1", @type = "text" })
-                <div class="invalid-feedback">
-                    Ingreso un codigo para el inmueble.
+<div class="container conten-form-new-inmueble">
+    <div class="card w-100">
+        <div class="card-header">
+            <div class="title row">
+                <div class="icon">
+                    <i class="material-icons">@ViewBag.icon</i>
                 </div>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Categoria">Categoria</label>
-                @Html.TextBoxFor(x => x.IdCategoria, new { @class = "form-control", placeholder = "Categoria", required = "1", @type = "text" })
-                <div class="invalid-feedback">
-                    Selecione la categoria.
+                <div class="title-name">
+                    <span>@ViewBag.titulo</span>
                 </div>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Estado">Estado</label>
-                <select id="Estado" name="Estado" class="form-control">
-                    <option selected>Selecione</option>
-                    <option value="Disponible">Disponible</option>
-                    <option value="No disponible">No disponible</option>
-                    <option value="Ocupado">Ocupado</option>
-                </select>
-                <div class="invalid-feedback">
-                    Selecione una categoria.
-                </div>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Municipio">Municipio</label>
-                @Html.TextBoxFor(x => x.IdMunicipio, new { @class = "form-control", placeholder = "Municipio", required = "1", @type = "number" })
-                <div class="invalid-feedback">
-                    Selecione el municipio.
-                </div>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Zona">Zona</label>
-                @Html.TextBoxFor(x => x.IdZonaMunicipio, new { @class = "form-control", placeholder = "Zona", required = "1", @type = "text" })
-                <div class="invalid-feedback">
-                    Selecione la zona del Inmueble.
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="Direccion">Direccion</label>
-                @Html.TextBoxFor(x => x.Direccion, new { @class = "form-control", placeholder = "Direccion", required = "1", @type = "text" })
-                <div class="invalid-feedback">
-                    Ingrese la Direccion.
-                </div>
-            </div>
-            <div class="col-md-1 mb-3">
-                <label for="Habitaciones">Habitaciones</label>
-                @Html.TextBoxFor(x => x.Habitaciones, new { @class = "form-control", placeholder = "Habitaciones", @type = "number" })
-                <div class="invalid-feedback">
-                    Ingrese la cantidad de habitaciones.
-                </div>
-            </div>
-            <div class="col-md-1 mb-3">
-                <label for="Banos">Baños</label>
-                @Html.TextBoxFor(x => x.Banos, new { @class = "form-control", placeholder = "Baños", @type = "number" })
-                <div class="invalid-feedback">
-                    Ingrese la cantidad de baños.
-                </div>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Area">Área</label>
-                @Html.TextBoxFor(x => x.Area, new { @class = "form-control", placeholder = "Area", @type = "number" })
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Llaves">Llaves</label>
-                <select id="Llaves" name="Llaves" class="form-control">
-                    <option selected>Selecione</option>
-                    <option value="Propietario">Propietario</option>
-                    <option value="Agencia">Agencia</option>
-                </select>
-                <div class="invalid-feedback">
-                    Ubicación de la llaves.
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="Observacion">Observación</label>
-                @Html.TextAreaFor(x => x.Observacion, new { @class = "form-control", placeholder = "Observación", @type = "text" })
             </div>
         </div>
-        <div class="form-row">
-            <div class="col-md-2 mb-3">
-                <label for="Precio">Precio del propietario</label>
-                @Html.TextBoxFor(x => x.PrecioPropietario, new { @class = "form-control", placeholder = "Precio del propietario", required = "1", @type = "number" })
-                <div class="invalid-feedback">
-                    Ingrese el precio del propietario.
+        <div class="card-body">
+            <form class="needs-validation" novalidate action="@Url.Action("New_Inmuebles","Inmuebles")" method="post">
+                <div class="row">
+                    <div class="col-sm-6 cp">
+                        <div class="form-group row">
+                            <label for="codigo" class="col-sm-5 col-form-label col-form-label-sm text-right">Código: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Codigo, new { @class = "form-control form-control-sm", placeholder = "Código", required = "1", @type = "text" })
+                                <div class="invalid-feedback">
+                                    Ingreso un codigo para el inmueble.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Categoria" class="col-sm-5 col-form-label col-form-label-sm text-right">Categoria: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdCategoria, new SelectList(Model.LCategorias, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                                <div class="invalid-feedback">
+                                    Selecione una categoria
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Estado" class="col-sm-5 col-form-label col-form-label-sm text-right">Estado: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdEstado, new SelectList(Model.Estados, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                                <div class="invalid-feedback">
+                                    Selecione una categoria.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Municipio" class="col-sm-5 col-form-label col-form-label-sm text-right">Municipio: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdMunicipio, new SelectList(Model.LMunicipios, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                                <div class="invalid-feedback">
+                                    Selecione el municipio.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Zona" class="col-sm-5 col-form-label col-form-label-sm text-right">Zona: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdZonaMunicipio, new SelectList(Model.LZonasMunicipios, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                                <div class="invalid-feedback">
+                                    Selecione la zona del Inmueble.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Direccion" class="col-sm-5 col-form-label col-form-label-sm text-right">Direccion: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Direccion, new { @class = "form-control form-control-sm", placeholder = "Direccion", required = "1", @type = "text" })
+                                <div class="invalid-feedback">
+                                    Ingrese la Direccion.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Habitaciones" class="col-sm-5 col-form-label col-form-label-sm text-right">Habitaciones: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Habitaciones, new { @class = "form-control form-control-sm", placeholder = "Habitaciones", @type = "number" })
+                                <div class="invalid-feedback">
+                                    Ingrese la cantidad de habitaciones.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Banos" class="col-sm-5 col-form-label col-form-label-sm text-right">Baños: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Banos, new { @class = "form-control form-control-sm", placeholder = "Baños", @type = "number" })
+                                <div class="invalid-feedback">
+                                    Ingrese la cantidad de baños.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Area" class="col-sm-5 col-form-label col-form-label-sm text-right">Área: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Area, new { @class = "form-control form-control-sm", placeholder = "Area", @type = "number" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Llaves" class="col-sm-5 col-form-label col-form-label-sm text-right">Llaves: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdLlaves, new SelectList(Model.Lllaves, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                                <div class="invalid-feedback">
+                                    Ubicación de la llaves.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Observacion" class="col-sm-5 col-form-label col-form-label-sm text-right">Observación: </label>
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(x => x.Inmuebles.Observacion, new { @class = "form-control form-control-sm", placeholder = "Observación", @type = "text" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 cp">
+                        <div class="form-group row">
+                            <label for="Precio" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio del propietario: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.PrecioPropietario, new { @class = "form-control form-control-sm", placeholder = "Precio del propietario", required = "1", @type = "number" })
+                                <div class="invalid-feedback">
+                                    Ingrese el precio del propietario.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Comision" class="col-sm-5 col-form-label col-form-label-sm text-right">Porcentaje de Comisión: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Porcentaje, new { @class = "form-control form-control-sm", placeholder = "% de Comisión", @type = "number" })
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Honorarios" class="col-sm-5 col-form-label col-form-label-sm text-right">Valor de los Honorarios: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Honorarios, new { @class = "form-control form-control-sm", placeholder = "Valor de los honorarios", @type = "number" })
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Fecha" class="col-sm-5 col-form-label col-form-label-sm text-right">Fecha de Captación: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.FechaCaptacion, new { @class = "form-control form-control-sm", placeholder = "Fecha de captación", @type = "date" })
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Iva" class="col-sm-5 col-form-label col-form-label-sm text-right">Porcentaje de Iva: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdIva, new SelectList(Model.Liva, "Id", "Valor"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="PrecioFinal" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio Final: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.PrecioFinal, new { @class = "form-control form-control-sm", placeholder = "Precio final", @type = "number" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Propietario" class="col-sm-5 col-form-label col-form-label-sm text-right">Propietario: </label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(x => x.Inmuebles.IdPropietario, new SelectList(Model.LPropietarios, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1" })
+                                <div class="invalid-feedback">
+                                    Selecione propietario dueño del inmueble.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Piscina" class="col-sm-5 col-form-label col-form-label-sm text-right">Piscina: </label>
+                            <div class="col-sm-6">
+                                @Html.CheckBoxFor(x => x.Inmuebles.Piscina, new { @class = "form-control form-control-sm col-1", placeholder = "Piscina" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Porteria" class="col-sm-5 col-form-label col-form-label-sm text-right">Porteria: </label>
+                            <div class="col-sm-6">
+                                @Html.CheckBoxFor(x => x.Inmuebles.Porteria, new { @class = "form-control form-control-sm col-1", placeholder = "Porteria" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Titulo" class="col-sm-5 col-form-label col-form-label-sm text-right">Titulo Para la pagina Web: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.Titulo, new { @class = "form-control form-control-sm", placeholder = "Titulo", @type = "text" })
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="Descripcion" class="col-sm-5 col-form-label col-form-label-sm text-right">Descripcion Para la pagina Web: </label>
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(x => x.Inmuebles.Descripcion, new { @class = "form-control form-control-sm", placeholder = "Descripcion", @type = "text" })
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Comision">Porcentaje de Comisión</label>
-                @Html.TextBoxFor(x => x.Porcentaje, new { @class = "form-control", placeholder = "% de Comisión", @type = "number" })
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Honorarios">Valor de los Honorarios</label>
-                @Html.TextBoxFor(x => x.Honorarios, new { @class = "form-control", placeholder = "Valor de los honorarios", @type = "number" })
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Fecha">Fecha de Captación</label>
-                @Html.TextBoxFor(x => x.FechaCaptacion, new { @class = "form-control", placeholder = "Fecha de captación", @type = "date" })
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="Iva">Porcentaje de Iva</label>
-                <select id="Iva" name="Iva" class="form-control">
-                    <option selected>Selecione</option>
-                    <option value="0">0%</option>
-                    <option value="0.19">19%</option>
-                </select>
-            </div>
-            <div class="col-md-2 mb-3">
-                <label for="PrecioFinal">Precio Final</label>
-                @Html.TextBoxFor(x => x.PrecioFinal, new { @class = "form-control", placeholder = "Precio final", @type = "number" })
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="Propietario">Propietario</label>
-                @Html.TextBoxFor(x => x.IdPropietario, new { @class = "form-control", placeholder = "Propietario", required = "1", @type = "number" })
-                <div class="invalid-feedback">
-                    Selecione propietario dueño del inmueble.
-                </div>
-            </div>
-            <div class="col-md-1 mb-3">
-                <label for="Piscina"></label>
-                @Html.CheckBoxFor(x => x.Piscina, new { @class = "form-control", placeholder = "Piscina" })
-                <div class="form-check">
-                    <label class="form-check-label" for="Piscina">
-                        Piscina
-                    </label>
-                </div>
-            </div>
-            <div class="col-md-1 mb-3">
-                <label for="Porteria"></label>
-                <div class="form-check">
-                    @Html.CheckBoxFor(x => x.Porteria, new { @class = "form-control", placeholder = "Porteria" })
-                    <label class="form-check-label" for="Porteria">
-                        Porteria
-                    </label>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="Titulo">Titulo Para la pagina Web</label>
-                @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control", placeholder = "Titulo", @type = "text" })
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="Descripcion">Descripcion Para la pagina Web</label>
-                @Html.TextAreaFor(x => x.Descripcion, new { @class = "form-control", placeholder = "Descripcion", @type = "text" })
-            </div>
-        </div>
 
 
-        @*Botton´s Form*@
-        <div class="row justify-content-end">
-            <div class="col-6">
-            </div>
-            <div class="col-1">
-                <a href="@Url.Action("Index","Inmuebles")" class="btn-inmbo-pink">Regresar</a>
-            </div>
-            <div class="col-1">
-                <button class="btn-inmbo-pink" type="submit">Guardar</button>
-            </div>
-            <div class="col-1">
-            </div>
+                @*Botton´s Form*@
+                <div class="row justify-content-end">
+                    <div class="col-sm-3 offset-9">
+                        <a href="@Url.Action("Index","Inmuebles")" class="btn btn-info">Regresar</a>
+                        <input class="btn btn-primary" type="submit" value="Guardar">
+
+                    </div>
+
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
+
 
 <script src="~/Scripts/Especiales/ValidationFormRequired.js"></script>

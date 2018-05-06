@@ -4,8 +4,24 @@ create database Inmobiliaria_Desarrollo
 GO
 
 Use Inmobiliaria_Desarrollo
+create table TypeListThings(
+Id int identity (1,1)  primary key NOT NULL,
+Name varchar(200) Not null,
+)
+GO
+/*Modulo de Estados*/
+GO
+create table ListThings(
+Id int identity (1,1)  primary key NOT NULL,
+NAme varchar(200) Not null,
+IdTypeListThings Int Not null References TypeListThings(Id)
+)
+GO
+
+
 
 /*Modulo de Inmobiliaria*/
+
 GO
 create table Inmobiliaria(
 Id int identity (1,1)  primary key NOT NULL,
@@ -57,22 +73,34 @@ IdMunicipio int not null references Municipios(Id),
 IdInmobiliaria Int Not null References Inmobiliaria(Id)
 )
 GO
-
-
-
+Create Table Estados(
+Id int identity (1,1)  primary key NOT NULL,
+Nombre varchar(200) not null
+)
+GO
+Create Table llaves(
+Id int identity (1,1)  primary key NOT NULL,
+Nombre varchar(200) not null
+)
+GO
+Create Table Iva(
+Id int identity (1,1)  primary key NOT NULL,
+Valor Float not null
+)
+GO
 Create Table Inmuebles(
 Id Int Identity (1,1) primary key Not null,
-Codigo Int,
-Titulo varchar(100) not null,
+IdEstado int references Estados(Id) not null,
+IdLlaves int references Llaves(Id),
+IdIva int references Iva(Id),
+Codigo varchar(100) not null,
+Titulo varchar(100),
 Descripcion varchar(500),
 Direccion varchar (200) not null,
-Estado varchar (100) not null,
-Llaves varchar (100) not null,
 PrecioPropietario decimal(18,2) not null,
-Porcentaje decimal(18,2) not null,
+Porcentaje decimal(18,2),
 Honorarios decimal(18,2), 
 FechaCaptacion date,
-Iva decimal(18,2),
 PrecioFinal decimal(18,2) not null,
 Habitaciones Int,
 Banos int,

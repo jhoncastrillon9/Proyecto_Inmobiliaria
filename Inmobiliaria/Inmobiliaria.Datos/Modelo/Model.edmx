@@ -76,6 +76,13 @@
           <Property Name="IdContrato" Type="int" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="EstadosCuentas">
           <Key>
             <PropertyRef Name="Id" />
@@ -111,17 +118,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Codigo" Type="int" />
-          <Property Name="Titulo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="IdLlaves" Type="int" />
+          <Property Name="IdIva" Type="int" />
+          <Property Name="Codigo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="100" />
           <Property Name="Descripcion" Type="varchar" MaxLength="500" />
           <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="Estado" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Llaves" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="PrecioPropietario" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Porcentaje" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Porcentaje" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Honorarios" Type="decimal" Precision="18" Scale="2" />
           <Property Name="FechaCaptacion" Type="date" />
-          <Property Name="Iva" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PrecioFinal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Habitaciones" Type="int" />
           <Property Name="Banos" Type="int" />
@@ -134,6 +141,28 @@
           <Property Name="Observacion" Type="varchar" MaxLength="500" />
           <Property Name="IdCategoria" Type="int" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Iva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListThings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAme" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdTypeListThings" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="llaves">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Municipios">
           <Key>
@@ -208,6 +237,13 @@
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="TypeListThings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="Id" />
@@ -230,7 +266,7 @@
           <Property Name="IdMunicipio" Type="int" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Arrendata__IdInm__29572725">
+        <Association Name="FK__Arrendata__IdInm__36B12243">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -242,7 +278,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CajaBanco__IdInm__3F466844">
+        <Association Name="FK__CajaBanco__IdInm__4CA06362">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +290,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Categoria__IdInm__15502E78">
+        <Association Name="FK__Categoria__IdInm__1A14E395">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -266,7 +302,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdArr__2D27B809">
+        <Association Name="FK__Contratos__IdArr__3A81B327">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -278,7 +314,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdCoA__2E1BDC42">
+        <Association Name="FK__Contratos__IdCoA__3B75D760">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -290,7 +326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdFia__2F10007B">
+        <Association Name="FK__Contratos__IdFia__3C69FB99">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -302,7 +338,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdFia__300424B4">
+        <Association Name="FK__Contratos__IdFia__3D5E1FD2">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -314,7 +350,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdInm__2C3393D0">
+        <Association Name="FK__Contratos__IdInm__398D8EEE">
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -326,7 +362,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdInm__30F848ED">
+        <Association Name="FK__Contratos__IdInm__3E52440B">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -338,7 +374,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxC__IdCon__3B75D760">
+        <Association Name="FK__CuentasxC__IdCon__48CFD27E">
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -350,7 +386,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxC__IdEst__3A81B327">
+        <Association Name="FK__CuentasxC__IdEst__47DBAE45">
           <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -362,7 +398,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxC__IdInm__3C69FB99">
+        <Association Name="FK__CuentasxC__IdInm__49C3F6B7">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -374,7 +410,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxP__IdCon__36B12243">
+        <Association Name="FK__CuentasxP__IdCon__440B1D61">
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -386,7 +422,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxP__IdEst__35BCFE0A">
+        <Association Name="FK__CuentasxP__IdEst__4316F928">
           <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -398,7 +434,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxP__IdInm__37A5467C">
+        <Association Name="FK__CuentasxP__IdInm__44FF419A">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -410,7 +446,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Imagenes__IdInmo__267ABA7A">
+        <Association Name="FK__Imagenes__IdInmo__33D4B598">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -422,7 +458,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Imagenes__IdInmu__25869641">
+        <Association Name="FK__Imagenes__IdInmu__32E0915F">
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="1" />
           <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -434,7 +470,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdCat__21B6055D">
+        <Association Name="FK__Inmuebles__IdCat__2F10007B">
           <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -446,7 +482,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdInm__22AA2996">
+        <Association Name="FK__Inmuebles__IdEst__29572725">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdInm__300424B4">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -458,7 +506,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdMun__1ED998B2">
+        <Association Name="FK__Inmuebles__IdIva__2B3F6F97">
+          <End Role="Iva" Type="Self.Iva" Multiplicity="0..1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Iva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdIva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdLla__2A4B4B5E">
+          <End Role="llaves" Type="Self.llaves" Multiplicity="0..1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="llaves">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdLlaves" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdMun__2C3393D0">
           <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -470,7 +542,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdPro__20C1E124">
+        <Association Name="FK__Inmuebles__IdPro__2E1BDC42">
           <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -482,7 +554,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdZon__1FCDBCEB">
+        <Association Name="FK__Inmuebles__IdZon__2D27B809">
           <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -494,7 +566,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Municipio__IdInm__182C9B23">
+        <Association Name="FK__ListThing__IdTyp__1273C1CD">
+          <End Role="TypeListThings" Type="Self.TypeListThings" Multiplicity="1" />
+          <End Role="ListThings" Type="Self.ListThings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeListThings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListThings">
+              <PropertyRef Name="IdTypeListThings" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Municipio__IdInm__1CF15040">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -506,7 +590,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Propietar__IdInm__1273C1CD">
+        <Association Name="FK__Propietar__IdInm__173876EA">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -518,7 +602,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdCaj__4CA06362">
+        <Association Name="FK__RegistroE__IdCaj__59FA5E80">
           <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -530,7 +614,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdCue__4D94879B">
+        <Association Name="FK__RegistroE__IdCue__5AEE82B9">
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -542,7 +626,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdCue__4E88ABD4">
+        <Association Name="FK__RegistroE__IdCue__5BE2A6F2">
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -554,7 +638,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdInm__4F7CD00D">
+        <Association Name="FK__RegistroE__IdInm__5CD6CB2B">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -566,7 +650,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroEg__Tipo__4BAC3F29">
+        <Association Name="FK__RegistroEg__Tipo__59063A47">
           <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -578,7 +662,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdCaj__45F365D3">
+        <Association Name="FK__RegistroI__IdCaj__534D60F1">
           <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -590,7 +674,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdCue__46E78A0C">
+        <Association Name="FK__RegistroI__IdCue__5441852A">
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -602,7 +686,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdCue__47DBAE45">
+        <Association Name="FK__RegistroI__IdCue__5535A963">
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -614,7 +698,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdInm__48CFD27E">
+        <Association Name="FK__RegistroI__IdInm__5629CD9C">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -626,7 +710,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroIn__Tipo__44FF419A">
+        <Association Name="FK__RegistroIn__Tipo__52593CB8">
           <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -638,7 +722,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TipoPago__IdInmo__4222D4EF">
+        <Association Name="FK__TipoPago__IdInmo__4F7CD00D">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="*" />
           <ReferentialConstraint>
@@ -650,7 +734,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__IdInmo__5535A963">
+        <Association Name="FK__Usuarios__IdInmo__628FA481">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -662,7 +746,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__Rol__5441852A">
+        <Association Name="FK__Usuarios__Rol__619B8048">
           <End Role="RolesUsuarios" Type="Self.RolesUsuarios" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -674,7 +758,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ZonasMuni__IdInm__1BFD2C07">
+        <Association Name="FK__ZonasMuni__IdInm__20C1E124">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -686,7 +770,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ZonasMuni__IdMun__1B0907CE">
+        <Association Name="FK__ZonasMuni__IdMun__1FCDBCEB">
           <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
           <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -705,171 +789,192 @@
           <EntitySet Name="Contratos" EntityType="Self.Contratos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CuentasxCobrarContratos" EntityType="Self.CuentasxCobrarContratos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CuentasxPagarContratos" EntityType="Self.CuentasxPagarContratos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadosCuentas" EntityType="Self.EstadosCuentas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Imagenes" EntityType="Self.Imagenes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inmobiliaria" EntityType="Self.Inmobiliaria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Iva" EntityType="Self.Iva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListThings" EntityType="Self.ListThings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="llaves" EntityType="Self.llaves" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propietarios" EntityType="Self.Propietarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegistroEgresos" EntityType="Self.RegistroEgresos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegistroIngresos" EntityType="Self.RegistroIngresos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RolesUsuarios" EntityType="Self.RolesUsuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoPago" EntityType="Self.TipoPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeListThings" EntityType="Self.TypeListThings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZonasMunicipios" EntityType="Self.ZonasMunicipios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Arrendata__IdInm__29572725" Association="Self.FK__Arrendata__IdInm__29572725">
+          <AssociationSet Name="FK__Arrendata__IdInm__36B12243" Association="Self.FK__Arrendata__IdInm__36B12243">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__CajaBanco__IdInm__3F466844" Association="Self.FK__CajaBanco__IdInm__3F466844">
+          <AssociationSet Name="FK__CajaBanco__IdInm__4CA06362" Association="Self.FK__CajaBanco__IdInm__4CA06362">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CajaBanco" EntitySet="CajaBanco" />
           </AssociationSet>
-          <AssociationSet Name="FK__Categoria__IdInm__15502E78" Association="Self.FK__Categoria__IdInm__15502E78">
+          <AssociationSet Name="FK__Categoria__IdInm__1A14E395" Association="Self.FK__Categoria__IdInm__1A14E395">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdArr__2D27B809" Association="Self.FK__Contratos__IdArr__2D27B809">
+          <AssociationSet Name="FK__Contratos__IdArr__3A81B327" Association="Self.FK__Contratos__IdArr__3A81B327">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdCoA__2E1BDC42" Association="Self.FK__Contratos__IdCoA__2E1BDC42">
+          <AssociationSet Name="FK__Contratos__IdCoA__3B75D760" Association="Self.FK__Contratos__IdCoA__3B75D760">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdFia__2F10007B" Association="Self.FK__Contratos__IdFia__2F10007B">
+          <AssociationSet Name="FK__Contratos__IdFia__3C69FB99" Association="Self.FK__Contratos__IdFia__3C69FB99">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdFia__300424B4" Association="Self.FK__Contratos__IdFia__300424B4">
+          <AssociationSet Name="FK__Contratos__IdFia__3D5E1FD2" Association="Self.FK__Contratos__IdFia__3D5E1FD2">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdInm__2C3393D0" Association="Self.FK__Contratos__IdInm__2C3393D0">
+          <AssociationSet Name="FK__Contratos__IdInm__398D8EEE" Association="Self.FK__Contratos__IdInm__398D8EEE">
             <End Role="Inmuebles" EntitySet="Inmuebles" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdInm__30F848ED" Association="Self.FK__Contratos__IdInm__30F848ED">
+          <AssociationSet Name="FK__Contratos__IdInm__3E52440B" Association="Self.FK__Contratos__IdInm__3E52440B">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxC__IdCon__3B75D760" Association="Self.FK__CuentasxC__IdCon__3B75D760">
+          <AssociationSet Name="FK__CuentasxC__IdCon__48CFD27E" Association="Self.FK__CuentasxC__IdCon__48CFD27E">
             <End Role="Contratos" EntitySet="Contratos" />
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxC__IdEst__3A81B327" Association="Self.FK__CuentasxC__IdEst__3A81B327">
+          <AssociationSet Name="FK__CuentasxC__IdEst__47DBAE45" Association="Self.FK__CuentasxC__IdEst__47DBAE45">
             <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxC__IdInm__3C69FB99" Association="Self.FK__CuentasxC__IdInm__3C69FB99">
+          <AssociationSet Name="FK__CuentasxC__IdInm__49C3F6B7" Association="Self.FK__CuentasxC__IdInm__49C3F6B7">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxP__IdCon__36B12243" Association="Self.FK__CuentasxP__IdCon__36B12243">
+          <AssociationSet Name="FK__CuentasxP__IdCon__440B1D61" Association="Self.FK__CuentasxP__IdCon__440B1D61">
             <End Role="Contratos" EntitySet="Contratos" />
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxP__IdEst__35BCFE0A" Association="Self.FK__CuentasxP__IdEst__35BCFE0A">
+          <AssociationSet Name="FK__CuentasxP__IdEst__4316F928" Association="Self.FK__CuentasxP__IdEst__4316F928">
             <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxP__IdInm__37A5467C" Association="Self.FK__CuentasxP__IdInm__37A5467C">
+          <AssociationSet Name="FK__CuentasxP__IdInm__44FF419A" Association="Self.FK__CuentasxP__IdInm__44FF419A">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Imagenes__IdInmo__267ABA7A" Association="Self.FK__Imagenes__IdInmo__267ABA7A">
+          <AssociationSet Name="FK__Imagenes__IdInmo__33D4B598" Association="Self.FK__Imagenes__IdInmo__33D4B598">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Imagenes" EntitySet="Imagenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Imagenes__IdInmu__25869641" Association="Self.FK__Imagenes__IdInmu__25869641">
+          <AssociationSet Name="FK__Imagenes__IdInmu__32E0915F" Association="Self.FK__Imagenes__IdInmu__32E0915F">
             <End Role="Inmuebles" EntitySet="Inmuebles" />
             <End Role="Imagenes" EntitySet="Imagenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdCat__21B6055D" Association="Self.FK__Inmuebles__IdCat__21B6055D">
+          <AssociationSet Name="FK__Inmuebles__IdCat__2F10007B" Association="Self.FK__Inmuebles__IdCat__2F10007B">
             <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdInm__22AA2996" Association="Self.FK__Inmuebles__IdInm__22AA2996">
+          <AssociationSet Name="FK__Inmuebles__IdEst__29572725" Association="Self.FK__Inmuebles__IdEst__29572725">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdInm__300424B4" Association="Self.FK__Inmuebles__IdInm__300424B4">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdMun__1ED998B2" Association="Self.FK__Inmuebles__IdMun__1ED998B2">
+          <AssociationSet Name="FK__Inmuebles__IdIva__2B3F6F97" Association="Self.FK__Inmuebles__IdIva__2B3F6F97">
+            <End Role="Iva" EntitySet="Iva" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdLla__2A4B4B5E" Association="Self.FK__Inmuebles__IdLla__2A4B4B5E">
+            <End Role="llaves" EntitySet="llaves" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdMun__2C3393D0" Association="Self.FK__Inmuebles__IdMun__2C3393D0">
             <End Role="Municipios" EntitySet="Municipios" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdPro__20C1E124" Association="Self.FK__Inmuebles__IdPro__20C1E124">
+          <AssociationSet Name="FK__Inmuebles__IdPro__2E1BDC42" Association="Self.FK__Inmuebles__IdPro__2E1BDC42">
             <End Role="Propietarios" EntitySet="Propietarios" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdZon__1FCDBCEB" Association="Self.FK__Inmuebles__IdZon__1FCDBCEB">
+          <AssociationSet Name="FK__Inmuebles__IdZon__2D27B809" Association="Self.FK__Inmuebles__IdZon__2D27B809">
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Municipio__IdInm__182C9B23" Association="Self.FK__Municipio__IdInm__182C9B23">
+          <AssociationSet Name="FK__ListThing__IdTyp__1273C1CD" Association="Self.FK__ListThing__IdTyp__1273C1CD">
+            <End Role="TypeListThings" EntitySet="TypeListThings" />
+            <End Role="ListThings" EntitySet="ListThings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__IdInm__1CF15040" Association="Self.FK__Municipio__IdInm__1CF15040">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Municipios" EntitySet="Municipios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Propietar__IdInm__1273C1CD" Association="Self.FK__Propietar__IdInm__1273C1CD">
+          <AssociationSet Name="FK__Propietar__IdInm__173876EA" Association="Self.FK__Propietar__IdInm__173876EA">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Propietarios" EntitySet="Propietarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdCaj__4CA06362" Association="Self.FK__RegistroE__IdCaj__4CA06362">
+          <AssociationSet Name="FK__RegistroE__IdCaj__59FA5E80" Association="Self.FK__RegistroE__IdCaj__59FA5E80">
             <End Role="CajaBanco" EntitySet="CajaBanco" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdCue__4D94879B" Association="Self.FK__RegistroE__IdCue__4D94879B">
+          <AssociationSet Name="FK__RegistroE__IdCue__5AEE82B9" Association="Self.FK__RegistroE__IdCue__5AEE82B9">
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdCue__4E88ABD4" Association="Self.FK__RegistroE__IdCue__4E88ABD4">
+          <AssociationSet Name="FK__RegistroE__IdCue__5BE2A6F2" Association="Self.FK__RegistroE__IdCue__5BE2A6F2">
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdInm__4F7CD00D" Association="Self.FK__RegistroE__IdInm__4F7CD00D">
+          <AssociationSet Name="FK__RegistroE__IdInm__5CD6CB2B" Association="Self.FK__RegistroE__IdInm__5CD6CB2B">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroEg__Tipo__4BAC3F29" Association="Self.FK__RegistroEg__Tipo__4BAC3F29">
+          <AssociationSet Name="FK__RegistroEg__Tipo__59063A47" Association="Self.FK__RegistroEg__Tipo__59063A47">
             <End Role="TipoPago" EntitySet="TipoPago" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdCaj__45F365D3" Association="Self.FK__RegistroI__IdCaj__45F365D3">
+          <AssociationSet Name="FK__RegistroI__IdCaj__534D60F1" Association="Self.FK__RegistroI__IdCaj__534D60F1">
             <End Role="CajaBanco" EntitySet="CajaBanco" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdCue__46E78A0C" Association="Self.FK__RegistroI__IdCue__46E78A0C">
+          <AssociationSet Name="FK__RegistroI__IdCue__5441852A" Association="Self.FK__RegistroI__IdCue__5441852A">
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdCue__47DBAE45" Association="Self.FK__RegistroI__IdCue__47DBAE45">
+          <AssociationSet Name="FK__RegistroI__IdCue__5535A963" Association="Self.FK__RegistroI__IdCue__5535A963">
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdInm__48CFD27E" Association="Self.FK__RegistroI__IdInm__48CFD27E">
+          <AssociationSet Name="FK__RegistroI__IdInm__5629CD9C" Association="Self.FK__RegistroI__IdInm__5629CD9C">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroIn__Tipo__44FF419A" Association="Self.FK__RegistroIn__Tipo__44FF419A">
+          <AssociationSet Name="FK__RegistroIn__Tipo__52593CB8" Association="Self.FK__RegistroIn__Tipo__52593CB8">
             <End Role="TipoPago" EntitySet="TipoPago" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__TipoPago__IdInmo__4222D4EF" Association="Self.FK__TipoPago__IdInmo__4222D4EF">
+          <AssociationSet Name="FK__TipoPago__IdInmo__4F7CD00D" Association="Self.FK__TipoPago__IdInmo__4F7CD00D">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="TipoPago" EntitySet="TipoPago" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdInmo__5535A963" Association="Self.FK__Usuarios__IdInmo__5535A963">
+          <AssociationSet Name="FK__Usuarios__IdInmo__628FA481" Association="Self.FK__Usuarios__IdInmo__628FA481">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__Rol__5441852A" Association="Self.FK__Usuarios__Rol__5441852A">
+          <AssociationSet Name="FK__Usuarios__Rol__619B8048" Association="Self.FK__Usuarios__Rol__619B8048">
             <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__ZonasMuni__IdInm__1BFD2C07" Association="Self.FK__ZonasMuni__IdInm__1BFD2C07">
+          <AssociationSet Name="FK__ZonasMuni__IdInm__20C1E124" Association="Self.FK__ZonasMuni__IdInm__20C1E124">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
           </AssociationSet>
-          <AssociationSet Name="FK__ZonasMuni__IdMun__1B0907CE" Association="Self.FK__ZonasMuni__IdMun__1B0907CE">
+          <AssociationSet Name="FK__ZonasMuni__IdMun__1FCDBCEB" Association="Self.FK__ZonasMuni__IdMun__1FCDBCEB">
             <End Role="Municipios" EntitySet="Municipios" />
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
           </AssociationSet>
@@ -892,11 +997,11 @@
           <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Arrendata__IdInm__29572725" FromRole="Arrendatarios" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdArr__2D27B809" FromRole="Arrendatarios" ToRole="Contratos" />
-          <NavigationProperty Name="Contratos1" Relationship="Self.FK__Contratos__IdCoA__2E1BDC42" FromRole="Arrendatarios" ToRole="Contratos" />
-          <NavigationProperty Name="Contratos2" Relationship="Self.FK__Contratos__IdFia__2F10007B" FromRole="Arrendatarios" ToRole="Contratos" />
-          <NavigationProperty Name="Contratos3" Relationship="Self.FK__Contratos__IdFia__300424B4" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Arrendata__IdInm__36B12243" FromRole="Arrendatarios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdArr__3A81B327" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Contratos1" Relationship="Self.FK__Contratos__IdCoA__3B75D760" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Contratos2" Relationship="Self.FK__Contratos__IdFia__3C69FB99" FromRole="Arrendatarios" ToRole="Contratos" />
+          <NavigationProperty Name="Contratos3" Relationship="Self.FK__Contratos__IdFia__3D5E1FD2" FromRole="Arrendatarios" ToRole="Contratos" />
         </EntityType>
         <EntityType Name="CajaBanco">
           <Key>
@@ -905,9 +1010,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CajaBanco__IdInm__3F466844" FromRole="CajaBanco" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCaj__4CA06362" FromRole="CajaBanco" ToRole="RegistroEgresos" />
-          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCaj__45F365D3" FromRole="CajaBanco" ToRole="RegistroIngresos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CajaBanco__IdInm__4CA06362" FromRole="CajaBanco" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCaj__59FA5E80" FromRole="CajaBanco" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCaj__534D60F1" FromRole="CajaBanco" ToRole="RegistroIngresos" />
         </EntityType>
         <EntityType Name="CategoriaInmuebles">
           <Key>
@@ -916,8 +1021,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Categoria__IdInm__15502E78" FromRole="CategoriaInmuebles" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdCat__21B6055D" FromRole="CategoriaInmuebles" ToRole="Inmuebles" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Categoria__IdInm__1A14E395" FromRole="CategoriaInmuebles" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdCat__2F10007B" FromRole="CategoriaInmuebles" ToRole="Inmuebles" />
         </EntityType>
         <EntityType Name="Contratos">
           <Key>
@@ -935,14 +1040,14 @@
           <Property Name="IdFiador1" Type="Int32" />
           <Property Name="IdFiador2" Type="Int32" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Arrendatarios" Relationship="Self.FK__Contratos__IdArr__2D27B809" FromRole="Contratos" ToRole="Arrendatarios" />
-          <NavigationProperty Name="Arrendatarios1" Relationship="Self.FK__Contratos__IdCoA__2E1BDC42" FromRole="Contratos" ToRole="Arrendatarios" />
-          <NavigationProperty Name="Arrendatarios2" Relationship="Self.FK__Contratos__IdFia__2F10007B" FromRole="Contratos" ToRole="Arrendatarios" />
-          <NavigationProperty Name="Arrendatarios3" Relationship="Self.FK__Contratos__IdFia__300424B4" FromRole="Contratos" ToRole="Arrendatarios" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Contratos__IdInm__2C3393D0" FromRole="Contratos" ToRole="Inmuebles" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Contratos__IdInm__30F848ED" FromRole="Contratos" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdCon__3B75D760" FromRole="Contratos" ToRole="CuentasxCobrarContratos" />
-          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdCon__36B12243" FromRole="Contratos" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Arrendatarios" Relationship="Self.FK__Contratos__IdArr__3A81B327" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Arrendatarios1" Relationship="Self.FK__Contratos__IdCoA__3B75D760" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Arrendatarios2" Relationship="Self.FK__Contratos__IdFia__3C69FB99" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Arrendatarios3" Relationship="Self.FK__Contratos__IdFia__3D5E1FD2" FromRole="Contratos" ToRole="Arrendatarios" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Contratos__IdInm__398D8EEE" FromRole="Contratos" ToRole="Inmuebles" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Contratos__IdInm__3E52440B" FromRole="Contratos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdCon__48CFD27E" FromRole="Contratos" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdCon__440B1D61" FromRole="Contratos" ToRole="CuentasxPagarContratos" />
         </EntityType>
         <EntityType Name="CuentasxCobrarContratos">
           <Key>
@@ -955,11 +1060,11 @@
           <Property Name="IdEstado" Type="Int32" />
           <Property Name="IdContrato" Type="Int32" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Contratos" Relationship="Self.FK__CuentasxC__IdCon__3B75D760" FromRole="CuentasxCobrarContratos" ToRole="Contratos" />
-          <NavigationProperty Name="EstadosCuentas" Relationship="Self.FK__CuentasxC__IdEst__3A81B327" FromRole="CuentasxCobrarContratos" ToRole="EstadosCuentas" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CuentasxC__IdInm__3C69FB99" FromRole="CuentasxCobrarContratos" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCue__4E88ABD4" FromRole="CuentasxCobrarContratos" ToRole="RegistroEgresos" />
-          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCue__47DBAE45" FromRole="CuentasxCobrarContratos" ToRole="RegistroIngresos" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__CuentasxC__IdCon__48CFD27E" FromRole="CuentasxCobrarContratos" ToRole="Contratos" />
+          <NavigationProperty Name="EstadosCuentas" Relationship="Self.FK__CuentasxC__IdEst__47DBAE45" FromRole="CuentasxCobrarContratos" ToRole="EstadosCuentas" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CuentasxC__IdInm__49C3F6B7" FromRole="CuentasxCobrarContratos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCue__5BE2A6F2" FromRole="CuentasxCobrarContratos" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCue__5535A963" FromRole="CuentasxCobrarContratos" ToRole="RegistroIngresos" />
         </EntityType>
         <EntityType Name="CuentasxPagarContratos">
           <Key>
@@ -972,11 +1077,19 @@
           <Property Name="IdEstado" Type="Int32" />
           <Property Name="IdContrato" Type="Int32" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Contratos" Relationship="Self.FK__CuentasxP__IdCon__36B12243" FromRole="CuentasxPagarContratos" ToRole="Contratos" />
-          <NavigationProperty Name="EstadosCuentas" Relationship="Self.FK__CuentasxP__IdEst__35BCFE0A" FromRole="CuentasxPagarContratos" ToRole="EstadosCuentas" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CuentasxP__IdInm__37A5467C" FromRole="CuentasxPagarContratos" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCue__4D94879B" FromRole="CuentasxPagarContratos" ToRole="RegistroEgresos" />
-          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCue__46E78A0C" FromRole="CuentasxPagarContratos" ToRole="RegistroIngresos" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__CuentasxP__IdCon__440B1D61" FromRole="CuentasxPagarContratos" ToRole="Contratos" />
+          <NavigationProperty Name="EstadosCuentas" Relationship="Self.FK__CuentasxP__IdEst__4316F928" FromRole="CuentasxPagarContratos" ToRole="EstadosCuentas" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__CuentasxP__IdInm__44FF419A" FromRole="CuentasxPagarContratos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdCue__5AEE82B9" FromRole="CuentasxPagarContratos" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdCue__5441852A" FromRole="CuentasxPagarContratos" ToRole="RegistroIngresos" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdEst__29572725" FromRole="Estados" ToRole="Inmuebles" />
         </EntityType>
         <EntityType Name="EstadosCuentas">
           <Key>
@@ -984,8 +1097,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdEst__3A81B327" FromRole="EstadosCuentas" ToRole="CuentasxCobrarContratos" />
-          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdEst__35BCFE0A" FromRole="EstadosCuentas" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdEst__47DBAE45" FromRole="EstadosCuentas" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdEst__4316F928" FromRole="EstadosCuentas" ToRole="CuentasxPagarContratos" />
         </EntityType>
         <EntityType Name="Imagenes">
           <Key>
@@ -996,8 +1109,8 @@
           <Property Name="Ruta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmueble" Type="Int32" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Imagenes__IdInmo__267ABA7A" FromRole="Imagenes" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Imagenes__IdInmu__25869641" FromRole="Imagenes" ToRole="Inmuebles" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Imagenes__IdInmo__33D4B598" FromRole="Imagenes" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Imagenes__IdInmu__32E0915F" FromRole="Imagenes" ToRole="Inmuebles" />
         </EntityType>
         <EntityType Name="Inmobiliaria">
           <Key>
@@ -1011,38 +1124,38 @@
           <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Arrendatarios" Relationship="Self.FK__Arrendata__IdInm__29572725" FromRole="Inmobiliaria" ToRole="Arrendatarios" />
-          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__CajaBanco__IdInm__3F466844" FromRole="Inmobiliaria" ToRole="CajaBanco" />
-          <NavigationProperty Name="CategoriaInmuebles" Relationship="Self.FK__Categoria__IdInm__15502E78" FromRole="Inmobiliaria" ToRole="CategoriaInmuebles" />
-          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdInm__30F848ED" FromRole="Inmobiliaria" ToRole="Contratos" />
-          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdInm__3C69FB99" FromRole="Inmobiliaria" ToRole="CuentasxCobrarContratos" />
-          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdInm__37A5467C" FromRole="Inmobiliaria" ToRole="CuentasxPagarContratos" />
-          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__IdInmo__267ABA7A" FromRole="Inmobiliaria" ToRole="Imagenes" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdInm__22AA2996" FromRole="Inmobiliaria" ToRole="Inmuebles" />
-          <NavigationProperty Name="Municipios" Relationship="Self.FK__Municipio__IdInm__182C9B23" FromRole="Inmobiliaria" ToRole="Municipios" />
-          <NavigationProperty Name="Propietarios" Relationship="Self.FK__Propietar__IdInm__1273C1CD" FromRole="Inmobiliaria" ToRole="Propietarios" />
-          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdInm__4F7CD00D" FromRole="Inmobiliaria" ToRole="RegistroEgresos" />
-          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdInm__48CFD27E" FromRole="Inmobiliaria" ToRole="RegistroIngresos" />
-          <NavigationProperty Name="TipoPago" Relationship="Self.FK__TipoPago__IdInmo__4222D4EF" FromRole="Inmobiliaria" ToRole="TipoPago" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdInmo__5535A963" FromRole="Inmobiliaria" ToRole="Usuarios" />
-          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__ZonasMuni__IdInm__1BFD2C07" FromRole="Inmobiliaria" ToRole="ZonasMunicipios" />
+          <NavigationProperty Name="Arrendatarios" Relationship="Self.FK__Arrendata__IdInm__36B12243" FromRole="Inmobiliaria" ToRole="Arrendatarios" />
+          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__CajaBanco__IdInm__4CA06362" FromRole="Inmobiliaria" ToRole="CajaBanco" />
+          <NavigationProperty Name="CategoriaInmuebles" Relationship="Self.FK__Categoria__IdInm__1A14E395" FromRole="Inmobiliaria" ToRole="CategoriaInmuebles" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdInm__3E52440B" FromRole="Inmobiliaria" ToRole="Contratos" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__CuentasxC__IdInm__49C3F6B7" FromRole="Inmobiliaria" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__CuentasxP__IdInm__44FF419A" FromRole="Inmobiliaria" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__IdInmo__33D4B598" FromRole="Inmobiliaria" ToRole="Imagenes" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdInm__300424B4" FromRole="Inmobiliaria" ToRole="Inmuebles" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__Municipio__IdInm__1CF15040" FromRole="Inmobiliaria" ToRole="Municipios" />
+          <NavigationProperty Name="Propietarios" Relationship="Self.FK__Propietar__IdInm__173876EA" FromRole="Inmobiliaria" ToRole="Propietarios" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroE__IdInm__5CD6CB2B" FromRole="Inmobiliaria" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroI__IdInm__5629CD9C" FromRole="Inmobiliaria" ToRole="RegistroIngresos" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK__TipoPago__IdInmo__4F7CD00D" FromRole="Inmobiliaria" ToRole="TipoPago" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdInmo__628FA481" FromRole="Inmobiliaria" ToRole="Usuarios" />
+          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__ZonasMuni__IdInm__20C1E124" FromRole="Inmobiliaria" ToRole="ZonasMunicipios" />
         </EntityType>
         <EntityType Name="Inmuebles">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Codigo" Type="Int32" />
-          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="IdLlaves" Type="Int32" />
+          <Property Name="IdIva" Type="Int32" />
+          <Property Name="Codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Llaves" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PrecioPropietario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Porcentaje" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Porcentaje" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Honorarios" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="FechaCaptacion" Type="DateTime" Precision="0" />
-          <Property Name="Iva" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PrecioFinal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Habitaciones" Type="Int32" />
           <Property Name="Banos" Type="Int32" />
@@ -1055,13 +1168,41 @@
           <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="IdCategoria" Type="Int32" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CategoriaInmuebles" Relationship="Self.FK__Inmuebles__IdCat__21B6055D" FromRole="Inmuebles" ToRole="CategoriaInmuebles" />
-          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdInm__2C3393D0" FromRole="Inmuebles" ToRole="Contratos" />
-          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__IdInmu__25869641" FromRole="Inmuebles" ToRole="Imagenes" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Inmuebles__IdInm__22AA2996" FromRole="Inmuebles" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Municipios" Relationship="Self.FK__Inmuebles__IdMun__1ED998B2" FromRole="Inmuebles" ToRole="Municipios" />
-          <NavigationProperty Name="Propietarios" Relationship="Self.FK__Inmuebles__IdPro__20C1E124" FromRole="Inmuebles" ToRole="Propietarios" />
-          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__Inmuebles__IdZon__1FCDBCEB" FromRole="Inmuebles" ToRole="ZonasMunicipios" />
+          <NavigationProperty Name="CategoriaInmuebles" Relationship="Self.FK__Inmuebles__IdCat__2F10007B" FromRole="Inmuebles" ToRole="CategoriaInmuebles" />
+          <NavigationProperty Name="Contratos" Relationship="Self.FK__Contratos__IdInm__398D8EEE" FromRole="Inmuebles" ToRole="Contratos" />
+          <NavigationProperty Name="Estados" Relationship="Self.FK__Inmuebles__IdEst__29572725" FromRole="Inmuebles" ToRole="Estados" />
+          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__IdInmu__32E0915F" FromRole="Inmuebles" ToRole="Imagenes" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Inmuebles__IdInm__300424B4" FromRole="Inmuebles" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Iva" Relationship="Self.FK__Inmuebles__IdIva__2B3F6F97" FromRole="Inmuebles" ToRole="Iva" />
+          <NavigationProperty Name="llaves" Relationship="Self.FK__Inmuebles__IdLla__2A4B4B5E" FromRole="Inmuebles" ToRole="llaves" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__Inmuebles__IdMun__2C3393D0" FromRole="Inmuebles" ToRole="Municipios" />
+          <NavigationProperty Name="Propietarios" Relationship="Self.FK__Inmuebles__IdPro__2E1BDC42" FromRole="Inmuebles" ToRole="Propietarios" />
+          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__Inmuebles__IdZon__2D27B809" FromRole="Inmuebles" ToRole="ZonasMunicipios" />
+        </EntityType>
+        <EntityType Name="Iva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Valor" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdIva__2B3F6F97" FromRole="Iva" ToRole="Inmuebles" />
+        </EntityType>
+        <EntityType Name="ListThings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAme" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdTypeListThings" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeListThings" Relationship="Self.FK__ListThing__IdTyp__1273C1CD" FromRole="ListThings" ToRole="TypeListThings" />
+        </EntityType>
+        <EntityType Name="llaves">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdLla__2A4B4B5E" FromRole="llaves" ToRole="Inmuebles" />
         </EntityType>
         <EntityType Name="Municipios">
           <Key>
@@ -1070,9 +1211,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Municipio__IdInm__182C9B23" FromRole="Municipios" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdMun__1ED998B2" FromRole="Municipios" ToRole="Inmuebles" />
-          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__ZonasMuni__IdMun__1B0907CE" FromRole="Municipios" ToRole="ZonasMunicipios" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Municipio__IdInm__1CF15040" FromRole="Municipios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdMun__2C3393D0" FromRole="Municipios" ToRole="Inmuebles" />
+          <NavigationProperty Name="ZonasMunicipios" Relationship="Self.FK__ZonasMuni__IdMun__1FCDBCEB" FromRole="Municipios" ToRole="ZonasMunicipios" />
         </EntityType>
         <EntityType Name="Propietarios">
           <Key>
@@ -1087,8 +1228,8 @@
           <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Propietar__IdInm__1273C1CD" FromRole="Propietarios" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdPro__20C1E124" FromRole="Propietarios" ToRole="Inmuebles" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Propietar__IdInm__173876EA" FromRole="Propietarios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdPro__2E1BDC42" FromRole="Propietarios" ToRole="Inmuebles" />
         </EntityType>
         <EntityType Name="RegistroEgresos">
           <Key>
@@ -1107,11 +1248,11 @@
           <Property Name="IdCuentasxCobrarContratos" Type="Int32" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__RegistroE__IdCaj__4CA06362" FromRole="RegistroEgresos" ToRole="CajaBanco" />
-          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__RegistroE__IdCue__4E88ABD4" FromRole="RegistroEgresos" ToRole="CuentasxCobrarContratos" />
-          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__RegistroE__IdCue__4D94879B" FromRole="RegistroEgresos" ToRole="CuentasxPagarContratos" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__RegistroE__IdInm__4F7CD00D" FromRole="RegistroEgresos" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="TipoPago" Relationship="Self.FK__RegistroEg__Tipo__4BAC3F29" FromRole="RegistroEgresos" ToRole="TipoPago" />
+          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__RegistroE__IdCaj__59FA5E80" FromRole="RegistroEgresos" ToRole="CajaBanco" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__RegistroE__IdCue__5BE2A6F2" FromRole="RegistroEgresos" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__RegistroE__IdCue__5AEE82B9" FromRole="RegistroEgresos" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__RegistroE__IdInm__5CD6CB2B" FromRole="RegistroEgresos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK__RegistroEg__Tipo__59063A47" FromRole="RegistroEgresos" ToRole="TipoPago" />
         </EntityType>
         <EntityType Name="RegistroIngresos">
           <Key>
@@ -1130,11 +1271,11 @@
           <Property Name="IdCuentasxCobrarContratos" Type="Int32" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__RegistroI__IdCaj__45F365D3" FromRole="RegistroIngresos" ToRole="CajaBanco" />
-          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__RegistroI__IdCue__47DBAE45" FromRole="RegistroIngresos" ToRole="CuentasxCobrarContratos" />
-          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__RegistroI__IdCue__46E78A0C" FromRole="RegistroIngresos" ToRole="CuentasxPagarContratos" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__RegistroI__IdInm__48CFD27E" FromRole="RegistroIngresos" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="TipoPago" Relationship="Self.FK__RegistroIn__Tipo__44FF419A" FromRole="RegistroIngresos" ToRole="TipoPago" />
+          <NavigationProperty Name="CajaBanco" Relationship="Self.FK__RegistroI__IdCaj__534D60F1" FromRole="RegistroIngresos" ToRole="CajaBanco" />
+          <NavigationProperty Name="CuentasxCobrarContratos" Relationship="Self.FK__RegistroI__IdCue__5535A963" FromRole="RegistroIngresos" ToRole="CuentasxCobrarContratos" />
+          <NavigationProperty Name="CuentasxPagarContratos" Relationship="Self.FK__RegistroI__IdCue__5441852A" FromRole="RegistroIngresos" ToRole="CuentasxPagarContratos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__RegistroI__IdInm__5629CD9C" FromRole="RegistroIngresos" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK__RegistroIn__Tipo__52593CB8" FromRole="RegistroIngresos" ToRole="TipoPago" />
         </EntityType>
         <EntityType Name="RolesUsuarios">
           <Key>
@@ -1142,7 +1283,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__Rol__5441852A" FromRole="RolesUsuarios" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__Rol__619B8048" FromRole="RolesUsuarios" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="TipoPago">
           <Key>
@@ -1151,9 +1292,17 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__TipoPago__IdInmo__4222D4EF" FromRole="TipoPago" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroEg__Tipo__4BAC3F29" FromRole="TipoPago" ToRole="RegistroEgresos" />
-          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroIn__Tipo__44FF419A" FromRole="TipoPago" ToRole="RegistroIngresos" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__TipoPago__IdInmo__4F7CD00D" FromRole="TipoPago" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RegistroEgresos" Relationship="Self.FK__RegistroEg__Tipo__59063A47" FromRole="TipoPago" ToRole="RegistroEgresos" />
+          <NavigationProperty Name="RegistroIngresos" Relationship="Self.FK__RegistroIn__Tipo__52593CB8" FromRole="TipoPago" ToRole="RegistroIngresos" />
+        </EntityType>
+        <EntityType Name="TypeListThings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ListThings" Relationship="Self.FK__ListThing__IdTyp__1273C1CD" FromRole="TypeListThings" ToRole="ListThings" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -1167,8 +1316,8 @@
           <Property Name="Rol" Type="Int32" Nullable="false" />
           <Property Name="FechaAdd" Type="DateTime" Precision="0" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Usuarios__IdInmo__5535A963" FromRole="Usuarios" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="RolesUsuarios" Relationship="Self.FK__Usuarios__Rol__5441852A" FromRole="Usuarios" ToRole="RolesUsuarios" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__Usuarios__IdInmo__628FA481" FromRole="Usuarios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="RolesUsuarios" Relationship="Self.FK__Usuarios__Rol__619B8048" FromRole="Usuarios" ToRole="RolesUsuarios" />
         </EntityType>
         <EntityType Name="ZonasMunicipios">
           <Key>
@@ -1178,11 +1327,11 @@
           <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
           <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__ZonasMuni__IdInm__1BFD2C07" FromRole="ZonasMunicipios" ToRole="Inmobiliaria" />
-          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdZon__1FCDBCEB" FromRole="ZonasMunicipios" ToRole="Inmuebles" />
-          <NavigationProperty Name="Municipios" Relationship="Self.FK__ZonasMuni__IdMun__1B0907CE" FromRole="ZonasMunicipios" ToRole="Municipios" />
+          <NavigationProperty Name="Inmobiliaria" Relationship="Self.FK__ZonasMuni__IdInm__20C1E124" FromRole="ZonasMunicipios" ToRole="Inmobiliaria" />
+          <NavigationProperty Name="Inmuebles" Relationship="Self.FK__Inmuebles__IdZon__2D27B809" FromRole="ZonasMunicipios" ToRole="Inmuebles" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK__ZonasMuni__IdMun__1FCDBCEB" FromRole="ZonasMunicipios" ToRole="Municipios" />
         </EntityType>
-        <Association Name="FK__Arrendata__IdInm__29572725">
+        <Association Name="FK__Arrendata__IdInm__36B12243">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1194,7 +1343,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdArr__2D27B809">
+        <Association Name="FK__Contratos__IdArr__3A81B327">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1206,7 +1355,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdCoA__2E1BDC42">
+        <Association Name="FK__Contratos__IdCoA__3B75D760">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1218,7 +1367,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdFia__2F10007B">
+        <Association Name="FK__Contratos__IdFia__3C69FB99">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1230,7 +1379,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdFia__300424B4">
+        <Association Name="FK__Contratos__IdFia__3D5E1FD2">
           <End Role="Arrendatarios" Type="Self.Arrendatarios" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1242,7 +1391,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CajaBanco__IdInm__3F466844">
+        <Association Name="FK__CajaBanco__IdInm__4CA06362">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1254,7 +1403,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdCaj__4CA06362">
+        <Association Name="FK__RegistroE__IdCaj__59FA5E80">
           <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1266,7 +1415,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdCaj__45F365D3">
+        <Association Name="FK__RegistroI__IdCaj__534D60F1">
           <End Role="CajaBanco" Type="Self.CajaBanco" Multiplicity="1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1278,7 +1427,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Categoria__IdInm__15502E78">
+        <Association Name="FK__Categoria__IdInm__1A14E395">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1290,7 +1439,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdCat__21B6055D">
+        <Association Name="FK__Inmuebles__IdCat__2F10007B">
           <End Role="CategoriaInmuebles" Type="Self.CategoriaInmuebles" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1302,7 +1451,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdInm__2C3393D0">
+        <Association Name="FK__Contratos__IdInm__398D8EEE">
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1314,7 +1463,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contratos__IdInm__30F848ED">
+        <Association Name="FK__Contratos__IdInm__3E52440B">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1326,7 +1475,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxC__IdCon__3B75D760">
+        <Association Name="FK__CuentasxC__IdCon__48CFD27E">
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1338,7 +1487,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxP__IdCon__36B12243">
+        <Association Name="FK__CuentasxP__IdCon__440B1D61">
           <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1350,7 +1499,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxC__IdEst__3A81B327">
+        <Association Name="FK__CuentasxC__IdEst__47DBAE45">
           <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1362,7 +1511,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxC__IdInm__3C69FB99">
+        <Association Name="FK__CuentasxC__IdInm__49C3F6B7">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1374,7 +1523,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdCue__4E88ABD4">
+        <Association Name="FK__RegistroE__IdCue__5BE2A6F2">
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1386,7 +1535,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdCue__47DBAE45">
+        <Association Name="FK__RegistroI__IdCue__5535A963">
           <End Role="CuentasxCobrarContratos" Type="Self.CuentasxCobrarContratos" Multiplicity="0..1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1398,7 +1547,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxP__IdEst__35BCFE0A">
+        <Association Name="FK__CuentasxP__IdEst__4316F928">
           <End Role="EstadosCuentas" Type="Self.EstadosCuentas" Multiplicity="0..1" />
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1410,7 +1559,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CuentasxP__IdInm__37A5467C">
+        <Association Name="FK__CuentasxP__IdInm__44FF419A">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1422,7 +1571,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdCue__4D94879B">
+        <Association Name="FK__RegistroE__IdCue__5AEE82B9">
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1434,7 +1583,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdCue__46E78A0C">
+        <Association Name="FK__RegistroI__IdCue__5441852A">
           <End Role="CuentasxPagarContratos" Type="Self.CuentasxPagarContratos" Multiplicity="0..1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1446,7 +1595,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Imagenes__IdInmo__267ABA7A">
+        <Association Name="FK__Inmuebles__IdEst__29572725">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__IdInmo__33D4B598">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1458,7 +1619,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Imagenes__IdInmu__25869641">
+        <Association Name="FK__Imagenes__IdInmu__32E0915F">
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="1" />
           <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1470,7 +1631,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdInm__22AA2996">
+        <Association Name="FK__Inmuebles__IdInm__300424B4">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1482,7 +1643,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Municipio__IdInm__182C9B23">
+        <Association Name="FK__Municipio__IdInm__1CF15040">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1494,7 +1655,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Propietar__IdInm__1273C1CD">
+        <Association Name="FK__Propietar__IdInm__173876EA">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1506,7 +1667,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroE__IdInm__4F7CD00D">
+        <Association Name="FK__RegistroE__IdInm__5CD6CB2B">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1518,7 +1679,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroI__IdInm__48CFD27E">
+        <Association Name="FK__RegistroI__IdInm__5629CD9C">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1530,7 +1691,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TipoPago__IdInmo__4222D4EF">
+        <Association Name="FK__TipoPago__IdInmo__4F7CD00D">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1542,7 +1703,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__IdInmo__5535A963">
+        <Association Name="FK__Usuarios__IdInmo__628FA481">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1554,7 +1715,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ZonasMuni__IdInm__1BFD2C07">
+        <Association Name="FK__ZonasMuni__IdInm__20C1E124">
           <End Role="Inmobiliaria" Type="Self.Inmobiliaria" Multiplicity="1" />
           <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1566,7 +1727,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdMun__1ED998B2">
+        <Association Name="FK__Inmuebles__IdIva__2B3F6F97">
+          <End Role="Iva" Type="Self.Iva" Multiplicity="0..1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Iva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdIva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdLla__2A4B4B5E">
+          <End Role="llaves" Type="Self.llaves" Multiplicity="0..1" />
+          <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="llaves">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inmuebles">
+              <PropertyRef Name="IdLlaves" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inmuebles__IdMun__2C3393D0">
           <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1578,7 +1763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdPro__20C1E124">
+        <Association Name="FK__Inmuebles__IdPro__2E1BDC42">
           <End Role="Propietarios" Type="Self.Propietarios" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1590,7 +1775,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inmuebles__IdZon__1FCDBCEB">
+        <Association Name="FK__Inmuebles__IdZon__2D27B809">
           <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="1" />
           <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1602,7 +1787,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ZonasMuni__IdMun__1B0907CE">
+        <Association Name="FK__ListThing__IdTyp__1273C1CD">
+          <End Role="TypeListThings" Type="Self.TypeListThings" Multiplicity="1" />
+          <End Role="ListThings" Type="Self.ListThings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeListThings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListThings">
+              <PropertyRef Name="IdTypeListThings" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZonasMuni__IdMun__1FCDBCEB">
           <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
           <End Role="ZonasMunicipios" Type="Self.ZonasMunicipios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1614,7 +1811,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroEg__Tipo__4BAC3F29">
+        <Association Name="FK__RegistroEg__Tipo__59063A47">
           <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
           <End Role="RegistroEgresos" Type="Self.RegistroEgresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1626,7 +1823,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RegistroIn__Tipo__44FF419A">
+        <Association Name="FK__RegistroIn__Tipo__52593CB8">
           <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
           <End Role="RegistroIngresos" Type="Self.RegistroIngresos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1638,7 +1835,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__Rol__5441852A">
+        <Association Name="FK__Usuarios__Rol__619B8048">
           <End Role="RolesUsuarios" Type="Self.RolesUsuarios" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1650,178 +1847,199 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Inmobiliaria_DesarrolloEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Inmobiliaria_DesarrolloEntities_Desarrollo" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Arrendatarios" EntityType="Self.Arrendatarios" />
           <EntitySet Name="CajaBanco" EntityType="Self.CajaBanco" />
           <EntitySet Name="CategoriaInmuebles" EntityType="Self.CategoriaInmuebles" />
           <EntitySet Name="Contratos" EntityType="Self.Contratos" />
           <EntitySet Name="CuentasxCobrarContratos" EntityType="Self.CuentasxCobrarContratos" />
           <EntitySet Name="CuentasxPagarContratos" EntityType="Self.CuentasxPagarContratos" />
+          <EntitySet Name="Estados" EntityType="Self.Estados" />
           <EntitySet Name="EstadosCuentas" EntityType="Self.EstadosCuentas" />
           <EntitySet Name="Imagenes" EntityType="Self.Imagenes" />
           <EntitySet Name="Inmobiliaria" EntityType="Self.Inmobiliaria" />
           <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" />
+          <EntitySet Name="Iva" EntityType="Self.Iva" />
+          <EntitySet Name="ListThings" EntityType="Self.ListThings" />
+          <EntitySet Name="llaves" EntityType="Self.llaves" />
           <EntitySet Name="Municipios" EntityType="Self.Municipios" />
           <EntitySet Name="Propietarios" EntityType="Self.Propietarios" />
           <EntitySet Name="RegistroEgresos" EntityType="Self.RegistroEgresos" />
           <EntitySet Name="RegistroIngresos" EntityType="Self.RegistroIngresos" />
           <EntitySet Name="RolesUsuarios" EntityType="Self.RolesUsuarios" />
           <EntitySet Name="TipoPago" EntityType="Self.TipoPago" />
+          <EntitySet Name="TypeListThings" EntityType="Self.TypeListThings" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <EntitySet Name="ZonasMunicipios" EntityType="Self.ZonasMunicipios" />
-          <AssociationSet Name="FK__Arrendata__IdInm__29572725" Association="Self.FK__Arrendata__IdInm__29572725">
+          <AssociationSet Name="FK__Arrendata__IdInm__36B12243" Association="Self.FK__Arrendata__IdInm__36B12243">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdArr__2D27B809" Association="Self.FK__Contratos__IdArr__2D27B809">
+          <AssociationSet Name="FK__Contratos__IdArr__3A81B327" Association="Self.FK__Contratos__IdArr__3A81B327">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdCoA__2E1BDC42" Association="Self.FK__Contratos__IdCoA__2E1BDC42">
+          <AssociationSet Name="FK__Contratos__IdCoA__3B75D760" Association="Self.FK__Contratos__IdCoA__3B75D760">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdFia__2F10007B" Association="Self.FK__Contratos__IdFia__2F10007B">
+          <AssociationSet Name="FK__Contratos__IdFia__3C69FB99" Association="Self.FK__Contratos__IdFia__3C69FB99">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdFia__300424B4" Association="Self.FK__Contratos__IdFia__300424B4">
+          <AssociationSet Name="FK__Contratos__IdFia__3D5E1FD2" Association="Self.FK__Contratos__IdFia__3D5E1FD2">
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CajaBanco__IdInm__3F466844" Association="Self.FK__CajaBanco__IdInm__3F466844">
+          <AssociationSet Name="FK__CajaBanco__IdInm__4CA06362" Association="Self.FK__CajaBanco__IdInm__4CA06362">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CajaBanco" EntitySet="CajaBanco" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdCaj__4CA06362" Association="Self.FK__RegistroE__IdCaj__4CA06362">
+          <AssociationSet Name="FK__RegistroE__IdCaj__59FA5E80" Association="Self.FK__RegistroE__IdCaj__59FA5E80">
             <End Role="CajaBanco" EntitySet="CajaBanco" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdCaj__45F365D3" Association="Self.FK__RegistroI__IdCaj__45F365D3">
+          <AssociationSet Name="FK__RegistroI__IdCaj__534D60F1" Association="Self.FK__RegistroI__IdCaj__534D60F1">
             <End Role="CajaBanco" EntitySet="CajaBanco" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Categoria__IdInm__15502E78" Association="Self.FK__Categoria__IdInm__15502E78">
+          <AssociationSet Name="FK__Categoria__IdInm__1A14E395" Association="Self.FK__Categoria__IdInm__1A14E395">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdCat__21B6055D" Association="Self.FK__Inmuebles__IdCat__21B6055D">
+          <AssociationSet Name="FK__Inmuebles__IdCat__2F10007B" Association="Self.FK__Inmuebles__IdCat__2F10007B">
             <End Role="CategoriaInmuebles" EntitySet="CategoriaInmuebles" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdInm__2C3393D0" Association="Self.FK__Contratos__IdInm__2C3393D0">
+          <AssociationSet Name="FK__Contratos__IdInm__398D8EEE" Association="Self.FK__Contratos__IdInm__398D8EEE">
             <End Role="Inmuebles" EntitySet="Inmuebles" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contratos__IdInm__30F848ED" Association="Self.FK__Contratos__IdInm__30F848ED">
+          <AssociationSet Name="FK__Contratos__IdInm__3E52440B" Association="Self.FK__Contratos__IdInm__3E52440B">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Contratos" EntitySet="Contratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxC__IdCon__3B75D760" Association="Self.FK__CuentasxC__IdCon__3B75D760">
+          <AssociationSet Name="FK__CuentasxC__IdCon__48CFD27E" Association="Self.FK__CuentasxC__IdCon__48CFD27E">
             <End Role="Contratos" EntitySet="Contratos" />
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxP__IdCon__36B12243" Association="Self.FK__CuentasxP__IdCon__36B12243">
+          <AssociationSet Name="FK__CuentasxP__IdCon__440B1D61" Association="Self.FK__CuentasxP__IdCon__440B1D61">
             <End Role="Contratos" EntitySet="Contratos" />
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxC__IdEst__3A81B327" Association="Self.FK__CuentasxC__IdEst__3A81B327">
+          <AssociationSet Name="FK__CuentasxC__IdEst__47DBAE45" Association="Self.FK__CuentasxC__IdEst__47DBAE45">
             <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxC__IdInm__3C69FB99" Association="Self.FK__CuentasxC__IdInm__3C69FB99">
+          <AssociationSet Name="FK__CuentasxC__IdInm__49C3F6B7" Association="Self.FK__CuentasxC__IdInm__49C3F6B7">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdCue__4E88ABD4" Association="Self.FK__RegistroE__IdCue__4E88ABD4">
+          <AssociationSet Name="FK__RegistroE__IdCue__5BE2A6F2" Association="Self.FK__RegistroE__IdCue__5BE2A6F2">
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdCue__47DBAE45" Association="Self.FK__RegistroI__IdCue__47DBAE45">
+          <AssociationSet Name="FK__RegistroI__IdCue__5535A963" Association="Self.FK__RegistroI__IdCue__5535A963">
             <End Role="CuentasxCobrarContratos" EntitySet="CuentasxCobrarContratos" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxP__IdEst__35BCFE0A" Association="Self.FK__CuentasxP__IdEst__35BCFE0A">
+          <AssociationSet Name="FK__CuentasxP__IdEst__4316F928" Association="Self.FK__CuentasxP__IdEst__4316F928">
             <End Role="EstadosCuentas" EntitySet="EstadosCuentas" />
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__CuentasxP__IdInm__37A5467C" Association="Self.FK__CuentasxP__IdInm__37A5467C">
+          <AssociationSet Name="FK__CuentasxP__IdInm__44FF419A" Association="Self.FK__CuentasxP__IdInm__44FF419A">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdCue__4D94879B" Association="Self.FK__RegistroE__IdCue__4D94879B">
+          <AssociationSet Name="FK__RegistroE__IdCue__5AEE82B9" Association="Self.FK__RegistroE__IdCue__5AEE82B9">
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdCue__46E78A0C" Association="Self.FK__RegistroI__IdCue__46E78A0C">
+          <AssociationSet Name="FK__RegistroI__IdCue__5441852A" Association="Self.FK__RegistroI__IdCue__5441852A">
             <End Role="CuentasxPagarContratos" EntitySet="CuentasxPagarContratos" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Imagenes__IdInmo__267ABA7A" Association="Self.FK__Imagenes__IdInmo__267ABA7A">
+          <AssociationSet Name="FK__Inmuebles__IdEst__29572725" Association="Self.FK__Inmuebles__IdEst__29572725">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__IdInmo__33D4B598" Association="Self.FK__Imagenes__IdInmo__33D4B598">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Imagenes" EntitySet="Imagenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Imagenes__IdInmu__25869641" Association="Self.FK__Imagenes__IdInmu__25869641">
+          <AssociationSet Name="FK__Imagenes__IdInmu__32E0915F" Association="Self.FK__Imagenes__IdInmu__32E0915F">
             <End Role="Inmuebles" EntitySet="Inmuebles" />
             <End Role="Imagenes" EntitySet="Imagenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdInm__22AA2996" Association="Self.FK__Inmuebles__IdInm__22AA2996">
+          <AssociationSet Name="FK__Inmuebles__IdInm__300424B4" Association="Self.FK__Inmuebles__IdInm__300424B4">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Municipio__IdInm__182C9B23" Association="Self.FK__Municipio__IdInm__182C9B23">
+          <AssociationSet Name="FK__Municipio__IdInm__1CF15040" Association="Self.FK__Municipio__IdInm__1CF15040">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Municipios" EntitySet="Municipios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Propietar__IdInm__1273C1CD" Association="Self.FK__Propietar__IdInm__1273C1CD">
+          <AssociationSet Name="FK__Propietar__IdInm__173876EA" Association="Self.FK__Propietar__IdInm__173876EA">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Propietarios" EntitySet="Propietarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroE__IdInm__4F7CD00D" Association="Self.FK__RegistroE__IdInm__4F7CD00D">
+          <AssociationSet Name="FK__RegistroE__IdInm__5CD6CB2B" Association="Self.FK__RegistroE__IdInm__5CD6CB2B">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroI__IdInm__48CFD27E" Association="Self.FK__RegistroI__IdInm__48CFD27E">
+          <AssociationSet Name="FK__RegistroI__IdInm__5629CD9C" Association="Self.FK__RegistroI__IdInm__5629CD9C">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__TipoPago__IdInmo__4222D4EF" Association="Self.FK__TipoPago__IdInmo__4222D4EF">
+          <AssociationSet Name="FK__TipoPago__IdInmo__4F7CD00D" Association="Self.FK__TipoPago__IdInmo__4F7CD00D">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="TipoPago" EntitySet="TipoPago" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdInmo__5535A963" Association="Self.FK__Usuarios__IdInmo__5535A963">
+          <AssociationSet Name="FK__Usuarios__IdInmo__628FA481" Association="Self.FK__Usuarios__IdInmo__628FA481">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__ZonasMuni__IdInm__1BFD2C07" Association="Self.FK__ZonasMuni__IdInm__1BFD2C07">
+          <AssociationSet Name="FK__ZonasMuni__IdInm__20C1E124" Association="Self.FK__ZonasMuni__IdInm__20C1E124">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdMun__1ED998B2" Association="Self.FK__Inmuebles__IdMun__1ED998B2">
+          <AssociationSet Name="FK__Inmuebles__IdIva__2B3F6F97" Association="Self.FK__Inmuebles__IdIva__2B3F6F97">
+            <End Role="Iva" EntitySet="Iva" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdLla__2A4B4B5E" Association="Self.FK__Inmuebles__IdLla__2A4B4B5E">
+            <End Role="llaves" EntitySet="llaves" />
+            <End Role="Inmuebles" EntitySet="Inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inmuebles__IdMun__2C3393D0" Association="Self.FK__Inmuebles__IdMun__2C3393D0">
             <End Role="Municipios" EntitySet="Municipios" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdPro__20C1E124" Association="Self.FK__Inmuebles__IdPro__20C1E124">
+          <AssociationSet Name="FK__Inmuebles__IdPro__2E1BDC42" Association="Self.FK__Inmuebles__IdPro__2E1BDC42">
             <End Role="Propietarios" EntitySet="Propietarios" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inmuebles__IdZon__1FCDBCEB" Association="Self.FK__Inmuebles__IdZon__1FCDBCEB">
+          <AssociationSet Name="FK__Inmuebles__IdZon__2D27B809" Association="Self.FK__Inmuebles__IdZon__2D27B809">
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
             <End Role="Inmuebles" EntitySet="Inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__ZonasMuni__IdMun__1B0907CE" Association="Self.FK__ZonasMuni__IdMun__1B0907CE">
+          <AssociationSet Name="FK__ListThing__IdTyp__1273C1CD" Association="Self.FK__ListThing__IdTyp__1273C1CD">
+            <End Role="TypeListThings" EntitySet="TypeListThings" />
+            <End Role="ListThings" EntitySet="ListThings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZonasMuni__IdMun__1FCDBCEB" Association="Self.FK__ZonasMuni__IdMun__1FCDBCEB">
             <End Role="Municipios" EntitySet="Municipios" />
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroEg__Tipo__4BAC3F29" Association="Self.FK__RegistroEg__Tipo__4BAC3F29">
+          <AssociationSet Name="FK__RegistroEg__Tipo__59063A47" Association="Self.FK__RegistroEg__Tipo__59063A47">
             <End Role="TipoPago" EntitySet="TipoPago" />
             <End Role="RegistroEgresos" EntitySet="RegistroEgresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__RegistroIn__Tipo__44FF419A" Association="Self.FK__RegistroIn__Tipo__44FF419A">
+          <AssociationSet Name="FK__RegistroIn__Tipo__52593CB8" Association="Self.FK__RegistroIn__Tipo__52593CB8">
             <End Role="TipoPago" EntitySet="TipoPago" />
             <End Role="RegistroIngresos" EntitySet="RegistroIngresos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__Rol__5441852A" Association="Self.FK__Usuarios__Rol__5441852A">
+          <AssociationSet Name="FK__Usuarios__Rol__619B8048" Association="Self.FK__Usuarios__Rol__619B8048">
             <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
@@ -1831,7 +2049,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Inmobiliaria_DesarrolloModelStoreContainer" CdmEntityContainer="Inmobiliaria_DesarrolloEntities">
+        <EntityContainerMapping StorageEntityContainer="Inmobiliaria_DesarrolloModelStoreContainer" CdmEntityContainer="Inmobiliaria_DesarrolloEntities_Desarrollo">
           <EntitySetMapping Name="Arrendatarios">
             <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Arrendatarios">
               <MappingFragment StoreEntitySet="Arrendatarios">
@@ -1909,6 +2127,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EstadosCuentas">
             <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.EstadosCuentas">
               <MappingFragment StoreEntitySet="EstadosCuentas">
@@ -1946,17 +2172,17 @@
             <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Inmuebles">
               <MappingFragment StoreEntitySet="Inmuebles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdLlaves" ColumnName="IdLlaves" />
+                <ScalarProperty Name="IdIva" ColumnName="IdIva" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Llaves" ColumnName="Llaves" />
                 <ScalarProperty Name="PrecioPropietario" ColumnName="PrecioPropietario" />
                 <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
                 <ScalarProperty Name="Honorarios" ColumnName="Honorarios" />
                 <ScalarProperty Name="FechaCaptacion" ColumnName="FechaCaptacion" />
-                <ScalarProperty Name="Iva" ColumnName="Iva" />
                 <ScalarProperty Name="PrecioFinal" ColumnName="PrecioFinal" />
                 <ScalarProperty Name="Habitaciones" ColumnName="Habitaciones" />
                 <ScalarProperty Name="Banos" ColumnName="Banos" />
@@ -1969,6 +2195,31 @@
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
                 <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Iva">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.Iva">
+              <MappingFragment StoreEntitySet="Iva">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListThings">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.ListThings">
+              <MappingFragment StoreEntitySet="ListThings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NAme" ColumnName="NAme" />
+                <ScalarProperty Name="IdTypeListThings" ColumnName="IdTypeListThings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="llaves">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.llaves">
+              <MappingFragment StoreEntitySet="llaves">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2048,6 +2299,14 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeListThings">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.TypeListThings">
+              <MappingFragment StoreEntitySet="TypeListThings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

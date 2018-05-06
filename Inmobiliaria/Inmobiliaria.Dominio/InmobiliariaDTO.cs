@@ -28,7 +28,7 @@ namespace Inmobiliaria.Dominio
             this.RegistroIngresos = new HashSet<RegistroIngresosDTO>();
             this.TipoPago = new HashSet<TipoPagoDTO>();
             this.Usuarios = new HashSet<UsuariosDTO>();
-            this.ZonasMunicipios = new HashSet<ZonasMunicipios>();
+            this.ZonasMunicipios = new HashSet<ZonasMunicipiosDTO>();
         }
 
         public int Id { get; set; }
@@ -69,6 +69,6 @@ namespace Inmobiliaria.Dominio
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsuariosDTO> Usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ZonasMunicipios> ZonasMunicipios { get; set; }
+        public virtual ICollection<ZonasMunicipiosDTO> ZonasMunicipios { get; set; }
     }
 }

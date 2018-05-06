@@ -1,4 +1,4 @@
-﻿@model List<Inmobiliaria.Dominio.InmueblesDTO>
+﻿@model Inmobiliaria.Dominio.ViewModels.InmueblesViewModelDTO
 
 @{
     /*Carga Layout*/
@@ -45,23 +45,23 @@
         </thead>
 
         <tbody>
-            @foreach (var Inmueble in Model)
+            @foreach (var Inmueble in Model.LInmuebles)
             {
 
-            <tr>
-                <td>@Inmueble.Codigo</td>
-                <td>@Inmueble.CategoriaInmuebles.Nombre</td>
-                <td>@Inmueble.Municipios.Nombre</td>
-                <td>@Inmueble.ZonasMunicipios.Nombre</td>
-                <td>@Inmueble.Estado</td>
-                <td>@Inmueble.Area</td>
-                <td>@Inmueble.Habitaciones</td>
-                <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Porteria"></td>
-                <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Piscina"></td>
-                <td>@Inmueble.Propietarios.Nombre</td>
-                <td>@Inmueble.PrecioFinal</td>
-                <td> <a href="@Url.Action("Detalle_Inmueble","Inmuebles",new { id = Inmueble.Id } )" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="@Url.Action("Editar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="@Url.Action("Eliminar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
-            </tr>
+                <tr>
+                    <td>@Inmueble.Codigo</td>
+                    <td>@Inmueble.CategoriaInmuebles.Nombre</td>
+                    <td>@Inmueble.Municipios.Nombre</td>
+                    <td>@Inmueble.ZonasMunicipios.Nombre</td>
+                    <td>@Inmueble.Estados.Nombre</td>
+                    <td>@Inmueble.Area</td>
+                    <td>@Inmueble.Habitaciones</td>
+                    <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Porteria"></td>
+                    <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Piscina"></td>
+                    <td>@Inmueble.Propietarios.Nombre</td>
+                    <td>@Inmueble.PrecioFinal</td>
+                    <td> <a href="@Url.Action("Detalle_Inmueble","Inmuebles",new { id = Inmueble.Id } )" title="Ver detalle del Inmueble"><i class="material-icons icon-table ver">done</i></a>  <a href="@Url.Action("Editar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Editar Inmueble"><i class="material-icons icon-table editar">loop</i></a>  <a href="@Url.Action("Eliminar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Eliminar Inmueble"><i class="material-icons icon-table eliminar">clear</i></a></td>
+                </tr>
             }
 
         </tbody>
@@ -87,6 +87,5 @@
     </table>
 
 </div>
-
 
 

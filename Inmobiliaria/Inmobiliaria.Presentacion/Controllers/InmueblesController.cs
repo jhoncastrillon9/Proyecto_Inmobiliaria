@@ -7,8 +7,7 @@ using System.Web.Mvc;
 using Inmobiliaria.Dominio;
 using Newtonsoft.Json;
 using System.Net.Http.Formatting;
-
-
+using Inmobiliaria.Dominio.ViewModels;
 
 namespace Inmobiliaria.Presentacion.Controllers
 {
@@ -23,7 +22,7 @@ namespace Inmobiliaria.Presentacion.Controllers
             //Indicamos donde tenemos las APi la Direccion
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
-            var request = clienteHttp.GetAsync("api/InmueblesApi").Result;
+            var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/GetGeneral/").Result;
 
             //variables para el view
             ViewBag.ubicacion = "Inicio / Inmuebles / Listado";
@@ -36,13 +35,12 @@ namespace Inmobiliaria.Presentacion.Controllers
                 //Leemos el resultado
                 string resulstring = request.Content.ReadAsStringAsync().Result;
 
-                var ListadoInmuebles = JsonConvert.DeserializeObject<List<InmueblesDTO>>(resulstring).ToList();
+                var InmueblesViewModel = JsonConvert.DeserializeObject<InmueblesViewModelDTO>(resulstring);
 
-
-                return View(ListadoInmuebles);
+                return View(InmueblesViewModel);
             }
 
-            return View(new List<InmueblesDTO>());
+            return View(new InmueblesViewModelDTO());
 
         }
 
@@ -52,41 +50,60 @@ namespace Inmobiliaria.Presentacion.Controllers
             //Indicamos donde tenemos las APi la Direccion
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
-            var request = clienteHttp.GetAsync("api/InmueblesApi/" + Id).Result;
+            var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/Getbyid/" + Id).Result;
 
             //si la consulta fue exitosa ...
             if (request.IsSuccessStatusCode)
             {
                 string resulstring = request.Content.ReadAsStringAsync().Result;
                 //Aca tenemos False o true de acuerdo a lo que halla pasado en el API Asi lo configuramos alla
-                var Inmueble = JsonConvert.DeserializeObject<InmueblesDTO>(resulstring);
-                return View(Inmueble);
+                var InmueblesViewModel = JsonConvert.DeserializeObject<InmueblesViewModelDTO>(resulstring);
+                return View(InmueblesViewModel);
             }
-            return View(new InmueblesDTO());
+            return View(new InmueblesViewModelDTO());
         }
 
         [HttpGet]
         public ActionResult New_Inmuebles()
         {
+
+            //Indicamos donde tenemos las APi la Direccion
+            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            //Consumimos apis y guardamos resultados
+            var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/GetNew/").Result;
+
             //variables para el view
             ViewBag.ubicacion = "Inicio / Inmuebles / Nuevo Inmueble";
             ViewBag.titulo = "Crear Inmueble";
             ViewBag.icon = "queue";
 
+            //Si la respuesta es afirmativa (Devolvio algo)
+            if (request.IsSuccessStatusCode)
+            {
+                //Leemos el resultado
+                string resulstring = request.Content.ReadAsStringAsync().Result;
+
+                var InmueblesViewModel = JsonConvert.DeserializeObject<InmueblesViewModelDTO>(resulstring);
+
+
+                return View(InmueblesViewModel);
+            }
+
             return View();
+            //variables para el view
 
         }
 
         [HttpPost]
-        public ActionResult New_Inmuebles(InmueblesDTO InmuebleNuevo)
+        public ActionResult New_Inmuebles(InmueblesViewModelDTO InmuebleNuevo)
         {
             try
             {
-                InmuebleNuevo.IdInmobiliaria = 1;
+                InmuebleNuevo.Inmuebles.IdInmobiliaria = 1;
                 //Indicamos donde tenemos las APi la Direccion
                 clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
-                //Consumimos apis y guardamos resultados
-                var request = clienteHttp.PostAsync("api/InmueblesApi", InmuebleNuevo, new JsonMediaTypeFormatter()).Result;
+                //Consumimos apis y guardamos resultados                
+                var request = clienteHttp.PostAsync("api/InmueblesViewModelApi/PostNew/", InmuebleNuevo, new JsonMediaTypeFormatter()).Result;
 
                 //si la consulta fue exitosa ...
                 if (request.IsSuccessStatusCode)
@@ -133,28 +150,29 @@ namespace Inmobiliaria.Presentacion.Controllers
             //Indicamos donde tenemos las APi la Direccion
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
-            var request = clienteHttp.GetAsync("api/InmueblesApi/" + Id).Result;
+            var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/Getbyid/" + Id).Result;
 
             //si la consulta fue exitosa ...
             if (request.IsSuccessStatusCode)
             {
                 string resulstring = request.Content.ReadAsStringAsync().Result;
                 //Aca tenemos False o true de acuerdo a lo que halla pasado en el API Asi lo configuramos alla
-                var Inmueble = JsonConvert.DeserializeObject<InmueblesDTO>(resulstring);
-                return View(Inmueble);
+                var InmueblesViewModel = JsonConvert.DeserializeObject<InmueblesViewModelDTO>(resulstring);
+                return View(InmueblesViewModel);
             }
-            return View(new InmueblesDTO());
+            return View(new InmueblesViewModelDTO());
         }
 
         [HttpPost]
-        public ActionResult Editar_Inmuebles(InmueblesDTO InmuebleActualizar)
+        public ActionResult Editar_Inmuebles(InmueblesViewModelDTO InmuebleActualizar, int id)
         {
+            InmuebleActualizar.Inmuebles.Id = id;
             try
             {
                 //Indicamos donde tenemos las APi la Direccion
                 clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
                 //Consumimos apis y guardamos resultados
-                var request = clienteHttp.PutAsync("api/InmueblesApi", InmuebleActualizar, new JsonMediaTypeFormatter()).Result;
+                var request = clienteHttp.PutAsync("api/InmueblesViewModelApi/PutEdit/", InmuebleActualizar.Inmuebles, new JsonMediaTypeFormatter()).Result;
 
                 //si la consulta fue exitosa ...
                 if (request.IsSuccessStatusCode)
@@ -191,13 +209,13 @@ namespace Inmobiliaria.Presentacion.Controllers
             return View(InmuebleActualizar);
         }
 
-        [HttpGet]
+        [HttpDelete]
         public ActionResult Eliminar_Inmuebles(int Id)
         {
             //Indicamos donde tenemos las APi la Direccion
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
-            var request = clienteHttp.DeleteAsync("api/InmueblesApi/" + Id).Result;
+            var request = clienteHttp.DeleteAsync("api/InmueblesViewModelApi/" + Id).Result;
 
             //si la consulta fue exitosa ...
             var resultString = request.Content.ReadAsStringAsync().Result;

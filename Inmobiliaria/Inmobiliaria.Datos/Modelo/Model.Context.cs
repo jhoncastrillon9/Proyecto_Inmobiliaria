@@ -13,10 +13,10 @@ namespace Inmobiliaria.Datos.Modelo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Inmobiliaria_DesarrolloEntities : DbContext
+    public partial class Inmobiliaria_DesarrolloEntities_Desarrollo : DbContext
     {
-        public Inmobiliaria_DesarrolloEntities()
-            : base("name=Inmobiliaria_DesarrolloEntities")
+        public Inmobiliaria_DesarrolloEntities_Desarrollo()
+            : base("name=Inmobiliaria_DesarrolloEntities_Desarrollo")
         {
         }
     
@@ -31,16 +31,21 @@ namespace Inmobiliaria.Datos.Modelo
         public virtual DbSet<Contratos> Contratos { get; set; }
         public virtual DbSet<CuentasxCobrarContratos> CuentasxCobrarContratos { get; set; }
         public virtual DbSet<CuentasxPagarContratos> CuentasxPagarContratos { get; set; }
+        public virtual DbSet<Estados> Estados { get; set; }
         public virtual DbSet<EstadosCuentas> EstadosCuentas { get; set; }
         public virtual DbSet<Imagenes> Imagenes { get; set; }
         public virtual DbSet<Inmobiliaria> Inmobiliaria { get; set; }
         public virtual DbSet<Inmuebles> Inmuebles { get; set; }
+        public virtual DbSet<Iva> Iva { get; set; }
+        public virtual DbSet<ListThings> ListThings { get; set; }
+        public virtual DbSet<llaves> llaves { get; set; }
         public virtual DbSet<Municipios> Municipios { get; set; }
         public virtual DbSet<Propietarios> Propietarios { get; set; }
         public virtual DbSet<RegistroEgresos> RegistroEgresos { get; set; }
         public virtual DbSet<RegistroIngresos> RegistroIngresos { get; set; }
         public virtual DbSet<RolesUsuarios> RolesUsuarios { get; set; }
         public virtual DbSet<TipoPago> TipoPago { get; set; }
+        public virtual DbSet<TypeListThings> TypeListThings { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<ZonasMunicipios> ZonasMunicipios { get; set; }
     }

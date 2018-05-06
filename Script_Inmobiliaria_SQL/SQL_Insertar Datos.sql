@@ -6,10 +6,42 @@ GO
 /*Se crea una empresa de pruebas por defecto*/
 Insert Into Inmobiliaria (Nombre, Documento, Telefono, Celular, Email, Direccion, Observacion) 
 					Values ('Empresa_Pruebas', '12345', '3147149858', '3147149858', 'EmpresaPruebas@gmail.com', 'Calle 3B N', 'No tenemos Observacion')
-
-
+GO
+GO
+Insert Into Estados (Nombre) Values ('Disponible'),
+('No Disponible'),
+('Ocupado'),
+('Para Vender')
+GO
+Insert Into Llaves (Nombre) Values ('Propietario'),
+('Agencia')
+GO
+Insert Into Iva (Valor) Values ('0'),
+('12'),
+('16'),
+('19')
+GO
 
 GO
+Insert Into TypeListThings (Name) Values ('EstadosInmuebles'),
+('EstadosCuentas'),
+('EstadosUsuarios'),
+('EstadosInmobiliarias'),
+('EstadosPropietarios'),
+('EstadosContratos'),
+('Llaves'),
+('Iva')
+GO
+Insert Into ListThings (Name, IdTypeListThings) Values ('Disponible', 1),
+('No Disponible', 1),
+('Ocupado', 1),
+('Propietario', 7),
+('Agencia', 7),
+('0', 8),
+('19', 8)
+
+GO
+
 GO
 Insert Into CategoriaInmuebles (Nombre, IdInmobiliaria) Values ('Apartamento', 1),
 ('Casa', 1), 

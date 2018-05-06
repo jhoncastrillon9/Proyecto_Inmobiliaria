@@ -4,64 +4,73 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="46b43fccddc94019ad2b5b8f4b500fb9" Name="Diagram1">
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Arrendatarios" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CajaBanco" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CategoriaInmuebles" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Contratos" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CuentasxCobrarContratos" Width="1.5" PointX="10.5" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CuentasxPagarContratos" Width="1.5" PointX="10.5" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.EstadosCuentas" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Imagenes" Width="1.5" PointX="7.875" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Inmobiliaria" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+      <Diagram DiagramId="7aa115211e51493aa6b7a7493b5e1d25" Name="Diagram1">
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Arrendatarios" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CajaBanco" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CategoriaInmuebles" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Contratos" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CuentasxCobrarContratos" Width="1.5" PointX="10.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CuentasxPagarContratos" Width="1.5" PointX="10.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Estados" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.EstadosCuentas" Width="1.5" PointX="8.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Imagenes" Width="1.5" PointX="7.5" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Inmobiliaria" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Inmuebles" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Municipios" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Propietarios" Width="1.5" PointX="3" PointY="25.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RegistroEgresos" Width="1.5" PointX="12.75" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RegistroIngresos" Width="1.5" PointX="15.75" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RolesUsuarios" Width="1.5" PointX="5.75" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.TipoPago" Width="1.5" PointX="3" PointY="29.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Usuarios" Width="1.5" PointX="8" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ZonasMunicipios" Width="1.5" PointX="8.25" PointY="20.625" IsExpanded="true" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Arrendata__IdInm__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdArr__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdCoA__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdFia__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdFia__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CajaBanco__IdInm__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdCaj__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdCaj__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Categoria__IdInm__15502E78" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdCat__21B6055D" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdInm__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdInm__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxC__IdCon__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxP__IdCon__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxC__IdEst__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxC__IdInm__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdCue__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdCue__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxP__IdEst__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxP__IdInm__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdCue__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdCue__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Imagenes__IdInmo__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Imagenes__IdInmu__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdInm__22AA2996" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Municipio__IdInm__182C9B23" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Propietar__IdInm__1273C1CD" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdInm__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdInm__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__TipoPago__IdInmo__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Usuarios__IdInmo__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__ZonasMuni__IdInm__1BFD2C07" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdMun__1ED998B2" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdPro__20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdZon__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__ZonasMuni__IdMun__1B0907CE" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroEg__Tipo__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroIn__Tipo__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Usuarios__Rol__5441852A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Iva" Width="1.5" PointX="3" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ListThings" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.llaves" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Municipios" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Propietarios" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RegistroEgresos" Width="1.5" PointX="12.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RegistroIngresos" Width="1.5" PointX="15.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RolesUsuarios" Width="1.5" PointX="5.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.TipoPago" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.TypeListThings" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Usuarios" Width="1.5" PointX="8" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ZonasMunicipios" Width="1.5" PointX="8.25" PointY="20.875" IsExpanded="true" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Arrendata__IdInm__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdArr__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdCoA__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdFia__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdFia__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CajaBanco__IdInm__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdCaj__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdCaj__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Categoria__IdInm__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdCat__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdInm__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Contratos__IdInm__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxC__IdCon__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxP__IdCon__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxC__IdEst__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxC__IdInm__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdCue__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdCue__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxP__IdEst__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__CuentasxP__IdInm__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdCue__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdCue__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdEst__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Imagenes__IdInmo__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Imagenes__IdInmu__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdInm__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Municipio__IdInm__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Propietar__IdInm__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroE__IdInm__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroI__IdInm__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__TipoPago__IdInmo__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Usuarios__IdInmo__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__ZonasMuni__IdInm__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdIva__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdLla__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdMun__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdPro__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Inmuebles__IdZon__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__ListThing__IdTyp__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__ZonasMuni__IdMun__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroEg__Tipo__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroIn__Tipo__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Usuarios__Rol__619B8048" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

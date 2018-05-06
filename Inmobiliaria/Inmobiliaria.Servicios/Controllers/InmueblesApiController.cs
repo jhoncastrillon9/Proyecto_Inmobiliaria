@@ -1,16 +1,19 @@
-﻿using Inmobiliaria.Datos.Modelo;
+﻿using Newtonsoft.Json;
+using System.Net.Http.Formatting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Inmobiliaria.Datos;
+using Inmobiliaria.Datos.Modelo;
 
 namespace Inmobiliaria.Servicios.Controllers
 {
-    public class InmueblesApiController : ApiController
+    public class MunicipiosApiController : ApiController
     {
-        Inmobiliaria_DesarrolloEntities BD = new Inmobiliaria_DesarrolloEntities();
+        Inmobiliaria_DesarrolloEntities_Desarrollo BD = new Inmobiliaria_DesarrolloEntities_Desarrollo();
 
         [HttpGet]
         public IEnumerable<Inmuebles> Get()
@@ -20,10 +23,13 @@ namespace Inmobiliaria.Servicios.Controllers
 
             return LInmuebles;
         }
+        
 
         [HttpGet]
         public Inmuebles Get(int id)
         {
+            Inmuebles cosa = new Inmuebles();
+           
             var Inmueble = BD.Inmuebles.FirstOrDefault(x => x.Id == id);
 
             return Inmueble;
@@ -56,13 +62,13 @@ namespace Inmobiliaria.Servicios.Controllers
             InmuebleActualizar.Titulo = Inmueble.Titulo;
             InmuebleActualizar.Descripcion = Inmueble.Descripcion;
             InmuebleActualizar.Direccion = Inmueble.Direccion;
-            InmuebleActualizar.Estado = Inmueble.Estado;
-            InmuebleActualizar.Llaves = Inmueble.Llaves;
+            InmuebleActualizar.IdEstado = Inmueble.IdEstado;
+            InmuebleActualizar.IdLlaves = Inmueble.IdLlaves;
             InmuebleActualizar.PrecioPropietario = Inmueble.PrecioPropietario;
             InmuebleActualizar.Porcentaje = Inmueble.Porcentaje;
             InmuebleActualizar.Honorarios = Inmueble.Honorarios;
             InmuebleActualizar.FechaCaptacion = Inmueble.FechaCaptacion;
-            InmuebleActualizar.Iva = Inmueble.Iva;
+            InmuebleActualizar.IdIva = Inmueble.IdIva;
             InmuebleActualizar.PrecioFinal = Inmueble.PrecioFinal;
             InmuebleActualizar.Habitaciones = Inmueble.Habitaciones;
             InmuebleActualizar.Banos = Inmueble.Banos;
