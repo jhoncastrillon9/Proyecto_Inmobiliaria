@@ -2,7 +2,7 @@
     // Setup - add a text input to each footer cell
     $('#table-inmuebles tfoot th').each(function () {
         var title = $(this).text();
-        $(this).html('<input type="text" class="form-control form-control-xs footer-input" placeholder="' + title + '" />');
+        $(this).html('<input type="text" class="form-control form-control-sm" placeholder="' + title + '" />');
     });
 
     // DataTable

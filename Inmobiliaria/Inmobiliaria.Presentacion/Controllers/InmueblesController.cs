@@ -51,6 +51,11 @@ namespace Inmobiliaria.Presentacion.Controllers
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/Getbyid/" + Id).Result;
+            
+            //variables para el view
+            ViewBag.ubicacion = "Inicio / Inmuebles / Detalle de Inmueble";
+            ViewBag.titulo = "Información del Inmueble";
+            ViewBag.icon = "zoom_in";
 
             //si la consulta fue exitosa ...
             if (request.IsSuccessStatusCode)
