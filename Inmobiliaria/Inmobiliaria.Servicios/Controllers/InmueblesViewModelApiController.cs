@@ -18,8 +18,7 @@ namespace Inmobiliaria.Servicios.Controllers
 
         //conection dataBase
         Inmobiliaria_DesarrolloEntities_Desarrollo Database = new Inmobiliaria_DesarrolloEntities_Desarrollo();
-        [HttpGet]
-        [ActionName("GetNew")]
+        [HttpGet]       
         public InmueblesViewModel GetNew()
 
         {
@@ -122,7 +121,7 @@ namespace Inmobiliaria.Servicios.Controllers
         }
 
         [HttpDelete]
-        public bool Delete(int id)
+        public bool DeleteItem(int id)
         {
             var InmuebleEliminar = Database.Inmuebles.FirstOrDefault(x => x.Id == id);
             Database.Inmuebles.Remove(InmuebleEliminar);

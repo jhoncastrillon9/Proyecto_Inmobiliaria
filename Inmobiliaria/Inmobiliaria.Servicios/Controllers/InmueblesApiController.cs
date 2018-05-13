@@ -84,7 +84,7 @@ namespace Inmobiliaria.Servicios.Controllers
             return BD.SaveChanges() > 0;
         }
 
-        [HttpDelete]
+        [HttpGet]
         public bool Delete(int id)
         {
             var InmuebleEliminar = BD.Inmuebles.FirstOrDefault(x => x.Id == id);

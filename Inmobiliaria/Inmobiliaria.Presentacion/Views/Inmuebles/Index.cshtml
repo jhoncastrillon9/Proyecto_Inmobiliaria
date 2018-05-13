@@ -81,8 +81,32 @@
                         <td>@Inmueble.PrecioFinal</td>
                         <td>
                             <a href="@Url.Action("Detalle_Inmueble","Inmuebles",new { id = Inmueble.Id } )" title="Ver detalle del Inmueble"><i class="material-icons icon-table">zoom_in</i></a>
-                            <a href="@Url.Action("Editar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Editar Inmueble"><i class="material-icons icon-table">edit</i></a>
-                            <a href="@Url.Action("Eliminar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Eliminar Inmueble"><i class="material-icons icon-table">highlight_off</i></a>
+                            <a href="@Url.Action("Editar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Editar Inmueble"><i class="material-icons icon-table">edit</i></a>                            
+                            <a href="#" data-toggle="modal" data-target="#@Inmueble.Id+DeleteComfirmation" title="Eliminar Inmueble"><i class="material-icons icon-table">highlight_off</i></a>
+
+                            <!-- Popup Delete -->
+                            <div class="modal fade" id="@Inmueble.Id+DeleteComfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Inmueble</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Esta seguro de eliminar el inmueble N° @Inmueble.Codigo, del propietario @Inmueble.Propietarios.Nombre?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <a href="@Url.Action("Eliminar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Eliminar Inmueble" class="btn btn-primary">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                         </td>
                     </tr>
             }

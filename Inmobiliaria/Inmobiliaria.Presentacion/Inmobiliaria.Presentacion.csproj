@@ -435,6 +435,7 @@
     <Content Include="Scripts\Popper\popper-utils.min.js" />
     <Content Include="Scripts\Popper\popper.js" />
     <Content Include="Scripts\Popper\popper.min.js" />
+    <Content Include="Scripts\PopupDeleteItem.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\Scripts_App.js" />
     <Content Include="Scripts\sidebarmenu.js" />
@@ -466,6 +467,7 @@
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\Registro_Movimientos_CajaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\ZoneCitysController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -545,6 +547,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Estilos\Para_Login\" />
     <Folder Include="Content\Fuentes\" />
+    <Folder Include="Views\ZoneCitys\" />
+    <Folder Include="Views\Zoneitys\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inmobiliaria.Dominio\Inmobiliaria.Dominio.csproj">

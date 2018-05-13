@@ -214,13 +214,13 @@ namespace Inmobiliaria.Presentacion.Controllers
             return View(InmuebleActualizar);
         }
 
-        [HttpDelete]
+        [HttpGet]
         public ActionResult Eliminar_Inmuebles(int Id)
         {
             //Indicamos donde tenemos las APi la Direccion
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
             //Consumimos apis y guardamos resultados
-            var request = clienteHttp.DeleteAsync("api/InmueblesViewModelApi/" + Id).Result;
+            var request = clienteHttp.DeleteAsync("api/InmueblesViewModelApi/DeleteItem/" + Id).Result;
 
             //si la consulta fue exitosa ...
             var resultString = request.Content.ReadAsStringAsync().Result;
