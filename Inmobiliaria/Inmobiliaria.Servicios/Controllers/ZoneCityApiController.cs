@@ -12,11 +12,11 @@ namespace Inmobiliaria.Servicios.Controllers
     {
         Inmobiliaria_DesarrolloEntities_Desarrollo Database = new Inmobiliaria_DesarrolloEntities_Desarrollo();
 
-        [HttpPost]
-        public List<ZonasMunicipios> GetFilterCity(int idCity)
+        [HttpGet]
+        public IEnumerable<ZoneCitysView> GetFilterCity(int id)
         {
-            var ZoneCitys = new List<ZonasMunicipios>();
-            ZoneCitys = Database.ZonasMunicipios.Where(x => x.IdMunicipio == idCity).ToList();
+            
+            var ZoneCitys = Database.ZoneCitysView.Where(x => x.IdMunicipio == id).ToList();
 
             return ZoneCitys;
         }

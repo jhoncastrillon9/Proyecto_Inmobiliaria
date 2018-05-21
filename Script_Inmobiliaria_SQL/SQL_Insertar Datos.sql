@@ -77,7 +77,14 @@ Insert Into ZonasMunicipios (Nombre, IdMunicipio, IdInmobiliaria) Values
 ('La América',1,1),
 ('San Javier',1,1),
 ('El Poblado',1,1),
-('Guayabal',1,1)
+('Bello General',2,1),
+('Niquia',2,1),
+('Quitasol',2,1),
+('Caldas General',3,1),
+('Parque',3,1),
+('Parque de Envigado',4,1),
+('Centro',4,1),
+('Parque de la estrela',5,1)
 
 GO
 

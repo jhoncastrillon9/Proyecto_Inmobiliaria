@@ -48,5 +48,6 @@ namespace Inmobiliaria.Datos.Modelo
         public virtual DbSet<TypeListThings> TypeListThings { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<ZonasMunicipios> ZonasMunicipios { get; set; }
+        public virtual DbSet<ZoneCitysView> ZoneCitysView { get; set; }
     }
 }

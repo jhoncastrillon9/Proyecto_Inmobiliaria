@@ -24,10 +24,10 @@ namespace Inmobiliaria.Servicios.Controllers
         {
             var viewmodel = new InmueblesViewModel
             {
-                
+
                 LMunicipios = Database.Municipios.Where(x => x.IdInmobiliaria == 1).ToList(),
                 Estados = Database.Estados.ToList(),
-                LZonasMunicipios = Database.ZonasMunicipios.ToList(),
+                LZonasMunicipios = new List<ZonasMunicipios>(), //Database.ZonasMunicipios.ToList(),
                 Lllaves = Database.llaves.ToList(),
                 Liva = Database.Iva.ToList(),
                 LPropietarios = Database.Propietarios.Where(x => x.IdInmobiliaria == 1).ToList(),

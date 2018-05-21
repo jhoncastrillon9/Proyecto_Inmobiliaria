@@ -16,7 +16,7 @@ namespace Inmobiliaria.Presentacion.Controllers
         HttpClient clienteHttp = new HttpClient();
 
         [HttpPost]
-        public ActionResult GetFilterCity(int idCity)
+        public JsonResult GetFilterCity(int idCity)
         {
             //Indicamos donde tenemos las APi la Direccion
             clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
@@ -31,11 +31,13 @@ namespace Inmobiliaria.Presentacion.Controllers
 
                 var ListZoneCity = JsonConvert.DeserializeObject<List<ZonasMunicipiosDTO>>(resulstring);
 
-                return ListZoneCity;
+                return Json(ListZoneCity, JsonRequestBehavior.AllowGet);
             }
 
-            return View(new InmueblesViewModelDTO());
-          
+            
+            var NewListZoneCity = new List<ZonasMunicipiosDTO>();
+            return Json(NewListZoneCity, JsonRequestBehavior.AllowGet);
+
         }
 
 

@@ -5,6 +5,7 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 
+
 }
 
 @RenderPage("~/Views/Shared/_ContainerMenu.cshtml")
@@ -137,7 +138,7 @@
                         <div class="form-group row">
                             <label for="Precio" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio del propietario: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.PrecioPropietario, new { @class = "form-control form-control-sm", placeholder = "Precio del propietario", required = "1", @type = "number" })
+                                @Html.TextBoxFor(x => x.Inmuebles.PrecioPropietario, new { @class = "form-control form-control-sm", placeholder = "Precio del propietario", required = "1", @type = "number"})
                                 <div class="invalid-feedback">
                                     Ingrese el precio del propietario.
                                 </div>
@@ -233,3 +234,7 @@
 
 
 <script src="~/Scripts/Especiales/ValidationFormRequired.js"></script>
+
+<script src="~/Scripts/DrowdownListcascade.js"></script>
+
+<script src="~/Scripts/Estates/addforms.js"></script>

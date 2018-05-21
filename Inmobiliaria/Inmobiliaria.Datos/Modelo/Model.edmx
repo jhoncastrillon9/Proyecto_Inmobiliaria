@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Inmobiliaria_DesarrolloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Inmobiliaria_DesarrolloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Arrendatarios">
           <Key>
             <PropertyRef Name="Id" />
@@ -260,6 +260,20 @@
         <EntityType Name="ZonasMunicipios">
           <Key>
             <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdMunicipio" Type="int" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Inmobiliaria_Desarrollo.dbo.ZoneCitysView' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ZoneCitysView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="IdMunicipio" />
+            <PropertyRef Name="IdInmobiliaria" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
@@ -806,6 +820,14 @@
           <EntitySet Name="TypeListThings" EntityType="Self.TypeListThings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZonasMunicipios" EntityType="Self.ZonasMunicipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneCitysView" EntityType="Self.ZoneCitysView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ZoneCitysView].[Id] AS [Id], 
+    [ZoneCitysView].[Nombre] AS [Nombre], 
+    [ZoneCitysView].[IdMunicipio] AS [IdMunicipio], 
+    [ZoneCitysView].[IdInmobiliaria] AS [IdInmobiliaria]
+    FROM [dbo].[ZoneCitysView] AS [ZoneCitysView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Arrendata__IdInm__36B12243" Association="Self.FK__Arrendata__IdInm__36B12243">
             <End Role="Inmobiliaria" EntitySet="Inmobiliaria" />
             <End Role="Arrendatarios" EntitySet="Arrendatarios" />
@@ -979,8 +1001,7 @@
             <End Role="ZonasMunicipios" EntitySet="ZonasMunicipios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Inmobiliaria_DesarrolloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2043,7 +2064,20 @@
             <End Role="RolesUsuarios" EntitySet="RolesUsuarios" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
+          <EntitySet Name="ZoneCitysView" EntityType="Inmobiliaria_DesarrolloModel.ZoneCitysView" />
         </EntityContainer>
+        <EntityType Name="ZoneCitysView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="IdMunicipio" />
+            <PropertyRef Name="IdInmobiliaria" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="IdInmobiliaria" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2331,6 +2365,16 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
                 <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneCitysView">
+            <EntityTypeMapping TypeName="Inmobiliaria_DesarrolloModel.ZoneCitysView">
+              <MappingFragment StoreEntitySet="ZoneCitysView">
+                <ScalarProperty Name="IdInmobiliaria" ColumnName="IdInmobiliaria" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

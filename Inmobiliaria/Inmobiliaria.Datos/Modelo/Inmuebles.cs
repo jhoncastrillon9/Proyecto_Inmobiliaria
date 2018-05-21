@@ -36,8 +36,8 @@ namespace Inmobiliaria.Datos.Modelo
         public decimal PrecioFinal { get; set; }
         public Nullable<int> Habitaciones { get; set; }
         public Nullable<int> Banos { get; set; }
-        public bool Porteria { get; set; }
-        public bool Piscina { get; set; }
+        public Nullable<bool> Porteria { get; set; }
+        public Nullable<bool> Piscina { get; set; }
         public Nullable<decimal> Area { get; set; }
         public int IdMunicipio { get; set; }
         public int IdZonaMunicipio { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7aa115211e51493aa6b7a7493b5e1d25" Name="Diagram1">
+      <Diagram DiagramId="7aa115211e51493aa6b7a7493b5e1d25" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Arrendatarios" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CajaBanco" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.CategoriaInmuebles" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Inmobiliaria" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Inmuebles" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Iva" Width="1.5" PointX="3" PointY="35.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ListThings" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ListThings" Width="1.5" PointX="9.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.llaves" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Municipios" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Propietarios" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
@@ -25,7 +25,7 @@
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RegistroIngresos" Width="1.5" PointX="15.75" PointY="20.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.RolesUsuarios" Width="1.5" PointX="5.75" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.TipoPago" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.TypeListThings" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.TypeListThings" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.Usuarios" Width="1.5" PointX="8" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ZonasMunicipios" Width="1.5" PointX="8.25" PointY="20.875" IsExpanded="true" />
         <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Arrendata__IdInm__36B12243" ManuallyRouted="false" />
@@ -71,6 +71,7 @@
         <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroEg__Tipo__59063A47" ManuallyRouted="false" />
         <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__RegistroIn__Tipo__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="Inmobiliaria_DesarrolloModel.FK__Usuarios__Rol__619B8048" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Inmobiliaria_DesarrolloModel.ZoneCitysView" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

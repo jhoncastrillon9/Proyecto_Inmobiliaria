@@ -238,6 +238,31 @@ namespace Inmobiliaria.Presentacion.Controllers
             return RedirectToAction("Index");
         }
 
+      [HttpGet]
+        public JsonResult GetFilterCity(int id)
+        {
+            //Indicamos donde tenemos las APi la Direccion
+            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            //Consumimos apis y guardamos resultados
+            var request = clienteHttp.GetAsync("api/ZoneCityApi/GetFilterCity/" + id).Result;
+
+            //Si la respuesta es afirmativa (Devolvio algo)
+            if (request.IsSuccessStatusCode)
+            {
+                //Leemos el resultado
+                string resulstring = request.Content.ReadAsStringAsync().Result;
+
+                var ListZoneCity = JsonConvert.DeserializeObject<List<ZoneCitysViewDTO>>(resulstring);
+
+                return Json(ListZoneCity, JsonRequestBehavior.AllowGet);
+            }
+
+
+            var NewListZoneCity = new List<ZoneCitysViewDTO>();
+            return Json(NewListZoneCity, JsonRequestBehavior.AllowGet);
+
+        }
+
     }
 
 }

@@ -133,6 +133,9 @@
     <Compile Include="Modelo\ZonasMunicipios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ZoneCitysView.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\InmueblesViewModel.cs" />
   </ItemGroup>

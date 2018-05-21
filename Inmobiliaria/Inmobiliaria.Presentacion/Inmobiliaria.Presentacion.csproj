@@ -325,6 +325,7 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Scripts\DrowdownListcascade.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -421,6 +422,7 @@
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
     <Content Include="Scripts\Especiales\ValidationFormRequired.js" />
+    <Content Include="Scripts\Estates\addforms.js" />
     <Content Include="Scripts\jquery.slimscroll.js" />
     <Content Include="Scripts\Jquery\jquery-3.3.1.js" />
     <Content Include="Scripts\Jquery\jquery-3.3.1.min.js" />
@@ -547,6 +549,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Estilos\Para_Login\" />
     <Folder Include="Content\Fuentes\" />
+    <Folder Include="Scripts\Librerias\" />
     <Folder Include="Views\ZoneCitys\" />
     <Folder Include="Views\Zoneitys\" />
   </ItemGroup>

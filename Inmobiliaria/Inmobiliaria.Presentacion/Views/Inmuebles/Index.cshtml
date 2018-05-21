@@ -73,12 +73,12 @@
                         <td>@Inmueble.Municipios.Nombre</td>
                         <td>@Inmueble.ZonasMunicipios.Nombre</td>
                         <td>@Inmueble.Estados.Nombre</td>
-                        <td>@Inmueble.Area</td>
+                        <td>@Inmueble.Area m2</td>
                         <td>@Inmueble.Habitaciones</td>
                         <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Porteria"></td>
                         <td><input type="checkbox" class="form-check-input" checked="@Inmueble.Piscina"></td>
                         <td>@Inmueble.Propietarios.Nombre</td>
-                        <td>@Inmueble.PrecioFinal</td>
+                        <td>@Html.Raw("$" + String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("es-CO"), "{0:N0}", Convert.ToDecimal(Inmueble.PrecioFinal)))</td>
                         <td>
                             <a href="@Url.Action("Detalle_Inmueble","Inmuebles",new { id = Inmueble.Id } )" title="Ver detalle del Inmueble"><i class="material-icons icon-table">zoom_in</i></a>
                             <a href="@Url.Action("Editar_Inmuebles","Inmuebles",new { id = Inmueble.Id } )" title="Editar Inmueble"><i class="material-icons icon-table">edit</i></a>                            
