@@ -41,7 +41,7 @@
                         <div class="form-group row">
                             <label for="codigo" class="col-sm-5 col-form-label col-form-label-sm text-right">Código: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Codigo, new { @class = "form-control form-control-sm", placeholder = "Código", required = "1", @type = "text", @disabled="1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Codigo</div>                                
                                 <div class="invalid-feedback">
                                     Ingreso un codigo para el inmueble.
                                 </div>
@@ -51,7 +51,7 @@
                         <div class="form-group row">
                             <label for="Categoria" class="col-sm-5 col-form-label col-form-label-sm text-right">Categoria: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdCategoria, new SelectList(Model.LCategorias, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.CategoriaInmuebles.Nombre</div>                                
                                 <div class="invalid-feedback">
                                     Selecione una categoria
                                 </div>
@@ -61,7 +61,7 @@
                         <div class="form-group row">
                             <label for="Estado" class="col-sm-5 col-form-label col-form-label-sm text-right">Estado: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdEstado, new SelectList(Model.Estados, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Estados.Nombre</div>                                
                                 <div class="invalid-feedback">
                                     Selecione una categoria.
                                 </div>
@@ -71,7 +71,7 @@
                         <div class="form-group row">
                             <label for="Municipio" class="col-sm-5 col-form-label col-form-label-sm text-right">Municipio: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdMunicipio, new SelectList(Model.LMunicipios, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Municipios.Nombre</div>                                
                                 <div class="invalid-feedback">
                                     Selecione el municipio.
                                 </div>
@@ -81,7 +81,7 @@
                         <div class="form-group row">
                             <label for="Zona" class="col-sm-5 col-form-label col-form-label-sm text-right">Zona: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdZonaMunicipio, new SelectList(Model.LZonasMunicipios, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.ZonasMunicipios.Nombre</div>                                
                                 <div class="invalid-feedback">
                                     Selecione la zona del Inmueble.
                                 </div>
@@ -91,7 +91,7 @@
                         <div class="form-group row">
                             <label for="Direccion" class="col-sm-5 col-form-label col-form-label-sm text-right">Direccion: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Direccion, new { @class = "form-control form-control-sm", placeholder = "Direccion", required = "1", @type = "text", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Direccion</div>                                
                                 <div class="invalid-feedback">
                                     Ingrese la Direccion.
                                 </div>
@@ -101,7 +101,7 @@
                         <div class="form-group row">
                             <label for="Habitaciones" class="col-sm-5 col-form-label col-form-label-sm text-right">Habitaciones: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Habitaciones, new { @class = "form-control form-control-sm", placeholder = "Habitaciones", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Habitaciones</div>                                
                                 <div class="invalid-feedback">
                                     Ingrese la cantidad de habitaciones.
                                 </div>
@@ -111,7 +111,7 @@
                         <div class="form-group row">
                             <label for="Banos" class="col-sm-5 col-form-label col-form-label-sm text-right">Baños: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Banos, new { @class = "form-control form-control-sm", placeholder = "Baños", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Banos</div>                                
                                 <div class="invalid-feedback">
                                     Ingrese la cantidad de baños.
                                 </div>
@@ -121,14 +121,14 @@
                         <div class="form-group row">
                             <label for="Area" class="col-sm-5 col-form-label col-form-label-sm text-right">Área: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Area, new { @class = "form-control form-control-sm", placeholder = "Area", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Area m2</div>                                
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="Llaves" class="col-sm-5 col-form-label col-form-label-sm text-right">Llaves: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdLlaves, new SelectList(Model.Lllaves, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.llaves.Nombre</div>                                
                                 <div class="invalid-feedback">
                                     Ubicación de la llaves.
                                 </div>
@@ -147,7 +147,7 @@
                         <div class="form-group row">
                             <label for="Precio" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio del propietario: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.PrecioPropietario, new { @class = "form-control form-control-sm", placeholder = "Precio del propietario", required = "1", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Html.Raw("$" + String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("es-CO"), "{0:N0}", Convert.ToDecimal(Model.Inmuebles.PrecioPropietario)))</div>                                
                                 <div class="invalid-feedback">
                                     Ingrese el precio del propietario.
                                 </div>
@@ -157,42 +157,42 @@
                         <div class="form-group row">
                             <label for="Comision" class="col-sm-5 col-form-label col-form-label-sm text-right">Porcentaje de Comisión: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Porcentaje, new { @class = "form-control form-control-sm", placeholder = "% de Comisión", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Porcentaje%</div>                                
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="Honorarios" class="col-sm-5 col-form-label col-form-label-sm text-right">Valor de los Honorarios: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Honorarios, new { @class = "form-control form-control-sm", placeholder = "Valor de los honorarios", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Html.Raw("$" + String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("es-CO"), "{0:N0}", Convert.ToDecimal(Model.Inmuebles.Honorarios)))</div>                                
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="Fecha" class="col-sm-5 col-form-label col-form-label-sm text-right">Fecha de Captación: </label>
-                            <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.FechaCaptacion, new { @class = "form-control form-control-sm", placeholder = "Fecha de captación", @type = "date", @disabled = "1" })
+                            <div class="col-sm-6">                                
+                                <div class="form-control-sm">@Model.Inmuebles.FechaCaptacion.ToString()</div>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="Iva" class="col-sm-5 col-form-label col-form-label-sm text-right">Porcentaje de Iva: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdIva, new SelectList(Model.Liva, "Id", "Valor"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Iva.Valor%</div>                                
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="PrecioFinal" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio Final: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.PrecioFinal, new { @class = "form-control form-control-sm", placeholder = "Precio final", @type = "number", @disabled = "1" })
+                                <div class="form-control-sm">@Html.Raw("$" + String.Format(System.Globalization.CultureInfo.CreateSpecificCulture("es-CO"), "{0:N0}", Convert.ToDecimal(Model.Inmuebles.PrecioFinal)))</div>                                
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="Propietario" class="col-sm-5 col-form-label col-form-label-sm text-right">Propietario: </label>
                             <div class="col-sm-6">
-                                @Html.DropDownListFor(x => x.Inmuebles.IdPropietario, new SelectList(Model.LPropietarios, "Id", "Nombre"), "Selecione", new { @class = "form-control form-control-sm", required = "1", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Propietarios.Nombre</div>                                
                                 <div class="invalid-feedback">
                                     Selecione propietario dueño del inmueble.
                                 </div>
@@ -201,7 +201,7 @@
 
                         <div class="form-group row">
                             <label for="Piscina" class="col-sm-5 col-form-label col-form-label-sm text-right">Piscina: </label>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6">                                
                                 @Html.CheckBoxFor(x => x.Inmuebles.Piscina, new { @class = "form-control form-control-sm col-1", placeholder = "Piscina", @disabled = "1" })
                             </div>
                         </div>
@@ -216,13 +216,13 @@
                         <div class="form-group row">
                             <label for="Titulo" class="col-sm-5 col-form-label col-form-label-sm text-right">Titulo Para la pagina Web: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Titulo, new { @class = "form-control form-control-sm", placeholder = "Titulo", @type = "text", @disabled = "1" })
+                                <div class="form-control-sm">@Model.Inmuebles.Titulo</div>                                
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="Descripcion" class="col-sm-5 col-form-label col-form-label-sm text-right">Descripcion Para la pagina Web: </label>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6">                                
                                 @Html.TextAreaFor(x => x.Inmuebles.Descripcion, new { @class = "form-control form-control-sm", placeholder = "Descripcion", @type = "text", @disabled = "1" })
                             </div>
                         </div>
@@ -240,5 +240,5 @@
     </div>
 </div>
 
+<script src="~/Scripts/Shared/ValidationFormRequired.js"></script>
 
-<script src="~/Scripts/Especiales/ValidationFormRequired.js"></script>

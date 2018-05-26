@@ -1,26 +1,17 @@
 ﻿$(document).ready(function (e) {
     //cuando camabia el inputs
+    
+    $("#Inmuebles_PrecioPropietario, #Inmuebles_Honorarios, #Inmuebles_Porcentaje, #Inmuebles_IdIva").keydown(function () {
+        addsuma();
+    });
 
-   
-    $("#Inmuebles_PrecioPropietario").change(function () { addsuma(); });
-    $("#Inmuebles_Honorarios").change(function () { addsuma(); });
-    $('#Inmuebles_Porcentaje').change(function () { addsuma(); });
-    $('#Inmuebles_IdIva').change(function () { addsuma(); });
+    $("#Inmuebles_PrecioPropietario, #Inmuebles_Honorarios, #Inmuebles_Porcentaje, #Inmuebles_IdIva").keyup(function () {
+        addsuma();
+    });
 
-    $("#Inmuebles_PrecioPropietario").keydown(function () { addsuma(); });
-    $("#Inmuebles_Honorarios").keydown(function () { addsuma(); });
-    $('#Inmuebles_Porcentaje').keydown(function () { addsuma(); });
-    $('#Inmuebles_IdIva').keydown(function () { addsuma(); });
-
-    $("#Inmuebles_PrecioPropietario").keyup(function () { addsuma(); });
-    $("#Inmuebles_Honorarios").keyup(function () { addsuma(); });
-    $('#Inmuebles_Porcentaje').keyup(function () { addsuma(); });
-    $('#Inmuebles_IdIva').keyup(function () { addsuma(); });
-
-    $("#Inmuebles_PrecioPropietario").keypress(function () { addsuma(); });
-    $("#Inmuebles_Honorarios").keypress(function () { addsuma(); });
-    $('#Inmuebles_Porcentaje').keypress(function () { addsuma(); });
-    $('#Inmuebles_IdIva').keypress(function () { addsuma(); });
+    $("#Inmuebles_PrecioPropietario, #Inmuebles_Honorarios, #Inmuebles_Porcentaje, #Inmuebles_IdIva").keypress(function () {
+        addsuma();
+    });
 
     function addsuma() {
         //Limpia el Precio Final
@@ -30,7 +21,7 @@
         var fee = $("#Inmuebles_Honorarios").val() > 0 ? $('#Inmuebles_Honorarios').val() : 0
         var iva = $('#Inmuebles_IdIva').val() > 0 ? $('#Inmuebles_IdIva').val() : 0
         //Values
-        commission = (percentage * price) / 100;        
+        commission = (percentage * price) / 100;
         var subtotal = parseFloat(price) + parseFloat(commission) + parseFloat(fee);
 
         switch (iva) {

@@ -29,7 +29,7 @@
                 <div class="icon">
                     <i class="material-icons">@ViewBag.icon</i>
                 </div>
-                <div class="title-name">
+                <div class="title-name col">
                     <span>@ViewBag.titulo</span>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <div class="form-group row">
                             <label for="codigo" class="col-sm-5 col-form-label col-form-label-sm text-right">Código: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Codigo, new { @class = "form-control form-control-sm", placeholder = "Código", required = "1", @type = "text" })
+                                @Html.TextBoxFor(x => x.Inmuebles.Codigo, new { @class = "form-control form-control-sm", placeholder = "Código", required = "1", @type = "text", onpaste = "return false" })
                                 <div class="invalid-feedback">
                                     Ingreso un codigo para el inmueble.
                                 </div>
@@ -87,7 +87,7 @@
                         <div class="form-group row">
                             <label for="Direccion" class="col-sm-5 col-form-label col-form-label-sm text-right">Direccion: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Direccion, new { @class = "form-control form-control-sm", placeholder = "Direccion", required = "1", @type = "text" })
+                                @Html.TextBoxFor(x => x.Inmuebles.Direccion, new { @class = "form-control form-control-sm", placeholder = "Direccion", required = "1", @type = "text", onpaste = "return false" })
                                 <div class="invalid-feedback">
                                     Ingrese la Direccion.
                                 </div>
@@ -96,7 +96,7 @@
                         <div class="form-group row">
                             <label for="Habitaciones" class="col-sm-5 col-form-label col-form-label-sm text-right">Habitaciones: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Habitaciones, new { @class = "form-control form-control-sm", placeholder = "Habitaciones", @type = "number" })
+                                @Html.TextBoxFor(x => x.Inmuebles.Habitaciones, new { @class = "form-control form-control-sm", placeholder = "Habitaciones", @type = "number", onpaste = "return false" })
                                 <div class="invalid-feedback">
                                     Ingrese la cantidad de habitaciones.
                                 </div>
@@ -105,7 +105,7 @@
                         <div class="form-group row">
                             <label for="Banos" class="col-sm-5 col-form-label col-form-label-sm text-right">Baños: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Banos, new { @class = "form-control form-control-sm", placeholder = "Baños", @type = "number" })
+                                @Html.TextBoxFor(x => x.Inmuebles.Banos, new { @class = "form-control form-control-sm", placeholder = "Baños", @type = "number", onpaste = "return false" })
                                 <div class="invalid-feedback">
                                     Ingrese la cantidad de baños.
                                 </div>
@@ -114,9 +114,16 @@
                         <div class="form-group row">
                             <label for="Area" class="col-sm-5 col-form-label col-form-label-sm text-right">Área: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Area, new { @class = "form-control form-control-sm", placeholder = "Area", @type = "number" })
+                                <div class="input-group">
+                                    @Html.TextBoxFor(x => x.Inmuebles.Area, new { @class = "form-control form-control-sm", placeholder = "Area", @type = "number", onpaste = "return false" })
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">m2</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="Llaves" class="col-sm-5 col-form-label col-form-label-sm text-right">Llaves: </label>
                             <div class="col-sm-6">
@@ -129,42 +136,45 @@
                         <div class="form-group row">
                             <label for="Observacion" class="col-sm-5 col-form-label col-form-label-sm text-right">Observación: </label>
                             <div class="col-sm-6">
-                                @Html.TextAreaFor(x => x.Inmuebles.Observacion, new { @class = "form-control form-control-sm", placeholder = "Observación", @type = "text" })
+                                @Html.TextAreaFor(x => x.Inmuebles.Observacion, new { @class = "form-control form-control-sm", placeholder = "Observación", @type = "text", onpaste = "return false" })
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 cp">
                         <div class="form-group row">
+                            <label for="Fecha" class="col-sm-5 col-form-label col-form-label-sm text-right">Fecha de Captación: </label>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(x => x.Inmuebles.FechaCaptacion, new { @class = "form-control form-control-sm", placeholder = "Fecha de captación", @type = "date", @Value = @DateTime.Now.ToString("yyyy-MM-dd"), onpaste = "return false" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="Precio" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio del propietario: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.PrecioPropietario, new { @class = "form-control form-control-sm", placeholder = "Precio del propietario", required = "1"})
+                                @Html.TextBoxFor(x => x.Inmuebles.PrecioPropietario, new { @class = "form-control form-control-sm", placeholder = "Precio del propietario", required = "1", @type = "number", onpaste = "return false" })
                                 <div class="invalid-feedback">
                                     Ingrese el precio del propietario.
                                 </div>
                             </div>
-
                         </div>
                         <div class="form-group row">
                             <label for="Comision" class="col-sm-5 col-form-label col-form-label-sm text-right">Porcentaje de Comisión: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Porcentaje, new { @class = "form-control form-control-sm", placeholder = "% de Comisión" })
-                            </div>
+                                <div class="input-group">
+                                    @Html.TextBoxFor(x => x.Inmuebles.Porcentaje, new { @class = "form-control form-control-sm", placeholder = "% de Comisión", @type = "number", onpaste = "return false" })
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">%</span>
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="Honorarios" class="col-sm-5 col-form-label col-form-label-sm text-right">Valor de los Honorarios: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Honorarios, new { @class = "form-control form-control-sm", placeholder = "Valor de los honorarios", @type = "number" })
+                                @Html.TextBoxFor(x => x.Inmuebles.Honorarios, new { @class = "form-control form-control-sm", placeholder = "Valor de los honorarios", @type = "number", onpaste = "return false" })
                             </div>
-
                         </div>
-                        <div class="form-group row">
-                            <label for="Fecha" class="col-sm-5 col-form-label col-form-label-sm text-right">Fecha de Captación: </label>
-                            <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.FechaCaptacion, new { @class = "form-control form-control-sm", placeholder = "Fecha de captación", @type = "date" })
-                            </div>
 
-                        </div>
                         <div class="form-group row">
                             <label for="Iva" class="col-sm-5 col-form-label col-form-label-sm text-right">Porcentaje de Iva: </label>
                             <div class="col-sm-6">
@@ -174,7 +184,7 @@
                         <div class="form-group row">
                             <label for="PrecioFinal" class="col-sm-5 col-form-label col-form-label-sm text-right">Precio Final: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.PrecioFinal, new { @class = "form-control form-control-sm", placeholder = "Precio final" })
+                                @Html.TextBoxFor(x => x.Inmuebles.PrecioFinal, new { @class = "form-control form-control-sm", placeholder = "Precio final", @type = "number", onpaste = "return false" })
                             </div>
                         </div>
                         <div class="form-group row">
@@ -202,14 +212,14 @@
                         <div class="form-group row">
                             <label for="Titulo" class="col-sm-5 col-form-label col-form-label-sm text-right">Titulo Para la pagina Web: </label>
                             <div class="col-sm-6">
-                                @Html.TextBoxFor(x => x.Inmuebles.Titulo, new { @class = "form-control form-control-sm", placeholder = "Titulo", @type = "text" })
+                                @Html.TextBoxFor(x => x.Inmuebles.Titulo, new { @class = "form-control form-control-sm", placeholder = "Titulo", @type = "text", onpaste = "return false" })
                             </div>
 
                         </div>
                         <div class="form-group row">
                             <label for="Descripcion" class="col-sm-5 col-form-label col-form-label-sm text-right">Descripcion Para la pagina Web: </label>
                             <div class="col-sm-6">
-                                @Html.TextAreaFor(x => x.Inmuebles.Descripcion, new { @class = "form-control form-control-sm", placeholder = "Descripcion", type="text"})
+                                @Html.TextAreaFor(x => x.Inmuebles.Descripcion, new { @class = "form-control form-control-sm", placeholder = "Descripcion", @type = "text", onpaste = "return false" })
                             </div>
 
                         </div>
@@ -231,7 +241,6 @@
     </div>
 </div>
 
-
-<script src="~/Scripts/Especiales/ValidationFormRequired.js"></script>
-
-
+<script src="~/Scripts/Shared/ValidationFormRequired.js"></script>
+<script src="~/Scripts/Estates/DrowdownListcascade.js"></script>
+<script src="~/Scripts/Estates/addforms.js"></script>
