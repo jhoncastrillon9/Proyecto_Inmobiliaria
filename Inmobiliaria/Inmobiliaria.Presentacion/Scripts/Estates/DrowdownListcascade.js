@@ -5,7 +5,9 @@
             $("#Inmuebles_IdZonaMunicipio").empty();
             //ajax
             $.ajax({                
-                url: "GetFilterCity",
+                //url: "http://localhost:53509/Inmuebles/GetFilterCity",
+                //pruebas produccion
+                url: "http://jhoncastrillon9-001-site1.ctempurl.com/Inmuebles/GetFilterCity",
                 data: { id: $('#Inmuebles_IdMunicipio').val() },
                 datatype: 'json',  
                 type: 'Get',                              

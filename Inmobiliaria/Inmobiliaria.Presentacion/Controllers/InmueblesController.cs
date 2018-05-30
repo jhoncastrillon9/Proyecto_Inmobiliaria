@@ -15,12 +15,17 @@ namespace Inmobiliaria.Presentacion.Controllers
     {
         //Instanciamos Para consumir Servicio
         HttpClient clienteHttp = new HttpClient();
+        //ApisLocales
+        //public string UrlAddress { get; set; } = "http://localhost:53650/";
+        //ApisProduccionPruebas
+        public string UrlAddress { get; set; } = "http://jhoncastrillon9-001-site1.ctempurl.com/";
+
 
         [HttpGet]
         public ActionResult Index()
         {
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            clienteHttp.BaseAddress = new Uri(UrlAddress);
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/GetGeneral/").Result;
 
@@ -48,7 +53,7 @@ namespace Inmobiliaria.Presentacion.Controllers
         public ActionResult Detalle_Inmueble(int Id)
         {
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            clienteHttp.BaseAddress = new Uri(UrlAddress);
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/Getbyid/" + Id).Result;
             
@@ -73,7 +78,7 @@ namespace Inmobiliaria.Presentacion.Controllers
         {
 
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            clienteHttp.BaseAddress = new Uri(UrlAddress);
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/GetNew/").Result;
 
@@ -106,7 +111,7 @@ namespace Inmobiliaria.Presentacion.Controllers
             {
                 InmuebleNuevo.Inmuebles.IdInmobiliaria = 1;
                 //Indicamos donde tenemos las APi la Direccion
-                clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+                clienteHttp.BaseAddress = new Uri(UrlAddress);
                 //Consumimos apis y guardamos resultados                
                 var request = clienteHttp.PostAsync("api/InmueblesViewModelApi/PostNew/", InmuebleNuevo, new JsonMediaTypeFormatter()).Result;
 
@@ -153,7 +158,7 @@ namespace Inmobiliaria.Presentacion.Controllers
         public ActionResult Editar_Inmuebles(int Id)
         {
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            clienteHttp.BaseAddress = new Uri(UrlAddress);
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.GetAsync("api/InmueblesViewModelApi/Getbyid/" + Id).Result;
 
@@ -175,7 +180,7 @@ namespace Inmobiliaria.Presentacion.Controllers
             try
             {
                 //Indicamos donde tenemos las APi la Direccion
-                clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+                clienteHttp.BaseAddress = new Uri(UrlAddress);
                 //Consumimos apis y guardamos resultados
                 var request = clienteHttp.PutAsync("api/InmueblesViewModelApi/PutEdit/", InmuebleActualizar.Inmuebles, new JsonMediaTypeFormatter()).Result;
 
@@ -218,7 +223,7 @@ namespace Inmobiliaria.Presentacion.Controllers
         public ActionResult Eliminar_Inmuebles(int Id)
         {
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            clienteHttp.BaseAddress = new Uri(UrlAddress);
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.DeleteAsync("api/InmueblesViewModelApi/DeleteItem/" + Id).Result;
 
@@ -242,7 +247,7 @@ namespace Inmobiliaria.Presentacion.Controllers
         public JsonResult GetFilterCity(int id)
         {
             //Indicamos donde tenemos las APi la Direccion
-            clienteHttp.BaseAddress = new Uri("http://localhost:53650/");
+            clienteHttp.BaseAddress = new Uri(UrlAddress);
             //Consumimos apis y guardamos resultados
             var request = clienteHttp.GetAsync("api/ZoneCityApi/GetFilterCity/" + id).Result;
 

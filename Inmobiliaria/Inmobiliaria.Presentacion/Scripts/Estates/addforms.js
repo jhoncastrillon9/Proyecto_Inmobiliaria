@@ -13,6 +13,11 @@
         addsuma();
     });
 
+    $("#Inmuebles_PrecioPropietario, #Inmuebles_Honorarios, #Inmuebles_Porcentaje, #Inmuebles_IdIva").change(function () {
+        addsuma();
+    });
+
+
     function addsuma() {
         //Limpia el Precio Final
         $("#Inmuebles_PrecioFinal").empty();
